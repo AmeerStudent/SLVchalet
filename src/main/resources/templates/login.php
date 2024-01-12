@@ -24,22 +24,78 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link th:href="@{assets/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+  <link th:href="@{assets/vendor/bootstrap-icons/bootstrap-icons.css}" rel="stylesheet">
+  <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link th:href="@{assets/css/style.css}" rel="stylesheet">
 
 </head>
 
 <body>
   <!-- ======= Header ======= -->
-  <?php include 'inc/header.php'; ?>
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+        <a href="/index" class="logo d-flex align-items-center">
+          
+        </a>
+
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li><a style="text-decoration: none;" class="nav-link scrollto" th:href="@{/index}>Home</a></li>
+                <li><a class="nav-link scrollto" th:href="@{/product}>Facilities</a></li>
+
+<!--               <li th:if="${#session.containsKey('User')}"> 
+                    <a style="text-decoration: none;" class="nav-account">
+                        <span class="material-icons">account_circle</span>
+                        <span th:text="${#session['User']}"></span> <i class="bi bi-chevron-down"></i>
+                    </a>
+                    <ul>
+                        <li><a style="text-decoration: none;" href="/profile">Profile</a></li>
+                        <li><a style="text-decoration: none;" href="/inc/logout">Logout</a></li>
+                        <li class="dropdown">
+                            <a style="text-decoration: none;" href="#"><span>Setting</span> <i class="bi bi-chevron-right"></i></a>
+                            <ul>
+                                <li><a style="text-decoration: none;" href="/updateprofile">Update Profile</a></li>
+                                <li><a style="text-decoration: none;" href="/updatepassword">Change Password</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a class="nav-account" style="text-decoration: none;" href="/cart"><span
+                            class="material-icons">shopping_cart</span></a></li>
+
+                <li th:if="${#session.containsKey('Admin')}">
+                    <a style="text-decoration: none;" class="nav-account">
+                        <span class="material-icons">account_circle</span>
+                        <span th:text="${#session['Admin']}"></span> <i class="bi bi-chevron-down"></i>
+                    </a>
+                    <ul>
+                        <li><a style="text-decoration: none;" href="/admindashboard">Dashboard</a></li>
+                        <li><a style="text-decoration: none;" href="/productadmin">Update Facilities</a></li>
+                        <li><a style="text-decoration: none;" href="/postads">Post new ads</a></li>
+                        <li><a style="text-decoration: none;" href="/signupadmin">Register New staff</a></li>
+                        <li><a style="text-decoration: none;" href="/inc/logout">Logout</a></li>
+                    </ul>
+                </li>
+                <li th:unless="${#session.containsKey('User') or #session.containsKey('Admin')}"> -->
+                    <a style="text-decoration: none;" class="nav-account signup" th:href="@{/login}>Customer Login</a>
+                    <li><a style="text-decoration: none;" class="nav-account signup" th:href="@{/admin}>Admin Login</a></li>
+                    <li><a style="text-decoration: none;" class="nav-account signup" th:href="@{/loginstaff}>Staff Login</a></li>
+                </li>
+
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+    </div>
+</header><!-- End Header -->
 
   
   <!-- ======= Hero Section ======= -->
