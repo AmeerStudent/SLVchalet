@@ -45,7 +45,8 @@ session_start();
   <div id="includedContent"></div>
 
   <script>
-fetch('../public/inc/header.php')
+    const incudedFilePath = '../public/inc/header.php'; 
+fetch(incudedFilePath)
   .then(response => response.text())
     .then(data => {
         // Insert the content into the specified div
