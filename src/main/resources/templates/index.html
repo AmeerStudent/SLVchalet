@@ -42,8 +42,20 @@ session_start();
 <body>
 
   <!-- ======= Header ======= -->
-<?php require("/../inc/header.php");?>
-</header><!-- End Header -->
+  <div id="includedContent"></div>
+
+  <script>
+fetch('inc/header.php')
+  .then(response => response.text())
+    .then(data => {
+        // Insert the content into the specified div
+        document.getElementById('includedContent').innerHTML = data;
+      })
+      .catch(error => console.error('Error fetching included content:', error));
+  </script>
+
+  
+<!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="hero d-flex align-items-center">
