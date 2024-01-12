@@ -44,6 +44,11 @@ public class GettingStartedApplication {
     public String about() {
         return "user/about";
     }
+    
+    @GetMapping("/signup")
+    public String signup() {
+        return "signup";
+    }
 
     @GetMapping("/customerregister")
     public String custregister() {
