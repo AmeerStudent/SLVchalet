@@ -37,8 +37,7 @@ public class GettingStartedApplication {
 
     @GetMapping("/")
     public String home(HttpSession session) {
-        session.invalidate();
-        return "user/home";
+        return "index";
     }
 
     @GetMapping("/about")
