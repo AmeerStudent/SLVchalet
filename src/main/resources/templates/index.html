@@ -24,8 +24,8 @@ session_start();
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link th:href="@{../vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
-  <link th:href="@{../vendor/bootstrap-icons/bootstrap-icons.css}" rel="stylesheet">
+  <link th:href="@{assets/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+  <link th:href="@{assets/vendor/bootstrap-icons/bootstrap-icons.css}" rel="stylesheet">
  <link href="/vendor/aos/aos.css" rel="stylesheet">
 <link href="/vendor/remixicon/remixicon.css" rel="stylesheet">
 <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
@@ -36,7 +36,7 @@ session_start();
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   <!-- Template Main CSS File -->
-  <link th:href="@{stylesheets/css/style.css}" rel="stylesheet" type="text/css"/>
+  <link th:href="@{assets/css/style.css}" rel="stylesheet" type="text/css"/>
 </head>
   
 <body>
@@ -121,7 +121,7 @@ session_start();
           </div>
         </div>
         <div class="col-lg-6 sgview1" data-aos="zoom-out" data-aos-delay="200">
-          <img th:src="@{stylesheets/img/sgview1.jpeg}" class="img-fluid" alt="" width="500" height="500">
+          <img th:src="@{assets/img/sgview1.jpeg}" class="img-fluid" alt="" width="500" height="500">
         </div>
       </div>
     </div>
@@ -154,7 +154,7 @@ outdoor activities.
           </div>
 
           <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-in" data-aos-delay="200">
-            <img th:src="@{stylesheets/img/about-us.png}" class="img-fluid" alt="">
+            <img th:src="@{assets/img/about-us.png}" class="img-fluid" alt="">
           </div>
 
         </div>
@@ -172,7 +172,7 @@ outdoor activities.
         <div class="row">
           <div class="col-lg-4">
             <div class="box" data-aos="fade-up" data-aos-delay="200">
-              <img  th:src="@{stylesheets/img/values-1.png}" class="img-fluid" alt="">
+              <img  th:src="@{assets/img/values-1.png}" class="img-fluid" alt="">
               <h3>A homestay reservation </h3>
               <p>A homestay reservation system is a piece of software created to simplify the
                   booking process for guests who choose to stay in private homes over conventional
@@ -186,7 +186,7 @@ outdoor activities.
 
           <div class="col-lg-4 mt-4 mt-lg-0">
             <div class="box" data-aos="fade-up" data-aos-delay="400">
-              <img th:src="@{stylesheets/img/values-2.png}" class="img-fluid" alt="">
+              <img th:src="@{assets/img/values-2.png}" class="img-fluid" alt="">
               <h3>Customer</h3>
               <p>Customer satisfied with our services</p>
             </div>
@@ -194,7 +194,7 @@ outdoor activities.
 
           <div class="col-lg-4 mt-4 mt-lg-0">
             <div class="box" data-aos="fade-up" data-aos-delay="600">
-              <img th:src="@{stylesheets/img/values-3.png}" class="img-fluid" alt="">
+              <img th:src="@{assets/img/values-3.png}" class="img-fluid" alt="">
               <h3>Facilities.</h3><p> We provided a lot of facilities which chalet with river view , BBQ , Rock Climbing and many more .</p>
             </div>
           </div>
@@ -231,7 +231,7 @@ outdoor activities.
         <div class="row gy-4">
           <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
             <div class="service-box green">
-              <img th:src="@{stylesheets/img/services-1-2.png}" width="200px" alt="">
+              <img th:src="@{assets/img/services-1-2.png}" width="200px" alt="">
               <h3>Chalet </h3>
               <p>Chalet we have view river and no view river , customer will enjoy both of the view</p>
               <a th:href="@{/services.php?title=&category=2}" class="read-more"><span>Search Now !</span></a>
@@ -240,7 +240,7 @@ outdoor activities.
 
           <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
             <div class="service-box red">
-              <img th:src="@{stylesheets/img/services-4.png}" width="200px" alt="">
+              <img th:src="@{assets/img/services-4.png}" width="200px" alt="">
               <h3>Activities</h3>
               <p>A lot of activities that we provided . For example , Rock Climbing , Rafting , Archery and many more that you will enjoy !  </p>
               <a th:href="@{/services.php?title=&category=3}" class="read-more"><span>Search Now !</span></a>
@@ -249,7 +249,7 @@ outdoor activities.
 
           <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="600">
             <div class="service-box purple">
-              <img th:src="@{stylesheets/img/services-3.png}" width="200px" alt="">
+              <img th:src="@{assets/img/services-3.png}" width="200px" alt="">
               <h3>Equipment </h3>
               <p>This include equipment for BBQ and so on.</p>
               <a th:href="@{/services.php?title=&category=4}" class="read-more"><span>Search Now !</span></a>
@@ -292,17 +292,17 @@ outdoor activities.
 
   <!-- Vendor JS Files -->
 
-  <script th:src="@{../vendor/bootstrap/js/bootstrap.bundle.js}"></script>
-  <script th:src="@{../vendor/aos/aos.js}"></script>
-  <script th:src="@{../vendor/php-email-form/validate.js}"></script>
-  <script th:src="@{../vendor/swiper/swiper-bundle.min.js}"></script>
-  <script th:src="@{../vendor/purecounter/purecounter.js}"></script>
-  <script th:src="@{../vendor/isotope-layout/isotope.pkgd.min.js}"></script>
-  <script th:src="@{../vendor/glightbox/js/glightbox.min.js}"></script>
+  <script th:src="@{assets/vendor/bootstrap/js/bootstrap.bundle.js}"></script>
+  <script th:src="@{assets/vendor/aos/aos.js}"></script>
+  <script th:src="@{assets/vendor/php-email-form/validate.js}"></script>
+  <script th:src="@{assets/vendor/swiper/swiper-bundle.min.js}"></script>
+  <script th:src="@{assets/vendor/purecounter/purecounter.js}"></script>
+  <script th:src="@{assets/vendor/isotope-layout/isotope.pkgd.min.js}"></script>
+  <script th:src="@{assets/vendor/glightbox/js/glightbox.min.js}"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- Template Main JS File -->
-  <script th:src="@{stylesheets/js/main.js}"></script>
+  <script th:src="@{assets/js/main.js}"></script>
 
 </body>
 
