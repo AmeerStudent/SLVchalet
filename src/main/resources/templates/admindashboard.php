@@ -12,7 +12,6 @@ if (!isset($_SESSION['Admin'])) {
 ?>
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -178,13 +177,10 @@ if (!isset($_SESSION['Admin'])) {
                         <tr>
                             <th scope="col"></th>
                             <th scope="col">Pic</th>
-                            <th scope="col">Username</th>
                             <th scope="col">Full Name</th>
-                            <th scope="col">Gender</th>
                             <th scope="col">Email</th>
                             <th scope="col">Phone Number</th>
                             <th scope="col">        </th>
-                            <th scope="col">Address</th>
                             <th scope="col">Backup</th>
                         </tr>
                     </thead>
@@ -204,11 +200,9 @@ if (!isset($_SESSION['Admin'])) {
                                 </td>
                                 <td><a href="viewprofile.php?id=<?php echo $row['username'] ?>"><?php echo $row['username'] ?></a></td>
                                 <td><?php echo $row['full_name'] ?></td>
-                                <td><?php echo $row['gender'] ?></td>
                                 <td><?php echo $row['email'] ?></td>
                                 <td><?php echo $row['phone_num'] ?></td>
                                 <td><?php echo $row['user_type'] ?></td>
-                                <td><?php echo $row['address'] ?></td>
                                 <td><?php echo rand(10000,90000)?> </td>
                                 
                             </tr>
@@ -225,7 +219,7 @@ if (!isset($_SESSION['Admin'])) {
     <footer id="footer" class="footer">
         <div class="container">
             <div class="copyright">
-                &copy; Copyright <strong><span>Sungai Lopo Village </span></strong>. All Rights Reserved
+                &copy; Copyright <strong><span>Sungai Lopo Village</span></strong>. All Rights Reserved
             </div>
         </div>
     </footer>
