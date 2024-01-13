@@ -85,9 +85,9 @@
                     </ul>
                 </li>
                 <li th:unless="${#session.containsKey('User') or #session.containsKey('Admin')}"> -->
-                    <a style="text-decoration: none;" class="nav-account signup" th:href="@{/login}>Customer Login</a>
-                    <li><a style="text-decoration: none;" class="nav-account signup" th:href="@{/admin}>Admin Login</a></li>
-                    <li><a style="text-decoration: none;" class="nav-account signup" th:href="@{/loginstaff}>Staff Login</a></li>
+                    <a style="text-decoration: none;" class="nav-account signup" th:href="@{/login}">Customer Login</a>
+                    <li><a style="text-decoration: none;" class="nav-account signup" th:href="@{/admin}">Admin Login</a></li>
+                    <li><a style="text-decoration: none;" class="nav-account signup" th:href="@{/loginstaff}">Staff Login</a></li>
                 </li>
 
             </ul>
