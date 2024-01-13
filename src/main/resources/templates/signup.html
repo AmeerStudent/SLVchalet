@@ -114,61 +114,41 @@
 
                   <input  class="form-select" name="usertype" value="1" Staff aria-label="usertype"  id="usertype" hidden>
 
+                <!-- Customer ID -->
+                <div class="form-group">
+                    <p class="input-title" id="id-title">Username</p>
+                    <input type="text" id="custId" name="custId" class="form-control" placeholder="Username" >
+                </div> 
+
 				<!-- Full Name -->               
                 <div class="form-group">
                     <p class="input-title" >Full Name</p>
-                    <input type="text" id="fullname" name="fullname" class="form-control" placeholder="Full Name" >
+                    <input type="text" id="custName" name="custName" class="form-control" placeholder="Full Name" >
                 </div>
-				<!-- UserName -->               
-                <div class="form-group">
-                    <p class="input-title" >Username</p>
-                    <input type="text" id="username" name="username" class="form-control" placeholder="Username" >
-                </div>
-				<!-- Customer IC -->
-                <div class="form-group">
-                    <p class="input-title" id="id-title">Ic Number</p>
-                    <input type="text" id="matricid" name="matricid" class="form-control" placeholder="Insert your ID" >
-                </div> 
-
 				
-                <!--Gender -->         
-                <div class="form-group">
-                <p class="input-title" >Gender</p>
-                  <select class="form-select" name="gender" aria-label="gender"  id="gender">
-                    <option value="0">Select Gender</option>
-                    <option value="1">Male</option>
-                    <option value="2">Female</option>
-                  </select>
-                </div>   
                  <!-- Full Address -->
                  <div class="form-group" id="address-all" >
                   <p class="input-title" >Address</p>
-                  <input type="text"  name="realaddress" id="realaddress" class="form-control" placeholder="Address" >
+                  <input type="text"  name="custAddress" id="custAddress" class="form-control" placeholder="Address" >
                  </div>
                  <!-- Email -->
                  <div class="form-group">
                     <p class="input-title" >Email</p>
-                    <input type="text" id="email" name="email" class="form-control" placeholder="Email">
+                    <input type="text" id="custEmail" name="custEmail" class="form-control" placeholder="Email">
                 </div>
 
-                
                  <!-- Phone Number -->
                 <div class="form-group">
                     <p class="input-title" >Phone Number</p>
-                    <input type="text" id="phonenumber" name="phonenumber" class="form-control" placeholder="Example : 60123456789" >
+                    <input type="text" id="custPhoneNo" name="custPhoneNo" class="form-control" placeholder="Example : 60123456789" >
                 </div>
 
                  <!-- Password -->
                 <div class="form-group">
                     <p class="input-title" >Password</p>
-                    <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                    <input type="password" id="custPass" name="custPass" class="form-control" placeholder="Password">
                 </div>
 
-                 <!-- Confirm Password -->
-                <div class="form-group">
-                    <p class="input-title" >Confirm Password</p>
-                    <input type="password" id="confirmpassword" name="confirmpassword" class="form-control" placeholder="Confirm Password" >
-                </div>
                 <input type="submit" name="signup" value="Submit" class="btn btn-primary btn-block btn-lg " >    
                 <p class="form-message"></p>          
             </form>			
@@ -207,29 +187,21 @@
 
           $("form").submit(function(event) {
             event.preventDefault();
-            var usertype = $("#usertype").val();
-            var gender = $("#gender").val();
-            var username = $("#username").val();
-            var fullname = $("#fullname").val();
-            var email = $("#email").val();
-            var matricid = $("#matricid").val();
-            var phonenumber = $("#phonenumber").val();
-            var password = $("#password").val();
-            var realaddress = $("#realaddress").val();
-            var homeaddress = $("#homeaddress").val();
-            var confirmpassword = $("#confirmpassword").val();
+            var custId = $("#custId").val();
+            var custName = $("#custName").val();
+            var custAddress = $("#custAddress").val();
+            var custEmail = $("#custEmail").val();
+            var custPhoneNo = $("#custPhoneNo").val();
+            var custPass = $("#custPass").val();
+           
             
             $(".form-message").load("inc/signup.php", {
-              usertype: usertype,
-              gender: gender,
-              username: username,
-              fullname: fullname,
-              email: email,
-              matricid: matricid,
-              phonenumber: phonenumber,
-              realaddress: realaddress,
-              password: password,
-              confirmpassword: confirmpassword
+                custId: custId,
+                custName: custName,
+                custAddress: custAddress,
+                custEmail: custEmail,
+                custPhoneNo: custPhoneNo,
+                custPass: custPass,
             });
           });
       });
