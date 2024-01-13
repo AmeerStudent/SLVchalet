@@ -45,10 +45,7 @@ public class GettingStartedApplication {
         return "user/about";
     }
     
-    @GetMapping("/signup")
-    public String signup() {
-        return "signup";
-    }
+   
 
     @GetMapping("/login")
     public String login() {
