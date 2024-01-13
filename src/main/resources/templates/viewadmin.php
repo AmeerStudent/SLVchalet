@@ -24,7 +24,7 @@ if (mysqli_num_rows($result) == 0) {
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>IIUM : : Pocket Money</title>
+  <title>SLV</title>
 
   <!-- Favicons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -428,7 +428,7 @@ if (mysqli_num_rows($result) == 0) {
   <footer id="footer" class="footer">
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>IIUM Pocket Money 2021</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Sungai Lopo Village</span></strong>. All Rights Reserved
       </div>
     </div>
   </footer><!-- End Footer -->
