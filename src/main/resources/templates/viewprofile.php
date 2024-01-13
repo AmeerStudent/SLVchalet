@@ -88,7 +88,7 @@
           <div class="col-sm-12 empty-cart-cls text-center"> <img src="assets/img/notfound.png" width="100" height="100" class="img-fluid mb-4 mr-3">
             <h3><strong>User not found :(</strong></h3>
             <h4>Continue shopping with us !</h4> <a href="services.php" class="btn btn-primary cart-btn-transform m-3" data-abc="true">Services </a>
-            <a href="product.php" class="btn btn-primary cart-btn-transform m-3" data-abc="true">Product </a>
+            <a th:href="@{product.php}" class="btn btn-primary cart-btn-transform m-3" data-abc="true">Product </a>
           </div>
          </div>
     <?php 
@@ -119,22 +119,14 @@
                     Unverified User
                   </p>
                 <?php } ?>
-                <p class="title-profile">Full Name :</p>
-                <p><?php echo $row['full_name'] ?></p>
-                <p class="title-profile">Username :</p>
-                <p><?php echo $row['username'] ?></p>
+                <p class="title-profile">Name :</p>
+                <p><?php echo $row['custName'] ?></p>
                 <p class="title-profile">Phone Number :</p>
-                <p><?php echo $row['phone_num'] ?></p>
-                <p class="title-profile">Matric ID :</p>
-                <p><?php echo $row['matricid'] ?></p>
+                <p><?php echo $row['custPhoneNo'] ?></p>
+                <p class="title-profile">E-Mail :</p>
+                <p><?php echo $row['custEmail'] ?></p>
                 <p class="title-profile">Address :</p>
-                <p><?php echo $row['address'] ?></p>
-                <p class="title-profile">Gender :</p>
-                <p><?php echo $row['gender'] ?></p>
-                <p class="title-profile">Email :</p>
-                <p><?php echo $row['email'] ?></p>
-                <p class="title-profile">User Type :</p>
-                <p><?php echo $row['user_type'] ?></p>
+                
 
                 <div class="center-btn">
                   <button class="whatsapp"  target="_blank" onclick="window.open('https://api.whatsapp.com/send?phone=<?php echo $row['phone_num'] ?>');">WhatsApp <i class="fa fa-whatsapp align-middle" style="font-size:20px"></i></button>
