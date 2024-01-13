@@ -68,6 +68,11 @@ public class GettingStartedApplication {
     public String profile() {
         return "profile";
     }
+
+    @GetMapping("/product")
+    public String product() {
+        return "product";
+    }
     
 
     @GetMapping("/customerregister")
