@@ -93,7 +93,7 @@
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
-
+a
     </div>
 </header><!-- End Header -->
 
@@ -120,10 +120,12 @@
                       <label class="form-check-label"><input type="checkbox"> Remember me</label>
                       <a href="#" class="forgot-link">Forgot Password?</a>
                   </div> 
-                  <input type="submit" class="btn btn-primary btn-block btn-lg " name="login" value="Login">  
+                 <form action="profile.html" method="get">
+    <input type="submit" class="btn btn-primary btn-block btn-lg" name="login" value="Login">
+</form> 
                   <p class="form-message"></p>                      
               </form>			
-              <div class="text-center small">Don't have an account? <a th:href="@{/profile}">Sign up</a></div>
+              <div class="text-center small">Don't have an account? <a th:href="@{/signup}">Sign up</a></div>
           </div>
           </div>
         </div>
