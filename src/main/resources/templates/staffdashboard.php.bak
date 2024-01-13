@@ -258,13 +258,10 @@ if (!isset($_SESSION['Admin'])) {
                         <tr>
                             <th scope="col"></th>
                             <th scope="col">Pic</th>
-                            <th scope="col">Username</th>
                             <th scope="col">Full Name</th>
-                            <th scope="col">Gender</th>
                             <th scope="col">Email</th>
                             <th scope="col">Phone Number</th>
                             <th scope="col">        </th>
-                            <th scope="col">Address</th>
                             <th scope="col">Backup</th>
                         </tr>
                     </thead>
@@ -282,13 +279,11 @@ if (!isset($_SESSION['Admin'])) {
                                 <td>
                                     <img src="images/profile/<?php echo $row['profile_pic'] ?>" style="border-radius:50%;object-fit:scale-down;  width: 70px;">
                                 </td>
-                                <td><a href="viewprofile.php?id=<?php echo $row['username'] ?>"><?php echo $row['username'] ?></a></td>
+                                <td><a href="viewprofile.php?id=</a></td>
                                 <td><?php echo $row['full_name'] ?></td>
-                                <td><?php echo $row['gender'] ?></td>
                                 <td><?php echo $row['email'] ?></td>
                                 <td><?php echo $row['phone_num'] ?></td>
                                 <td><?php echo $row['user_type'] ?></td>
-                                <td><?php echo $row['address'] ?></td>
                                 <td><?php echo rand(10000,90000)?> </td>
                                 
                             </tr>
