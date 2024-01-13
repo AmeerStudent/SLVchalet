@@ -11,7 +11,7 @@ public class customer {
 	public String getCustId() {
 		return custId;
 	}
-	public void setCustId(int custId) {
+	public void setCustId(String custId) {
 		this.custId = custId;
 	}
 	public String getCustPhoneNo() {
