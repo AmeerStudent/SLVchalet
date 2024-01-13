@@ -135,18 +135,12 @@ if (!isset($_SESSION['User'])) {
                 <?php } ?>
                 <p class="title-profile">Full Name :</p>
                 <p><?php echo $row['full_name'] ?></p>
-                <p class="title-profile">Username :</p>
-                <p><?php echo $row['username'] ?></p>
-				<p class="title-profile"> IC Number :</p>
-                <p><?php echo $row['matricid'] ?></p>
-				<p class="title-profile">Gender :</p>
-                <p><?php echo $row['gender'] ?></p>
-                <p class="title-profile">Address :</p>
-                <p><?php echo $row['address'] ?></p>
+		<p class="title-profile"> Customer Id :</p>
+                <p><?php echo $row['custId'] ?></p>
                 <p class="title-profile">Email :</p>
-                <p><?php echo $row['email'] ?></p>
-				<p class="title-profile">Phone Number :</p>
-                <p><?php echo $row['phone_num'] ?></p>
+                <p><?php echo $row['custEmail'] ?></p>
+		<p class="title-profile">Phone Number :</p>
+                <p><?php echo $row['custPhoneNo'] ?></p>
 
                 <div class="center-btn">
                   <button class="profile-update" onclick="location.href='updateprofile.php'">Update Profile</button>
