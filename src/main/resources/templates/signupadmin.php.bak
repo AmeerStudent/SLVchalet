@@ -51,63 +51,32 @@
           <div class="signup-form">    
             <form action="inc/signupadmin.php" method="POST">
             <h1>Register New Staff </h1>
-
-                                  <!-- UserName -->               
-                <div class="form-group">
-                    <p class="input-title" >Username</p>
-                    <input type="text" id="username" name="username" class="form-control" placeholder="Username" >
-                </div>
                  <!-- Full Name -->               
                 <div class="form-group">
                     <p class="input-title" >Full Name</p>
-                    <input type="text" id="fullname" name="fullname" class="form-control" placeholder="Full Name" >
-                </div>
-
-                <!--Gender -->         
-                <div class="form-group">
-                <p class="input-title" >Gender</p>
-                  <select class="form-select" name="gender" aria-label="gender"  id="gender">
-                    <option value="0">Select Gender</option>
-                    <option value="1">Male</option>
-                    <option value="2">Female</option>
-                  </select>
-                </div>                  
-                
-                 <!-- Full Address -->
-                 <div class="form-group" id="address-all" >
-                  <p class="input-title" >Address</p>
-                  <input type="text"  name="homeaddress" id="homeaddress" class="form-control" placeholder="Address" >
-                 </div>
-
+                    <input type="text" id="staffName" name="staffName" class="form-control" placeholder="Full Name" >
+                </div>              
                  <!-- Email -->
                  <div class="form-group">
                     <p class="input-title" >Email</p>
-                    <input type="text" id="email" name="email" class="form-control" placeholder="Email">
+                    <input type="text" id="staffEmail" name="staffEmail" class="form-control" placeholder="Email">
                 </div>
-
-                 <!-- Ic Number -->
+                 <!-- Id Number -->
                 <div class="form-group">
-                    <p class="input-title" id="id-title">IC Number</p>
-                    <input type="text" id="icnumber" name="icnumber" class="form-control" placeholder="Insert your ID" >
+                    <p class="input-title" id="id-title">ID Number</p>
+                    <input type="text" id="staffId" name="staffId" class="form-control" placeholder="Insert your ID" >
                 </div>
-
                  <!-- Phone Number -->
                 <div class="form-group">
                     <p class="input-title" >Phone Number</p>
-                    <input type="text" id="phonenumber" name="phonenumber" class="form-control" placeholder="Example : 60123456789" >
+                    <input type="text" id="staffPhoneNo" name="staffPhoneNo" class="form-control" placeholder="Example : 60123456789" >
                 </div>
-
                  <!-- Password -->
                 <div class="form-group">
                     <p class="input-title" >Password</p>
-                    <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                    <input type="password" id="staffPass" name="staffPass" class="form-control" placeholder="Password">
                 </div>
 
-                 <!-- Confirm Password -->
-                <div class="form-group">
-                    <p class="input-title" >Confirm Password</p>
-                    <input type="password" id="confirmpassword" name="confirmpassword" class="form-control" placeholder="Confirm Password" >
-                </div>
                 <input type="submit" name="signup" value="Submit" class="btn btn-primary btn-block btn-lg " >    
                 <p class="form-message"></p>          
             </form>			
@@ -147,26 +116,18 @@
 
           $("form").submit(function(event) {
             event.preventDefault();
-            var gender = $("#gender").val();
-            var username = $("#username").val();
-            var fullname = $("#fullname").val();
-            var email = $("#email").val();
-            var icnumber = $("#icnumber").val();
-            var phonenumber = $("#phonenumber").val();
-            var password = $("#password").val();
-            var homeaddress = $("#homeaddress").val();
-            var confirmpassword = $("#confirmpassword").val();
+            var staffName = $("#staffName").val();
+            var staffEmail = $("#staffEmail").val();
+            var staffId = $("#staffId").val();
+            var staffPhoneNo = $("#staffPhoneNo").val();
+            var staffPass = $("#staffPass").val();
             
             $(".form-message").load("inc/signupadmin.php", {
-              gender: gender,
-              username: username,
-              fullname: fullname,
-              email: email,
-              icnumber: icnumber,
-              phonenumber: phonenumber,
-              homeaddress: homeaddress,
-              password: password,
-              confirmpassword: confirmpassword
+              staffName: staffName,
+              staffEmail: staffEmail,
+              staffId: staffId,
+              staffPhoneNo: staffPhoneNo,
+              staffPass: staffPass,
             });
           });
       });
