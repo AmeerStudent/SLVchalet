@@ -12,7 +12,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Nex Instrument</title>
+  <title>SLV</title>
   <!-- Favicons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
   <link href="assets/img/nex1.png" rel="icon">
@@ -50,10 +50,10 @@
               <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
                 <h4 class="modal-title">Admin Login</h4>
                   <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Username" name="username" id="username" required="required" >
+                      <input type="text" class="form-control" placeholder="ID" name="adminId" id="adminId" required="required" >
                   </div>
                   <div class="form-group">
-                      <input type="password" class="form-control" placeholder="Password" name="password" id="password" required="required"  >
+                      <input type="password" class="form-control" placeholder="Password" name="staffPass" id="staffPass" required="required"  >
                   </div>
                   <input type="submit" class="btn btn-primary btn-block btn-lg " name="login" value="Login">  
                   <p class="form-message"></p>                      
@@ -69,7 +69,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Nex Instrument</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Sungai Lopo Village</span></strong>. All Rights Reserved
       </div>
     </div>
   </footer><!-- End Footer -->
@@ -94,12 +94,12 @@
      $(document).ready(function(){
         $("form").submit(function(event) {
             event.preventDefault();
-            var username = $("#username").val();
-            var password = $("#password").val();
+            var adminId = $("#adminId").val();
+            var staffPass = $("#staffPass").val();
 
           $(".form-message").load("inc/admin.php", {
-              username: username,
-              password: password
+              adminId: adminId,
+              staffPass: staffPass
             });
           });
       });
