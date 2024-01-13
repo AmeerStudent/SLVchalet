@@ -22,7 +22,7 @@ import java.util.Map;
 
 import java.util.List;
 
-@CONTROLLER
+@Controller
 public class CustomerController {
     private final DataSource datasource;
 
@@ -51,7 +51,7 @@ public String signup(@ModelAttribute("signup")customer customer){
         String custPass = customer.getCustPass();
         String custAddress = customer.getCustAddress();
 
-        statement.setInt(1, custId);
+        statement.setString(1, custId);
 		statement.setString(2, custPhoneNo);
 	    statement.setString(3, custEmail);
 		statement.setString(4, custName);
