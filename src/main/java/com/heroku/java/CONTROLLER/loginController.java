@@ -42,10 +42,10 @@ public class loginController {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
-    @GetMapping("/login")
-    public String login() {
-        return "login";
-    }
+    // @GetMapping("/login")
+    // public String login() {
+    //     return "login";
+    // }
 
     @PostMapping("/login")
     public String Loginpage(@RequestParam(name = "success", required = false) Boolean success, HttpSession session,
