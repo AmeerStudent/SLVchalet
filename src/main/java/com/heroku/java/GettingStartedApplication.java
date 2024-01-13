@@ -66,7 +66,11 @@ public class GettingStartedApplication {
         return "loginstaff";
 
     }
-
+    
+    @GetMapping("/profile")
+    public String profile() {
+        return "profile";
+    }
     
 
     @GetMapping("/customerregister")
