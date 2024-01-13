@@ -1,32 +1,32 @@
-<!-- <?php
-include  ("/../inc/connection.php")
-session_start();
-?> -->
+// <!-- <?php
+// include  ("/../inc/connection.php")
+// session_start();
+// -->
 
-$id = $_GET['id'];
+// $id = $_GET['id'];
 
-$query = "SELECT * FROM user WHERE username = '$id' ";
-$result = mysqli_query($sql_connect, $query);
-$row = mysqli_fetch_assoc($result);
+// $query = "SELECT * FROM user WHERE username = '$id' ";
+// $result = mysqli_query($sql_connect, $query);
+// $row = mysqli_fetch_assoc($result);
 
-if(isset($_SESSION['User'])){
+// if(isset($_SESSION['User'])){
 
-  if ($_SESSION['User'] == $id ) {
-    header("Location: profile.php");
-  }
+//   if ($_SESSION['User'] == $id ) {
+//     header("Location: profile.php");
+//   }
 
-}
+// }
 
-if (empty($id)) {
-    header("Location: profile.php");
-}
+// if (empty($id)) {
+//     header("Location: profile.php");
+// }
 
-$found = true ;
-if (mysqli_num_rows($result) == 0) {
-    $found = false;
-}
+// $found = true ;
+// if (mysqli_num_rows($result) == 0) {
+//     $found = false;
+// }
 
-?>
+// ?> -->
 
 
 
