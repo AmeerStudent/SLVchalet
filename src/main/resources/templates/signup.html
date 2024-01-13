@@ -108,7 +108,7 @@
         </div>
         <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="zoom-out" data-aos-delay="50">
           <div class="signup-form">    
-            <form action="inc/signup.php" method="POST">
+            <form method="post" th:action="@{/signup}" modelAttribute="signup" th:object="(${signup})">
             <h1>Sign Up a new account and start booking!</h1>
                 <!--Type Of User -->               
 
