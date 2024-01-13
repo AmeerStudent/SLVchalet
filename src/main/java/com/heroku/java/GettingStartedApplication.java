@@ -50,6 +50,25 @@ public class GettingStartedApplication {
         return "signup";
     }
 
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+
+    }
+
+     @GetMapping("/admin")
+    public String admin() {
+        return "admin";
+
+    }
+     @GetMapping("/loginstaff")
+    public String loginstaff() {
+        return "loginstaff";
+
+    }
+
+    
+
     @GetMapping("/customerregister")
     public String custregister() {
         return "user/customerregister";
