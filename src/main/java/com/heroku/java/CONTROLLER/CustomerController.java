@@ -40,7 +40,7 @@ public class CustomerController {
 @PostMapping ("/signup")
 public String signup(@ModelAttribute("signup")customer customer){
     try{
-        Connection connection = datasource.getConnection();
+        Connection connection = dataSource.getConnection();
         String sql = "INSERT INTO public.customer(custId, custPhoneNo, custEmail, custName, custPass, custAddress) VALUES (?,?,?,?,?,?)";
         final var statement = connection.prepareStatement(sql);
 
