@@ -20,7 +20,7 @@ if (!isset($_SESSION['Admin'])) {
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>IIUM : : Pocket Money</title>
+    <title>SLV</title>
     <!-- Favicons -->
     <link href="assets/img/ipm-logo-01.png" rel="icon">
 
@@ -114,31 +114,21 @@ if (!isset($_SESSION['Admin'])) {
                             <form method="post" action="inc/updateadmin.php" id="profiledetail">
                                 <div class="container">
 
-                                    <p><strong>Username</strong></p>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" name="username" placeholder="Username" value="<?php echo $row['username'] ?>" aria-label="Username" aria-describedby="basic-addon2" readonly>
-                                    </div>
                                     <p><strong> ID </strong></p>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder=" ID " value="<?php echo $row['admin_id'] ?>" aria-label="Matric ID " aria-describedby="basic-addon2" readonly>
+                                        <input type="text" class="form-control" placeholder=" Id " value="<?php echo $row['admin_id'] ?>" aria-label="staffId" aria-describedby="basic-addon2" readonly>
+                                    </div>
+                                    <p><strong> Name </strong></p>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder=" Name " value="<?php echo $row['staffName'] ?>" aria-label="staffName" aria-describedby="basic-addon2" readonly>
                                     </div>
                                     <p><strong>Email</strong></p>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="Email" value="<?php echo $row['email'] ?>" aria-label="Email" aria-describedby="basic-addon2" readonly>
+                                        <input type="text" class="form-control" placeholder="Email" value="<?php echo $row['staffEmail'] ?>" aria-label="staffEmail" aria-describedby="basic-addon2" readonly>
                                     </div>
-                                    <p><strong>Gender</strong></p>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="Gender" value="<?php echo $row['gender'] ?>" aria-label="Gender" aria-describedby="basic-addon2" readonly>
-                                    </div>
-
                                     <p><strong>Phone Number</strong></p>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" name="phonenum" placeholder="Phone Number" value="<?php echo $row['phone_num'] ?>" aria-label="Phone Number" aria-describedby="basic-addon2">
-                                    </div>
-
-                                    <p><strong>Address</strong></p>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" name="address" placeholder="Address" value="<?php echo $row['address'] ?>" aria-label="Address" aria-describedby="basic-addon2">
+                                        <input type="text" class="form-control" name="staffPhoneNo" placeholder="Phone Number" value="<?php echo $row['staffPhoneNo'] ?>" aria-label="staffPhoneNo" aria-describedby="basic-addon2">
                                     </div>
                                      <?php
                                         $query2 = "SELECT * FROM `admin`";
@@ -202,7 +192,7 @@ if (!isset($_SESSION['Admin'])) {
     <footer id="footer" class="footer">
         <div class="container">
             <div class="copyright">
-                &copy; Copyright <strong><span>IIUM Pocket Money 2021</span></strong>. All Rights Reserved
+                &copy; Copyright <strong><span>Sungai Lopo Village</span></strong>. All Rights Reserved
             </div>
         </div>
     </footer><!-- End Footer -->
