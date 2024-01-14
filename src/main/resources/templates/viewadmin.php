@@ -1,9 +1,9 @@
-<?php
-session_start();
+// <?php
+// session_start();
 
-?>
+// ?>
 
-<?php
+<!-- <?php
 include 'inc/connection.php';
 $id = $_GET['view_prod'];
 $query = "SELECT * FROM products WHERE product_id = '$id' ";
@@ -16,7 +16,7 @@ if (mysqli_num_rows($result) == 0) {
 }
 
 ?>
-
+ -->
 <!DOCTYPE html>
 <html lang="en">
 
