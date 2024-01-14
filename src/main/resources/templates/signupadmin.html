@@ -24,12 +24,12 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link th:href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link th:href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link th:href="@{assets/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+  <link th:href="@{assets/vendor/bootstrap-icons/bootstrap-icons.css}" rel="stylesheet">
+  <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link th:href="@{assets/css/style.css}" rel="stylesheet" type = "text/css"/> <!-- tukar thref -->
@@ -49,22 +49,24 @@
         </div>
         <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="zoom-out" data-aos-delay="50">
           <div class="signup-form">    
-            <form action="inc/signupadmin.php" method="POST">
+            
+              <form method="post" th:action="@{/signupadmin}" modelAttribute="signupadmin" th:object="(${signupadmin})"></form>
             <h1>Register New Staff </h1>
+            <!-- Id Number -->
+            <div class="form-group">
+              <p class="input-title" id="id-title">Staff ID Number</p>
+              <input type="text" id="staffId" name="staffId" class="form-control" placeholder="Insert staff ID" >
+          </div> 
 			<!-- Full Name -->               
                 <div class="form-group">
                     <p class="input-title" >Full Name</p>
-                    <input type="text" id="staffName" name="staffName" class="form-control" placeholder="Full Name" >
+                    <input type="text" id="staffName" name="staffName" class="form-control" placeholder="Staff Full Name" >
                 </div>
-                 <!-- Id Number -->
-                <div class="form-group">
-                    <p class="input-title" id="id-title">ID Number</p>
-                    <input type="text" id="staffId" name="staffId" class="form-control" placeholder="Insert your ID" >
-                </div>    
+                    
                  <!-- Email -->
                  <div class="form-group">
                     <p class="input-title" >Email</p>
-                    <input type="text" id="staffEmail" name="staffEmail" class="form-control" placeholder="Email">
+                    <input type="text" id="staffEmail" name="staffEmail" class="form-control" placeholder="Staff Email">
                 </div>
                  <!-- Phone Number -->
                 <div class="form-group">
@@ -74,13 +76,13 @@
                  <!-- Password -->
                 <div class="form-group">
                     <p class="input-title" >Password</p>
-                    <input type="password" id="staffPass" name="staffPass" class="form-control" placeholder="Password">
+                    <input type="password" id="staffPass" name="staffPass" class="form-control" placeholder="Staff Password">
                 </div>
 		    
-                <input type="submit" name="signup" value="Submit" class="btn btn-primary btn-block btn-lg " >    
+                <button type="submit" value="Submit" class="btn btn-primary btn-block btn-lg " >Add Staff</button>    
                 <p class="form-message"></p>          
             </form>			
-            <div class="text-center small">Cancel Registration? <a href="admindashboard.php">Back</a></div>
+            <div class="text-center small">Cancel Registration? <a href="admindashboard.html">Back</a></div>
         </div>
         </div>
       </div>
