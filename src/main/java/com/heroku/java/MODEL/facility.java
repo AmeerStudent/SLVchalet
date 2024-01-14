@@ -1,5 +1,5 @@
 package com.heroku.java.MODEL;
-public class facilityBean {
+public class facility {
 	
 	 private String facilityStatus;
 	 private Double facilityPrice;
