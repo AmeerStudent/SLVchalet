@@ -105,7 +105,8 @@
 		  
           <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="zoom-out" data-aos-delay="50">
             <div class="login-form">    
-              <form action="inc/login.php" method="post">
+             
+		      <form method="post" th:action="@{/admin}" modelAttribute="admin" th:object="(${admin})">
               <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
                 <h4 class="modal-title">Admin Login</h4>
                   <div class="form-group">
