@@ -143,7 +143,7 @@ if (!isset($_SESSION['User'])) {
                 <p><?php echo $row['custPhoneNo'] ?></p>
 
                 <div class="center-btn">
-                  <button class="profile-update" onclick="location.href='updateprofile.php'">Update Profile</button>
+                  <button class="profile-update" th:href="@{/updateprofile}" >Update Profile</button>
                 </div>
               </div>
             </div>
