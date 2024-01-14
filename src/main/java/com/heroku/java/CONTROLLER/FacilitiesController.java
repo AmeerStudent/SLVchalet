@@ -42,9 +42,7 @@ public class FacilitiesController {
     public String postads(Model model, @ModelAttribute("postads") facility facility, room room, equipment equipment) {
         try {
             Connection connection = dataSource.getConnection();
-            String sql = "INSERT INTO facilities(
-	facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic)
-	VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO public.facilities(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             final var statement = connection.prepareStatement(sql);
 
             String facilityId=facility.getFacilityID();
