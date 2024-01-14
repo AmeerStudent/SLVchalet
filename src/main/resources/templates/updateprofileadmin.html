@@ -1,17 +1,17 @@
-<?php
-include 'inc/connection.php';
-session_start();
+// <?php
+// include 'inc/connection.php';
+// session_start();
 
-$usernameSESSION = $_SESSION['Admin'];
-$query = "SELECT * FROM admin WHERE username = '$usernameSESSION' ";
-$result = mysqli_query($sql_connect, $query);
-$row = mysqli_fetch_assoc($result);
+// $usernameSESSION = $_SESSION['Admin'];
+// $query = "SELECT * FROM admin WHERE username = '$usernameSESSION' ";
+// $result = mysqli_query($sql_connect, $query);
+// $row = mysqli_fetch_assoc($result);
 
-if (!isset($_SESSION['Admin'])) {
-    header("Location: login.php");
-}
+// if (!isset($_SESSION['Admin'])) {
+//     header("Location: login.php");
+// }
 
-?>
+// ?>
 
 <!DOCTYPE html>
 <html>
@@ -29,9 +29,9 @@ if (!isset($_SESSION['Admin'])) {
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link th:href="@{assets/css/style.css}" rel="stylesheet" type="text/css">
+    <link th:href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
@@ -130,10 +130,10 @@ if (!isset($_SESSION['Admin'])) {
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" name="staffPhoneNo" placeholder="Phone Number" value="<?php echo $row['staffPhoneNo'] ?>" aria-label="staffPhoneNo" aria-describedby="basic-addon2">
                                     </div>
-                                     <?php
+<!--                                      <?php
                                         $query2 = "SELECT * FROM `admin`";
                                         $result2 = mysqli_query($sql_connect,$query2);    
-                                    ?>                                   
+                                    ?>                                    -->
 
                                     <p><strong>Backup Id</strong></p>
                                     <div class="input-group mb-3">
