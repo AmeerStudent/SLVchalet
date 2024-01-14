@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.heroku.java.model.staff;
+import com.heroku.java.MODEL.staff;
 
 import jakarta.servlet.http.HttpSession;
 
