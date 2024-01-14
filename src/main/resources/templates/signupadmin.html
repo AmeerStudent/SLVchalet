@@ -130,8 +130,10 @@
                     <input type="password" id="staffPass" name="staffPass" class="form-control" placeholder="Staff Password">
                 </div>
 		    
-                
-<form method="post" th:action="@{/staffdasboard}" modelAttribute="staffdasboard" th:object="(${staffdasboard})">Add Staff</form>
+                <form action="staffdasboard.html" method="post">
+    <button type="submit" class="btn btn-primary btn-block btn-lg">Add Staff</button>
+</form>
+
        
            		
             <div class="text-center small">Cancel Registration? <a th:href="@{/admindashboard}">Back</a></div>
