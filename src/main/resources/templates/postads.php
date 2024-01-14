@@ -1,11 +1,11 @@
-<?php
+<!-- <?php
 session_start();
 if (!isset($_SESSION['Admin'])) {
     header("Location:login.php");
 }
 
 
-?>
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,14 +24,14 @@ if (!isset($_SESSION['Admin'])) {
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link th:href="@{assets/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{assets/vendor/bootstrap-icons/bootstrap-icons.css}" rel="stylesheet">
+    <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link th:href="@{assets/css/style.css}" rel="stylesheet">
 
     <!-- Template Main CSS File -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -45,7 +45,7 @@ if (!isset($_SESSION['Admin'])) {
 
 <body>
     <!-- ======= Header ======= -->
-    <?php include 'inc/header.php' ?>
+    <!-- <?php include 'inc/header.php' ?> -->
     <!-- ======= Hero Section ======= -->
 
     <div class="container" style="margin-top:150px;">
@@ -56,73 +56,91 @@ if (!isset($_SESSION['Admin'])) {
                 <div class="col-md-8 " style=" margin: auto;width: 50%;border: 3px solid #4154f1;padding: 10px;">
                     <div class="container">
                         <div>
-                            <form method="POST" action="upload_file.php" enctype="multipart/form-data">
+                            
+                            <form method="post" th:action="@{/postads}" modelAttribute="postads" th:object="(${postads})">
                                 <h4>Please fill in the form</h4>
+                        
+                                <!-- Facility Id (User input) -->
                                 <div class="form-group">
-                                    <input id="type" name="type" class="form-control" value="1" hidden>
-
+                                    <p class="input-title">Facility ID</p>
+                                    <input type="text" id="facilityId" name="facilityId" class="form-control" placeholder="Enter Facility ID" required>
                                 </div>
-
+                        
+                                <!-- Facility Status -->
                                 <div class="form-group">
-                                    <input id="category" name="category" class="form-control" value="4" hidden>
-                                </div>
-
-                                <!-- Title -->
-                                <div class="form-group">
-                                    <p class="input-title">Title</p>
-                                    <input type="text" id="title" name="title" class="form-control" placeholder="Title" required>
-                                </div>
-
-                                <!--Variation Options -->
-                                <div class="form-group">
-                                    <p class="input-title">Variation</p>
-                                    <select class="form-select" name="variation" aria-label="variation" id="variation" required>
-                                        <option value="">Select Variation</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
+                                    <p class="input-title">Facility Status</p>
+                                    <select id="facilityStatus" name="facilityStatus" class="form-control" required>
+                                        <option value="available">Available</option>
+                                        <option value="notAvailable">Not Available</option>
                                     </select>
                                 </div>
-                                <!-- Variation -->
-                                <div class="container" id="var-container">
-                                    <div class="variation">
-
-                                    </div>
-                                </div>
-
+                        
+                                <!-- Facility Price -->
                                 <div class="form-group">
-                                    <p class="input-title">Description</p>
-                                    <textarea name="description" class="form-control" rows="10" placeholder="Write anything about this product..." required></textarea>
+                                    <p class="input-title">Facility Price</p>
+                                    <input type="text" id="facilityPrice" name="facilityPrice" class="form-control" placeholder="Facility Price"
+                                        required>
                                 </div>
-                        </div>
-
-                        <!-- Pictures -->
-                        <div class="row" style="margin-top:30px;">
-                            <div id="image_preview" style="display:flex;">
-
-                            </div>
-                        </div>
-                        <br>
-                        <br>
-                        <div id="select_file">
-                            <div class="form-group">
-                                <p class="input-title">Upload Image </p>
-                            </div>
-                            <div class="form-group">
-                                <div id="wrapper">
-                                    <input type="file" id="upload_file" name="upload_file[]" onchange="preview_image();" multiple required />
-                                    <button type="submit" style="float:right; margin-left: 30px;" class="btn btn-primary" name="submit_image" >Submit</button>
-                                    <button type="reset" id="reset" style="float:right;" class="btn btn-danger">Reset</button>
+                        
+                                <!-- Facility Name -->
+                                <div class="form-group">
+                                    <p class="input-title">Facility Name</p>
+                                    <input type="text" id="facilityName" name="facilityName" class="form-control" placeholder="Facility Name"
+                                        required>
                                 </div>
-                            </div>
-                            <p class="form-message"></p>
+                        
+                                <!-- Facility Quantity -->
+                                <div class="form-group">
+                                    <p class="input-title">Facility Quantity</p>
+                                    <input type="text" id="facilityQtty" name="facilityQtty" class="form-control"
+                                        placeholder="Facility Quantity" required>
+                                </div>
+                        
+                                <!-- Facility Description -->
+                                <div class="form-group">
+                                    <p class="input-title">Facility Description</p>
+                                    <textarea name="facilityDescription" class="form-control" rows="10"
+                                        placeholder="Write anything about this facility..." required></textarea>
+                                </div>
+                        
+                                <!-- Facility Type -->
+                                <div class="form-group">
+                                    <p class="input-title">Facility Type</p>
+                                    <select id="facilityType" name="facilityType" class="form-control" required>
+                                        <option value="room">Room</option>
+                                        <option value="equipment">Equipment</option>
+                                    </select>
+                                </div>
+                        
+                                <!-- Room Category (if facility type is room) -->
+                                <div class="form-group" id="roomCategoryContainer" style="display: none;">
+                                    <p class="input-title">Room Category</p>
+                                    <select id="roomCategory" name="roomCategory" class="form-control">
+                                        <option value="riverView">River View</option>
+                                        <option value="nonRiverView">Non River View</option>
+                                    </select>
+                                </div>
+                        
+                                <!-- Equipment Type (if facility type is equipment) -->
+                                <div class="form-group" id="equipmentTypeContainer" style="display: none;">
+                                    <p class="input-title">Equipment Type</p>
+                                    <select id="equipmentType" name="equipmentType" class="form-control">
+                                        <option value="recreation">Recreation</option>
+                                        <option value="hospitality">Hospitality</option>
+                                    </select>
+                                </div>
+                        
+                                <!-- Facility Picture -->
+                                <div class="form-group">
+                                    <p class="input-title">Facility Picture</p>
+                                    <input type="file" id="facilityPic" name="facilityPic" onchange="preview_image();" required />
+                                </div>
+                        
+                                <!-- Submit Button -->
+                                <div class="form-group">
+                                    <button type="submit" value="Submit" class="btn btn-primary">Add Facility</button>
+                                </div>
+                        
                             </form>
                         </div>
                     </div>
@@ -158,7 +176,27 @@ if (!isset($_SESSION['Admin'])) {
     <script src="dist/assets/jquery-file-upload/js/vendor/jquery.ui.widget.js"></script>
     <script src="dist/assets/jquery-file-upload/js/jquery.iframe-transport.js"></script>
     <script src="dist/assets/jquery-file-upload/js/jquery.fileupload.js"></script>
-    <script>
+
+<!-- JavaScript for showing/hiding additional fields based on selected facility type -->
+<script>
+    document.getElementById('facilityType').addEventListener('change', function () {
+        var roomCategoryContainer = document.getElementById('roomCategoryContainer');
+        var equipmentTypeContainer = document.getElementById('equipmentTypeContainer');
+
+        if (this.value === 'room') {
+            roomCategoryContainer.style.display = 'block';
+            equipmentTypeContainer.style.display = 'none';
+        } else if (this.value === 'equipment') {
+            roomCategoryContainer.style.display = 'none';
+            equipmentTypeContainer.style.display = 'block';
+        } else {
+            roomCategoryContainer.style.display = 'none';
+            equipmentTypeContainer.style.display = 'none';
+        }
+    });
+</script>
+
+    <!-- <script>
         // For Variation // 
         $(document).ready(function() {
             $("#variation").on("change", function() {
@@ -215,12 +253,12 @@ if (!isset($_SESSION['Admin'])) {
                 window.location = "profile.php";
             });
         }
-    </script>
+    </script> -->
 
 
-    <?php
+    <!-- <?php
     if (isset($_SESSION['success'])) {
         echo '<script type="text/javascript">notification();</script>';
         unset($_SESSION['success']);
     }
-    ?>
+    ?> -->
