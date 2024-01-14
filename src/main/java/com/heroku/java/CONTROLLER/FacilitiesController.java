@@ -62,12 +62,12 @@ public class FacilitiesController {
             
             statement.setString(1, facilityId);
             statement.setString(2, facilityStatus);
-            statement.setString(3, facilityPrice);
+            statement.setDouble(3, facilityPrice);
             statement.setString(4, facilityName);
-            statement.setString(5, facilityQtty);
+            statement.setInt(5, facilityQtty);
             statement.setString(6, facilityDescription);
             statement.setString(7, facilityType);
-            statement.setString(8, facilityPic);
+            statement.setBytes(8, facilityPic.getBytes());
 
             statement.executeUpdate();
 
