@@ -4,16 +4,16 @@
 // ?>
 
 <!-- <?php
-include 'inc/connection.php';
-$id = $_GET['view_prod'];
-$query = "SELECT * FROM products WHERE product_id = '$id' ";
-$result = mysqli_query($sql_connect, $query);
-$row = mysqli_fetch_assoc($result);
+//include 'inc/connection.php';
+//$id = $_GET['view_prod'];
+//$query = "SELECT * FROM products WHERE product_id = '$id' ";
+//$result = mysqli_query($sql_connect, $query);
+//$row = mysqli_fetch_assoc($result);
 
-$found = true ;
-if (mysqli_num_rows($result) == 0) {
-    $found = false;
-}
+//$found = true ;
+//if (mysqli_num_rows($result) == 0) {
+//    $found = false;
+//}
 
 ?>
  -->
@@ -36,8 +36,8 @@ if (mysqli_num_rows($result) == 0) {
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link th:href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link th:href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
@@ -45,7 +45,7 @@ if (mysqli_num_rows($result) == 0) {
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link th:href="@{assets/css/style.css}" rel="stylesheet" type="text/css">
 
 </head>
 <style>
@@ -250,7 +250,7 @@ if (mysqli_num_rows($result) == 0) {
 
           <div class="carousel-container">
             <ul class="carousel">
-              <?php
+<!--               <?php
               $query_pic = "SELECT * FROM pic_product WHERE product_id = '$id'";
               $result_pic = mysqli_query($sql_connect, $query_pic);
               $i = 0;
@@ -258,7 +258,7 @@ if (mysqli_num_rows($result) == 0) {
               while ($pic = mysqli_fetch_assoc($result_pic)) {
                 $i++;
                 if ($i == 1) {
-              ?>
+              ?> -->
                   <li class="slide active">
                     <img src="images/<?php echo $pic['pic_name']; ?>" alt="">
                   </li>
@@ -294,16 +294,16 @@ if (mysqli_num_rows($result) == 0) {
             } ?>
           </div>
         </div>
-        <?php
+<!--         <?php
         $query = "SELECT * FROM products WHERE product_id = '$id'";
         $result = mysqli_query($sql_connect, $query);
         $prod = mysqli_fetch_assoc($result);
-        ?>
+        ?> -->
       </div>
 
       <div class="col-lg-6 d-flex flex-column">
         <h3 style="font-weight:1000"><?php echo $prod['product_title']; ?></h3>
-        <?php
+<!--         <?php
         $query_min_price = "SELECT MIN(`var_product_price`) AS lowest , MAX(`var_product_price`) AS highest FROM  `var_product` WHERE product_id = '$id'";
         $result_price = mysqli_query($sql_connect, $query_min_price);
         if ($row = mysqli_fetch_array($result_price)) {
@@ -312,7 +312,7 @@ if (mysqli_num_rows($result) == 0) {
           else
             $price = 'RM ' . $row['lowest'] . ' - RM ' . $row['highest'];
         }
-        ?>
+        ?> -->
 
         <h4 style="padding:20px;background-color: #eee6ff; text-align:center; font-weight:1000"><?php echo $price; ?></h4>
         <textarea name="" id="" cols="30" rows="10" disabled><?php echo $prod['product_des']; ?></textarea>
@@ -320,11 +320,11 @@ if (mysqli_num_rows($result) == 0) {
           <h4 style="font-weight:1000">Variation : </h4>
           <form action="inc/addtocart.php" method="POST">
             <ul style="list-style-type: none;">
-              <?php
+<!--               <?php
               $query2 = "SELECT * FROM var_product WHERE product_id = '$id' ORDER BY var_product_price asc";
               $result2 = mysqli_query($sql_connect, $query2);
               while ($var = mysqli_fetch_assoc($result2)) {
-              ?>
+              ?> -->
                 <li>
                   <?php
                   if ($var['var_product_quan'] <= 0) {
@@ -357,12 +357,12 @@ if (mysqli_num_rows($result) == 0) {
     </div>
   </div>
 
-  <?php
+<!--   <?php
   $query4 = "SELECT * FROM review WHERE product_id = '$id' ";
   $result4 = mysqli_query($sql_connect, $query4);
   $totalrow = mysqli_num_rows($result4);
 
-  ?>
+  ?> -->
   <div class="container" style="margin-top:50px">
     <h1>Review ( <?php echo $totalrow ?> )</h1>
   </div>
@@ -459,9 +459,9 @@ if (mysqli_num_rows($result) == 0) {
 
 </html>
 
-   <?php
+<!--    <?php
     if (isset($_SESSION['success'])) {
         echo '<script type="text/javascript">notification();</script>';
         unset($_SESSION['success']);
     }
-    ?>
+    ?> -->
