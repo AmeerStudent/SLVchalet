@@ -130,9 +130,11 @@
                     <input type="password" id="staffPass" name="staffPass" class="form-control" placeholder="Staff Password">
                 </div>
 		    
-                <button type="submit" value="Submit" class="btn btn-primary btn-block btn-lg " >Add Staff</button>    
-                <p class="form-message"></p>          
-            </form>			
+                <form action="admindashboard.html" method="post">
+    <button type="submit" class="btn btn-primary btn-block btn-lg">Add Staff</button>
+</form>
+       
+           		
             <div class="text-center small">Cancel Registration? <a th:href="@{/admindashboard}">Back</a></div>
         </div>
         </div>
