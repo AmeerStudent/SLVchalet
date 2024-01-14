@@ -44,7 +44,11 @@ public class GettingStartedApplication {
     public String about() {
         return "user/about";
     }
-    
+    @GetMapping("/admindashboard")
+    public String admindashboard() {
+        return "admindashboard";
+
+    }
    
 
     @GetMapping("/login")
