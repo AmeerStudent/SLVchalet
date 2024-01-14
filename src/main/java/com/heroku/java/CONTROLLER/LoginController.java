@@ -68,10 +68,11 @@ public class LoginController {
                     
                     return "redirect:/index?success=true";
                 }
+                connection.close();
+            return "redirect:/admin?invalidUsername&Password";
             }
 
-            connection.close();
-            return "redirect:/admin?invalidUsername&Password";
+            
 
         } catch (SQLException sqe) {
             System.out.println("Error Code = " + sqe.getErrorCode());
@@ -143,29 +144,26 @@ public class LoginController {
                     }
 
                 }
-            }
 
-            connection.close();
+                connection.close();
             return "redirect:/index?invalidUsername&Password";
-
-        } catch (SQLException sqe) {
+            } catch (SQLException sqe) {
             System.out.println("Error Code = " + sqe.getErrorCode());
             System.out.println("SQL state = " + sqe.getSQLState());
             System.out.println("Message = " + sqe.getMessage());
             System.out.println("printTrace /n");
             sqe.printStackTrace();
 
-            return "redirect:/index?error";
+            return "redirect:/index?error"; } 
         } catch (Exception e) {
             System.out.println("E message : " + e.getMessage());
             return "redirect:/index?error";
         }
-
-    }
-
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
         return "redirect:/";
     }
-}
+    }
+
+    
