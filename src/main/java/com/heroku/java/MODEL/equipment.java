@@ -1,5 +1,5 @@
 package com.heroku.java.MODEL;
-public class equipmentBean {
+public class equipment {
 	private String facilityId;
 	private String equipType;
 
