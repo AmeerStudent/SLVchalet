@@ -88,10 +88,9 @@ public class FacilitiesController {
 
                     roomStatement.executeUpdate();
                 } else if (faciltyType.equalsIgnoreCase("Equipment")) {
-                    String equipmentSql = "INSERT INTO equipment(faciltyId, equipName, equipType) VALUES (?, ?, ?)";
+                    String equipmentSql = "INSERT INTO equipment(faciltyId, equipType) VALUES (?, ?, ?)";
                     final var equipmentStatement = connection.prepareStatement(equipmentSql);
                     equipmentStatement.setString(1, facilityId);
-                    equipmentStatement.setString(2, equipment.getEquipName());
                     equipmentStatement.setString(3, equipment.getEquipType());
 
                     equipmentStatement.executeUpdate();
@@ -140,14 +139,13 @@ public class FacilitiesController {
                         facility = new facility(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic);
                     }
                 } else if ("equipment".equalsIgnoreCase(facilityType)) {
-                    String equipmentSql = "SELECT facilityId, equipName, equipType FROM equipment WHERE facilityId=?";
+                    String equipmentSql = "SELECT facilityId, equipType FROM equipment WHERE facilityId=?";
                     final var equipmentStatement = connection.prepareStatement(equipmentSql);
                     equipmentStatement.setString(1, facilityId);
                     final var equipmentResultSet = equipmentStatement.executeQuery();
                     if (equipmentResultSet.next()) {
-                        String equipName = equipmentResultSet.getString("equipName");
                         String equipType = equipmentResultSet.getString("equipType");
-                        facility = new equipment(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, equipName, equipType );
+                        facility = new equipment(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, equipType );
                     } else {
                         facility = new facility(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic);
                     }
@@ -175,7 +173,7 @@ public class FacilitiesController {
         try {
             Connection connection = dataSource.getConnection();
 
-            String sql = "SELECT facility.facilityId, facility.facilityStatus, facility.facilityPrice, facility.facilityName, facility.facilityQtty, facility.facilityDescription, facility.facilityType, facility.facilityPic, room.roomCategory, equipment.equipName, equipment.equipType "
+            String sql = "SELECT facility.facilityId, facility.facilityStatus, facility.facilityPrice, facility.facilityName, facility.facilityQtty, facility.facilityDescription, facility.facilityType, facility.facilityPic, room.roomCategory, equipment.equipType "
             + "FROM facility "
             + "LEFT JOIN room ON facility.facilityId = room.facilityId "
             + "LEFT JOIN equipment ON equipment.facilityId = facility.facilityId "
@@ -200,9 +198,8 @@ public class FacilitiesController {
                     String roomCategory = resultSet.getString("roomCategory");
                     facility = new room(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, roomCategory);
                 } else if (facilityType.equalsIgnoreCase("Equipment")) {
-                    String equipName = equipmentResultSet.getString("equipName");
                     String equipType = equipmentResultSet.getString("equipType");
-                    facility = new equipment(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, equipName, equipType );
+                    facility = new equipment(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, equipType );
                 } else {
                     // Handle the case when serviceType is neither "room" nor "equipment"
                     facility = new facility(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic);
@@ -224,7 +221,7 @@ public class FacilitiesController {
     public String productadmin(@RequestParam("facilityId") String facilityId, Model model) {
         try {
             Connection connection = dataSource.getConnection();
-            String sql = "SELECT facility.facilityId, facility.facilityStatus, facility.facilityPrice, facility.facilityName, facility.facilityQtty, facility.facilityDescription, facility.facilityType, facility.facilityPic, room.roomCategory, equipment.equipName, equipment.equipType "
+            String sql = "SELECT facility.facilityId, facility.facilityStatus, facility.facilityPrice, facility.facilityName, facility.facilityQtty, facility.facilityDescription, facility.facilityType, facility.facilityPic, room.roomCategory, equipment.equipType "
             + "FROM facility "
             + "LEFT JOIN room ON facility.facilityId = room.facilityId "
             + "LEFT JOIN equipment ON equipment.facilityId = facility.facilityId "
@@ -249,9 +246,8 @@ public class FacilitiesController {
                     String roomCategory = resultSet.getString("roomCategory");
                     facility = new room(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, roomCategory);
                 } else if (facilityType.equalsIgnoreCase("Equipment")) {
-                    String equipName = equipmentResultSet.getString("equipName");
                     String equipType = equipmentResultSet.getString("equipType");
-                    facility = new equipment(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, equipName, equipType );
+                    facility = new equipment(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, equipType );
                 } else {
                     // Handle the case when serviceType is neither "room" nor "equipment"
                     facility = new facility(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic);
@@ -295,10 +291,8 @@ public class FacilitiesController {
 
                 roomStatement.executeUpdate();
             } else if ("Equipment".equalsIgnoreCase(service.getFacilityType())) {
-                String equipmentSql = "UPDATE equipment SET equipName=? WHERE facilityId=?";
                 String equipmentSql = "UPDATE equipment SET equipType=? WHERE facilityId=?";
                 final var equipmentStatement = connection.prepareStatement(equipmentSql);
-                equipmentStatement.setString(1, equipment.getQquipName());
                 equipmentStatement.setString(2, equipment.getQquipType());
                 equipmentStatement.setString(3, facility.getFacilityId());
 
