@@ -47,9 +47,9 @@ public class FacilitiesController {
 
             String facilityId=facility.getFacilityID();
             String facilityStatus=facility.getFacilityStatus();
-            Double facilityPrice=facility.getFacilityPrice();
+            double facilityPrice=facility.getFacilityPrice();
             String facilityName=facility.getFacilityName();
-            Int facilityQtty=facility.getFacilityQtty();
+            int facilityQtty=facility.getFacilityQtty();
             String facilityDescription=facility.getFacilityDescription();
             String facilityType=facility.getFacilityType();
             byte[] facilityPic=facility.getFacilityPic();
@@ -85,8 +85,8 @@ public class FacilitiesController {
                     roomStatement.setString(2, room.getRoomCategory());
 
                     roomStatement.executeUpdate();
-                } else if (faciltyType.equalsIgnoreCase("Equipment")) {
-                    String equipmentSql = "INSERT INTO equipment(faciltyId, equipType) VALUES (?, ?, ?)";
+                } else if (facilityType.equalsIgnoreCase("Equipment")) {
+                    String equipmentSql = "INSERT INTO equipment(facilityId, equipType) VALUES (?, ?, ?)";
                     final var equipmentStatement = connection.prepareStatement(equipmentSql);
                     equipmentStatement.setString(1, facilityId);
                     equipmentStatement.setString(3, equipment.getEquipType());
