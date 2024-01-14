@@ -1,5 +1,5 @@
 package com.heroku.java.MODEL;
-public class roomBean {
+public class room {
 	private String facilityId;
 	private String roomCategory;
 
