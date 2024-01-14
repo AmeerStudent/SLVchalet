@@ -53,7 +53,7 @@
   <?php include 'inc/header.php' ?>
   <!-- ======= Hero Section ======= -->
   <div class="container" style="margin-top:150px; min-height:90vh;">
-    <h1>Shopping Cart</h1>
+    <h1>View Reservation</h1>
     <div class="container">
 
       <tbody>
@@ -66,7 +66,7 @@
           echo '
                           <div class="card-body cart">
                             <div class="col-sm-12 empty-cart-cls text-center"> <img src="assets/img/empty.png" width="100" height="100" class="img-fluid mb-4 mr-3">
-                              <h3><strong>Your Cart is Empty :(</strong></h3>
+                              <h3><strong>You have no reservations :(</strong></h3>
                             
                               <a th:href="@{product.php}" class="btn btn-primary cart-btn-transform m-3" data-abc="true">Facilities </a>
                             </div>
@@ -165,7 +165,7 @@
               <h5 class="card-title">Member Discount : <?php echo 'RM ', $totaldisc ?></h5>
               <h5 class="card-title">Grand Total : <?php echo 'RM ', $total ?></h5>
               <hr>
-              <a href="payment/payment.php" class="btn btn-primary">Checkout</a>
+              <a th:href="@{payment/payment.php}" class="btn btn-primary">Checkout</a>
             </div>
           </div>
         </div>
