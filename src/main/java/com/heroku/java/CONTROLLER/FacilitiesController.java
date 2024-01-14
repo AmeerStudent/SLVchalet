@@ -42,17 +42,17 @@ public class FacilitiesController {
     public String postads(Model model, @ModelAttribute("postads") facility facility, room room, equipment equipment) {
         try {
             Connection connection = dataSource.getConnection();
-            String sql = "INSERT INTO public.facilities(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO facilities(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             final var statement = connection.prepareStatement(sql);
 
             String facilityId=facility.getFacilityID();
             String facilityStatus=facility.getFacilityStatus();
-            String facilityPrice=facility.getFacilityPrice();
+            Double facilityPrice=facility.getFacilityPrice();
             String facilityName=facility.getFacilityName();
-            String facilityQtty=facility.getFacilityQtty();
+            Int facilityQtty=facility.getFacilityQtty();
             String facilityDescription=facility.getFacilityDescription();
             String facilityType=facility.getFacilityType();
-            String facilityPic=facility.getFacilityPic();
+            byte[] facilityPic=facility.getFacilityPic();
 
             if (faciltyType.equalsIgnoreCase("room")){
             faciltyType = "Room";}
