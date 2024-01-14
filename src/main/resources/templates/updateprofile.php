@@ -1,17 +1,17 @@
-<?php
-include 'inc/connection.php';
-session_start();
+// <?php
+// include 'inc/connection.php';
+// session_start();
 
-$usernameSESSION = $_SESSION['User'];
-$query = "SELECT * FROM user WHERE username = '$usernameSESSION' ";
-$result = mysqli_query($sql_connect, $query);
-$row = mysqli_fetch_assoc($result);
+// $usernameSESSION = $_SESSION['User'];
+// $query = "SELECT * FROM user WHERE username = '$usernameSESSION' ";
+// $result = mysqli_query($sql_connect, $query);
+// $row = mysqli_fetch_assoc($result);
 
-if (!isset($_SESSION['User'])) {
-    header("Location: login.php");
-}
+// if (!isset($_SESSION['User'])) {
+//     header("Location: login.php");
+// }
 
-?>
+// ?>
 
 <!DOCTYPE html>
 <html>
@@ -30,8 +30,8 @@ if (!isset($_SESSION['User'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link th:href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
@@ -141,31 +141,23 @@ if (!isset($_SESSION['User'])) {
                                     <?php } ?>
                                     <p><strong>Full name</strong></p>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" name="fullname" placeholder="Full Name" value="<?php echo $row['full_name'] ?>" aria-label="Full Name" aria-describedby="basic-addon2 " readonly>
+                                        <input type="text" class="form-control" name="custName" placeholder="Full Name" value="<?php echo $row['custName'] ?>" aria-label="Full Name" aria-describedby="basic-addon2 " readonly>
                                     </div>
-									<p><strong>Username</strong></p>
+					<p><strong>Username</strong></p>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" name="username" placeholder="Username" value="<?php echo $row['username'] ?>" aria-label="Username" aria-describedby="basic-addon2" >
-                                    </div>
-                                    <p><strong>IC Number</strong></p>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder=" ID " value="<?php echo $row['matricid'] ?>" aria-label="Matric ID " aria-describedby="basic-addon2" readonly>
-                                    </div>
-									<p><strong>Gender</strong></p>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="Gender" value="<?php echo $row['gender'] ?>" aria-label="Gender" aria-describedby="basic-addon2" readonly>
-                                    </div>
-									<p><strong>Address</strong></p>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" name="address" placeholder="Address" value="<?php echo $row['address'] ?>" aria-label="Address" aria-describedby="basic-addon2">
+                                        <input type="text" class="form-control" name="custUsernam" placeholder="custUsername" value="<?php echo $row['custUsername'] ?>" aria-label="Username" aria-describedby="basic-addon2" >
                                     </div>
                                     <p><strong>Email</strong></p>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="Email" value="<?php echo $row['email'] ?>" aria-label="Email" aria-describedby="basic-addon2" readonly>
+                                        <input type="text" class="form-control" placeholder="Email" value="<?php echo $row['custEmail'] ?>" aria-label="Email" aria-describedby="basic-addon2" readonly>
                                     </div> 
                                     <p><strong>Phone Number</strong></p>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" name="phonenum" placeholder="Phone Number" value="<?php echo $row['phone_num'] ?>" aria-label="Phone Number" aria-describedby="basic-addon2">
+                                        <input type="text" class="form-control" name="custPhoneNo" placeholder="Phone Number" value="<?php echo $row['custPhoneNo'] ?>" aria-label="Phone Number" aria-describedby="basic-addon2">
+                                    </div>
+				    <p><strong>Address</strong></p>
+				    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" name="custAddress" placeholder="Address" value="<?php echo $row['custAddress'] ?>" aria-label="Address" aria-describedby="basic-addon2">
                                     </div>
 
                                     
@@ -198,8 +190,8 @@ if (!isset($_SESSION['User'])) {
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" id="crop" class="btn btn-primary">Save</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="submit" value="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" value="submit" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
                 </div>
