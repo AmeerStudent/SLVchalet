@@ -155,10 +155,10 @@ public class LoginController {
             sqe.printStackTrace();
 
             return "redirect:/index?error"; } 
-        } catch (Exception e) {
+         catch (Exception e) {
             System.out.println("E message : " + e.getMessage());
             return "redirect:/index?error";
-        }
+        }}
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
