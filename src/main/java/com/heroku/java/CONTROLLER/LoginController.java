@@ -32,39 +32,35 @@ public class LoginController {
     }
 
     @PostMapping("/admin")
-    public String admin(@RequestParam(name = "success", required = false) Boolean success, String adminId, String staffPass, HttpSession session, Model model, staff staff) {
+    public String admin(@RequestParam(name = "success", required = false) Boolean success, String inputId, String inputPass, HttpSession session, Model model, staff staff) {
 
         try {
             // String returnPage = null;
             Connection connection = dataSource.getConnection();
 
-            String sql = "SELECT adminId ,staffPass FROM public.staff WHERE adminId=?";
+            String sql = "SELECT staffId ,staffPass FROM public.staff WHERE staffId=?";
             final var statement = connection.prepareStatement(sql);
-            statement.setString(1, adminId);
+            statement.setString(1, inputId);
 
             final var resultSet = statement.executeQuery();
 
-            System.out.println("ID: " + adminId);
-            System.out.println("password : " + staffPass);
+            System.out.println("ID: " + inputId);
+            System.out.println("password : " + inputPass);
 
             if (resultSet.next()) {
 
                 String staffId = resultSet.getString("staffId");
-                String staffName = resultSet.getString("staffName");
-                String staffEmail = resultSet.getString("staffEmail");
                 String staffPass = resultSet.getString("staffPass");
-                String staffPhoneNo = resultSet.getString("staffPhoneNo");
-                String adminId = resultSet.getString("adminId");
 
-                System.out.println(adminId);
+                System.out.println(staffId);
                 // if they're admin
-                System.out.println("Id : " + adminId.equals(adminId) + " | " + adminId);
-                System.out.println("Password status : " + staffPass.equals(staffPass));
+                System.out.println("Id : " + staffId.equals(inputId) + " | " + inputId);
+                System.out.println("Password status : " + staffPass.equals(inputPass));
 
-                if (adminId.equals(adminId) && staffPass.equals(staffPass)) {
-
-                    session.setAttribute("adminId", adminId);
-                    session.setAttribute("staffPass", staffPass);
+                if (staffId.equals(inputId) && staffPass.equals(inputPass)) {
+//session ni nama nak panggil bila-bila nanti
+                    session.setAttribute("adminId", inputId);
+                    session.setAttribute("staffPass", inputPass);
                     
                     return "redirect:/index?success=true";
                 }
