@@ -59,5 +59,5 @@ public class facility {
 	public void setFacilityPic(byte[] facilityPic) {
 		this.facilityPic = facilityPic;
 	}
-	private byte[] facilityPic;
+	
 	}
