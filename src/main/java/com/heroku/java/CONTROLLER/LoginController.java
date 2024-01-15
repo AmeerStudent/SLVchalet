@@ -85,9 +85,9 @@ public class LoginController {
         }
 
     }
-
+//nama kat method () takboleh sama dengan database
     @PostMapping("/loginstaff")
-    public String loginstaff(@RequestParam(name = "success", required = false) Boolean success, HttpSession session, Model model, String staffId, String staffPass, Model Model, staff staff) {
+    public String loginstaff(@RequestParam(name = "success", required = false) Boolean success, HttpSession session, Model model, String inputStaffId, String inputStaffPass, Model Model, staff staff) {
 
         try {
             // String returnPage = null;
@@ -95,7 +95,8 @@ public class LoginController {
 
             String sql = "SELECT staffId, staffName, staffEmail, staffPass, staffPhoneNo, adminId FROM public.staff WHERE staffId=?";
             final var statement = connection.prepareStatement(sql);
-            statement.setString(1, staffId);
+            //nama yang declare kat atas
+            statement.setString(1, inputStaffId);
 
             final var resultSet = statement.executeQuery();
 
@@ -113,14 +114,14 @@ public class LoginController {
 
                 System.out.println(staffName);
                 // if they're admin
-                System.out.println("Id : " + staffId.equals(staffId) + " | " + staffId);
-                System.out.println("Password status : " + staffPass.equals(staffPass));
+                System.out.println("Id : " + staffId.equals(inputStaffId) + " | " + staffId);
+                System.out.println("Password status : " + staffPass.equals(inputStaffPass));
 
-                if (staffId.equals(staffId)
-                        && staffPass.equals(staffPass)) {
+                if (staffId.equals(inputStaffId)
+                        && staffPass.equals(inputStaffPass)) {
 
-                    session.setAttribute("staffName", staffname);
-                    session.setAttribute("staffId", staffid);
+                    session.setAttribute("staffName", staffName);
+                    session.setAttribute("staffId", inputStaffId);
 
                     if (staffName.equals("Admin")) {
                         session.setAttribute("staffName", "Admin");
