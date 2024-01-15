@@ -54,10 +54,10 @@ public class FacilitiesController {
             String facilityType=facility.getFacilityType();
             byte[] facilityPic=facility.getFacilityPic();
 
-            if (faciltyType.equalsIgnoreCase("room")){
-            faciltyType = "Room";}
+            if (facilityType.equalsIgnoreCase("room")){
+            facilityType = "Room";}
             else {
-            faciltyType = "Equipment";}
+            facilityType = "Equipment";}
 
             
             statement.setString(1, facilityId);
@@ -291,7 +291,7 @@ public class FacilitiesController {
     //         } else if ("Equipment".equalsIgnoreCase(facility.getFacilityType())) {
     //             String equipmentSql = "UPDATE equipment SET equipType=? WHERE facilityId=?";
     //             final var equipmentStatement = connection.prepareStatement(equipmentSql);
-    //             equipmentStatement.setString(2, equipment.getQquipType());
+    //             equipmentStatement.setString(2, equipment.getEquipType());
     //             equipmentStatement.setString(3, facility.getFacilityId());
 
     //             equipmentStatement.executeUpdate();
