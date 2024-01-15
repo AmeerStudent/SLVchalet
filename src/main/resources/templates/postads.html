@@ -70,8 +70,8 @@ if (!isset($_SESSION['Admin'])) {
                                 <div class="form-group">
                                     <p class="input-title">Facility Status</p>
                                     <select id="facilityStatus" name="facilityStatus" class="form-control" required>
-                                        <option value="available">Available</option>
-                                        <option value="notAvailable">Not Available</option>
+                                        <option th:value="available">Available</option>
+                                        <option th:value="notAvailable">Not Available</option>
                                     </select>
                                 </div>
                         
@@ -107,8 +107,8 @@ if (!isset($_SESSION['Admin'])) {
                                 <div class="form-group">
                                     <p class="input-title">Facility Type</p>
                                     <select id="facilityType" name="facilityType" class="form-control" required>
-                                        <option value="room">Room</option>
-                                        <option value="equipment">Equipment</option>
+                                        <option th:value="room">Room</option>
+                                        <option th:value="equipment">Equipment</option>
                                     </select>
                                 </div>
                         
@@ -116,8 +116,8 @@ if (!isset($_SESSION['Admin'])) {
                                 <div class="form-group" id="roomCategoryContainer" style="display: none;">
                                     <p class="input-title">Room Category</p>
                                     <select id="roomCategory" name="roomCategory" class="form-control">
-                                        <option value="riverView">River View</option>
-                                        <option value="nonRiverView">Non River View</option>
+                                        <option th:value="riverView">River View</option>
+                                        <option th:value="nonRiverView">Non River View</option>
                                     </select>
                                 </div>
                         
@@ -125,8 +125,8 @@ if (!isset($_SESSION['Admin'])) {
                                 <div class="form-group" id="equipmentTypeContainer" style="display: none;">
                                     <p class="input-title">Equipment Type</p>
                                     <select id="equipType" name="equipType" class="form-control">
-                                        <option value="recreation">Recreation</option>
-                                        <option value="hospitality">Hospitality</option>
+                                        <option th:value="recreation">Recreation</option>
+                                        <option th:value="hospitality">Hospitality</option>
                                     </select>
                                 </div>
                         
