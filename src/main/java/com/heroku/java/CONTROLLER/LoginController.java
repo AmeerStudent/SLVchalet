@@ -100,8 +100,8 @@ public class LoginController {
 
             final var resultSet = statement.executeQuery();
 
-            System.out.println("staff pass : " + staffPass);
-            System.out.println("staff : " + staffId);
+            System.out.println("staff pass : " + inputStaffPass);
+            System.out.println("staff : " + inputStaffId);
 
             if (resultSet.next()) {
 
