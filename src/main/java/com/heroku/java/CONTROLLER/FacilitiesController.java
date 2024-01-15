@@ -67,7 +67,7 @@ public class FacilitiesController {
             statement.setInt(5, facilityQtty);
             statement.setString(6, facilityDescription);
             statement.setString(7, facilityType);
-            statement.setBytes(8, facilityPic.getBytes());
+            statement.setBytes(8, facilityPic);
 
             statement.executeUpdate();
 
