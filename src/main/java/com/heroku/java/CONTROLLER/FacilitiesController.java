@@ -45,7 +45,7 @@ public class FacilitiesController {
             String sql = "INSERT INTO facilities(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             final var statement = connection.prepareStatement(sql);
 
-            String facilityId=facility.getFacilityID();
+            String facilityId=facility.getFacilityId();
             String facilityStatus=facility.getFacilityStatus();
             double facilityPrice=facility.getFacilityPrice();
             String facilityName=facility.getFacilityName();
@@ -247,7 +247,7 @@ public class FacilitiesController {
     //                 String equipType = equipmentResultSet.getString("equipType");
     //                 facility = new equipment(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, equipType );
     //             } else {
-    //                 // Handle the case when serviceType is neither "room" nor "equipment"
+    //                 // Handle the case when facilityType is neither "room" nor "equipment"
     //                 facility = new facility(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic);
     //             }
 
@@ -269,7 +269,7 @@ public class FacilitiesController {
     //         String sql = "UPDATE facility SET facilityId=?, facilityStatus=?, facilityPrice=?, facilityName=?, facilityQtty=?, facilityDescription=?, facilityType=?, facilityPic=? WHERE facilityId=?";
     //         final var statement = connection.prepareStatement(sql);
 
-    //         statement.setString(1, facility.getFacilityID());
+    //         statement.setString(1, facility.getFacilityId());
     //         statement.setString(2, facility.getFacilityStatus());
     //         statement.setString(3, facility.getFacilityPrice());
     //         statement.setString(4, facility.getFacilityName());
@@ -281,14 +281,14 @@ public class FacilitiesController {
 
 
     //         // Update fields specific to "room" or "equipment" based on the facility type
-    //         if ("Room".equalsIgnoreCase(service.getFacilityType())) {
+    //         if ("Room".equalsIgnoreCase(facility.getFacilityType())) {
     //             String roomSql = "UPDATE room SET roomCategory=? WHERE facilityId=?";
     //             final var roomStatement = connection.prepareStatement(roomSql);
     //             roomStatement.setString(1, room.getRoomCategory());
     //             roomStatement.setString(2, facility.getFacilityId());
 
     //             roomStatement.executeUpdate();
-    //         } else if ("Equipment".equalsIgnoreCase(service.getFacilityType())) {
+    //         } else if ("Equipment".equalsIgnoreCase(facility.getFacilityType())) {
     //             String equipmentSql = "UPDATE equipment SET equipType=? WHERE facilityId=?";
     //             final var equipmentStatement = connection.prepareStatement(equipmentSql);
     //             equipmentStatement.setString(2, equipment.getQquipType());
