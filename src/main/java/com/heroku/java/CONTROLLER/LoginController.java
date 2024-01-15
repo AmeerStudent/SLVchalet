@@ -146,7 +146,7 @@ public class LoginController {
                 connection.close();
             return "redirect:/index?invalidUsername&Password";
             
-            } catch (SQLException sqe) {
+            } } catch (SQLException sqe) {
             System.out.println("Error Code = " + sqe.getErrorCode());
             System.out.println("SQL state = " + sqe.getSQLState());
             System.out.println("Message = " + sqe.getMessage());
@@ -159,7 +159,7 @@ public class LoginController {
             return "redirect:/index?error";
         }
         
-        }
+        
         }
 
     @GetMapping("/logout")
