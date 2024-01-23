@@ -53,10 +53,10 @@
               <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
                 <h4 class="modal-title">Login to Your Account</h4>
                   <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Username" name="username" id="username" required="required" >
+                      <input type="text" class="form-control" placeholder="Username" name="custUsername" id="custUsername" required="required" >
                   </div>
                   <div class="form-group">
-                      <input type="password" class="form-control" placeholder="Password" name="password" id="password" required="required"  >
+                      <input type="password" class="form-control" placeholder="Password" name="custPass" id="custPass" required="required"  >
                   </div>
                   <div class="form-group small clearfix">
                       <label class="form-check-label"><input type="checkbox"> Remember me</label>
@@ -65,7 +65,7 @@
                   <input type="submit" class="btn btn-primary btn-block btn-lg " name="login" value="Login">  
                   <p class="form-message"></p>                      
               </form>			
-              <div class="text-center small">Don't have an account? <a href="signup.php">Sign up</a></div>
+              <div class="text-center small">Don't have an account? <a href="signup.html">Sign up</a></div>
           </div>
           </div>
         </div>
@@ -97,20 +97,20 @@
 
   <!-- Template Main JS File -->
   <script th:src="@{assets/js/main.js}"></script>
-  <script>
+<!--   <script>
      $(document).ready(function(){
         $("form").submit(function(event) {
             event.preventDefault();
-            var username = $("#username").val();
-            var password = $("#password").val();
+            var custUsername = $("#custUsername").val();
+            var custPass = $("#custPass").val();
 
           $(".form-message").load("inc/login.php", {
-              username: username,
-              password: password
+              custUsername: custUsername,
+              custPass: custPass
             });
           });
       });
-  </script>
+  </script> -->
 
 </body>
 
