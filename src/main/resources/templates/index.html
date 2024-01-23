@@ -42,17 +42,17 @@ session_start();
 <body>
 
   <!-- ======= Header ======= -->
- <header id="header" class="header fixed-top">
+  <header id="header" class="header fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-        <a th:href="@{/index} class="logo d-flex align-items-center">
+        <a href="/index" class="logo d-flex align-items-center">
           
         </a>
 
         <nav id="navbar" class="navbar">
             <ul>
                 <li><a style="text-decoration: none;" class="nav-link scrollto" th:href="@{/index}">Home</a></li>
-                <li><a class="nav-link scrollto" href="/product">Facilities</a></li>
+                <li><a class="nav-link scrollto" th:href="@{/product}">Facilities</a></li>
 
 <!--               <li th:if="${#session.containsKey('User')}"> 
                     <a style="text-decoration: none;" class="nav-account">
