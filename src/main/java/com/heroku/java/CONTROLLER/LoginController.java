@@ -170,12 +170,12 @@ public class LoginController {
 
             String sql = "SELECT custUsername, custName, custEmail, custPhoneno, custAddress, custPass FROM public.customer WHERE custUsername=?";
             final var statement = connection.prepareStatement(sql);
-            statement.setString(1, custUsername);
+            statement.setString(1, inputUsername);
 
             final var resultSet = statement.executeQuery();
 
-            System.out.println("customer : " + custUsername);
-            System.out.println("cust pass : " + custPass);
+            System.out.println("customer : " + inputUsername);
+            System.out.println("cust pass : " + inputPassword);
 
             if (resultSet.next()) {
 
@@ -188,13 +188,13 @@ public class LoginController {
 
                 System.out.println(custUsername);
                 
-                System.out.println("Customer username : " + custUsername.equals(custUsername) + " | " + custUsername);
-                System.out.println("Password : " + custPass.equals(custPass));
+                System.out.println("Customer username : " + custUsername.equals(inputUsername) + " | " + inputUsername);
+                System.out.println("Password : " + custPass.equals(inputPassword));
 
-                if (custUsername.equals(custUsername) && custPass.equals(custPass)) {
+                if (custUsername.equals(inputUsername) && custPass.equals(inputPassword)) {
 
-                    session.setAttribute("custUsername", custUsername);
-                    session.setAttribute("custPass", custPass);
+                    session.setAttribute("custUsername", inputUsername);
+                    session.setAttribute("custPass", inputPassword);
                     
                     return "redirect:/product?success=true";
                 }
