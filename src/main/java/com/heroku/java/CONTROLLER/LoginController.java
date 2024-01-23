@@ -194,9 +194,9 @@ public class LoginController {
                 if (custUsername.equals(inputUsername) && custPass.equals(inputPassword)) {
 
                     session.setAttribute("custUsername", inputUsername);
-                    session.setAttribute("custUsername", inputPassword);
+                    session.setAttribute("custPass", inputPassword);
                     
-                    return "redirect:/login?success=true";
+                    return "redirect:/product?success=true";
                 }
             }
 
