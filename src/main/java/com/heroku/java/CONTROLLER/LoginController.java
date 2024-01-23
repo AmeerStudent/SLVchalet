@@ -210,7 +210,7 @@ public class LoginController {
             System.out.println("printTrace /n");
             sqe.printStackTrace();
 
-            return "redirect:/login?error";
+            return "redirect:/index?error";
 
         } catch (Exception e) {
             System.out.println("E message : " + e.getMessage());
