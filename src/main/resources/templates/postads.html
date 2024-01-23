@@ -65,7 +65,21 @@ if (!isset($_SESSION['Admin'])) {
                                     <p class="input-title">Facility ID</p>
                                     <input type="text" id="facilityId" name="facilityId" class="form-control" placeholder="Enter Facility ID" required>
                                 </div>
-                        
+
+                                         <!-- Facility Name -->
+                                <div class="form-group">
+                                    <p class="input-title">Facility Name</p>
+                                    <input type="text" id="facilityName" name="facilityName" class="form-control" placeholder="Facility Name"
+                                        required>
+                                </div>
+
+                                                                <!-- Facility Price -->
+                                <div class="form-group">
+                                    <p class="input-title">Facility Price</p>
+                                    <input type="text" id="facilityPrice" name="facilityPrice" class="form-control" placeholder="Facility Price"
+                                        required>
+                                </div>
+                                
                                 <!-- Facility Status -->
                                 <div class="form-group">
                                     <p class="input-title">Facility Status</p>
@@ -74,21 +88,7 @@ if (!isset($_SESSION['Admin'])) {
                                         <option th:value="notAvailable">Not Available</option>
                                     </select>
                                 </div>
-                        
-                                <!-- Facility Price -->
-                                <div class="form-group">
-                                    <p class="input-title">Facility Price</p>
-                                    <input type="text" id="facilityPrice" name="facilityPrice" class="form-control" placeholder="Facility Price"
-                                        required>
-                                </div>
-                        
-                                <!-- Facility Name -->
-                                <div class="form-group">
-                                    <p class="input-title">Facility Name</p>
-                                    <input type="text" id="facilityName" name="facilityName" class="form-control" placeholder="Facility Name"
-                                        required>
-                                </div>
-                        
+                    
                                 <!-- Facility Quantity -->
                                 <div class="form-group">
                                     <p class="input-title">Facility Quantity</p>
