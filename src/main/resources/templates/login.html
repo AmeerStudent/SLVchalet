@@ -49,7 +49,7 @@
           </div>
           <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="zoom-out" data-aos-delay="50">
             <div class="login-form">    
-              <form method="post" th:action="@{/LoginController}" modelAttribute="login" >
+              <form method="GET" th:action="@{/login}"  >
               <div class="avatar"><i class="material-icons">&#xE7FF;</i></div>
                 <h4 class="modal-title">Login to Your Account</h4>
                   <div class="form-group">
@@ -104,7 +104,7 @@
             var custUsername = $("#custUsername").val();
             var custPass = $("#custPass").val();
 
-          $(".form-message").load("LoginController", {
+          $(".form-message").load("login", {
               custUsername: custUsername,
               custPass: custPass
             });
