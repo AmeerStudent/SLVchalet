@@ -59,11 +59,7 @@ public class GettingStartedApplication {
         return "productadmin";
 
     }
-     @GetMapping("/signupadmin")
-    public String signupadmin() {
-        return "signupadmin";
-
-    }
+    
     @GetMapping("/postads")
     public String postads() {
         return "postads";
