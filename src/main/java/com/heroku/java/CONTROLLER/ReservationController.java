@@ -219,7 +219,7 @@ public class ReservationController {
             System.out.println("error");
         }
         return  "redirect:/reservationList";
-    }
+    
 
     @GetMapping("/deleteReservation")
     public String deleteReservation(String reserveId) {
@@ -255,6 +255,6 @@ public class ReservationController {
 
         
     }
-
+}
 
 
