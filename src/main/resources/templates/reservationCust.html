@@ -96,27 +96,28 @@
 
     <h1>Facilities Listing</h1>
 
-    <c:forEach var="facility" items="${listFacility}">
-      <div class="card">
-        <div class="card-body">
-          <div class="image" style="max-height: 192px;">
-              <img th:value="${facility.facilityPic}" style="width: 100px; height: 100px;"/>
-            <img style="max-height: 190px; object-fit: scale-down;" src="images/${facility.facilityPic}" alt="">
-          </div>
-          <div class="title">
-          
-                             
-            <h4 style="font-weight: 1000;"><c:out value="${facility.facilityName}" /></h4>
-            <p style="width: 650px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-              <c:out value="${facility.facilityDescription}" />
-            </p>
-            <h4 class="price-tag">Price: <c:out value="${facility.facilityPrice}" /></h4>
-            <div class="btn-prod">
-              <form action="bookFacility.jsp" method="get">
-                <button class="go-to-btn" name="id" type="submit" value="${facility.facilityId}">Book</button>
-              </form>
-            </div>
-
+   <c:forEach var="facility" items="${listFacility}">
+  <div class="card">
+    <div class="card-body">
+      <div class="image" style="max-height: 192px;">
+        <img style="max-height: 190px; object-fit: scale-down;" src="images/${facility.facilityPic}" alt="">
+      </div>
+      <div class="title">
+        <img src="view-image.jsp?id=${facility.facilityId}" style="width: 100px; height: 100px;"/>
+        <h4 style="font-weight: 1000;">${facility.facilityName}</h4>
+        <p style="width: 650px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+          ${facility.facilityDescription}
+        </p>
+        <h4 class="price-tag">Price: ${facility.facilityPrice}</h4>
+        <div class="btn-prod">
+          <form action="bookFacility.jsp" method="get">
+            <button class="go-to-btn" name="id" type="submit" value="${facility.facilityId}">Book</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</c:forEach>
             <!-- Facility details table -->
 
           </div>
