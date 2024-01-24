@@ -66,6 +66,12 @@ public class GettingStartedApplication {
 
     }
 
+     @PostMapping("/facilityview")
+    public String facilityview() {
+        return "facilityview";
+
+    }
+
     
     @GetMapping("/login")
     public String login() {
