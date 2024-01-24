@@ -161,7 +161,7 @@ session_start();
             									</td>
 										<td>
              								  	<a 
-                   								th:href="@{/deletefacility/(facilityId=${facilities.facilityId})}" 
+                   								th:href="@{/deletefacility?facilityId=}+${facilities.facilityId}" 
                    								value="{facilities.facilityId}" 
                    								onclick="return confirm('Are you sure you want to delete this facility?')"><button class="btn delete-button btn-danger" >Delete</button></a>
             									</td>
