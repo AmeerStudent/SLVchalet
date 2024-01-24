@@ -54,11 +54,30 @@ public class GettingStartedApplication {
         return "admindashboard";
 
     }
-   
+   @GetMapping("/productadmin")
+    public String productadmin() {
+        return "productadmin";
+
+    }
+     @GetMapping("/signupadmin")
+    public String signupadmin() {
+        return "signupadmin";
+
+    }
+    @GetMapping("/postads")
+    public String postads() {
+        return "postads";
+
+    }
 
     @GetMapping("/login")
     public String login() {
         return "login";
+
+    }
+     @GetMapping("/logout")
+    public String logout() {
+        return "logout";
 
     }
 
@@ -73,10 +92,10 @@ public class GettingStartedApplication {
 
     }
     
-    // @GetMapping("/profile")
-    // public String profile() {
-    //     return "profile";
-    // }
+    @GetMapping("/profile")
+    public String profile() {
+        return "profile";
+    }
 
     @GetMapping("/product")
     public String product() {
