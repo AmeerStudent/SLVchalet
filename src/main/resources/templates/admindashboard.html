@@ -50,7 +50,7 @@
   
 <body>
 
-    <!-- ======= Header ======= -->
+    <!-- ======= Header ADMIN ======= -->
      <header id="header" class="header fixed-top">
   <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
@@ -60,7 +60,7 @@
     <nav id="navbar" class="navbar">
       <ul>
         <li><a style="text-decoration: none;" class="nav-link scrollto" th:href="@{/index}">Home</a></li>
-        <li><a class="nav-link scrollto" th:href="@{/product}">Facilities</a></li>
+        <li><a class="nav-link scrollto" th:href="@{/facilitylist}">Facilities</a></li>
 
 
 <li class="dropdown">
@@ -73,10 +73,10 @@
   </a>
   <ul>
     <li><a th:href="@{/admindashboard}" style="text-decoration: none;">Dashboard</a></li>
-    <li><a th:href="@{/postads}" style="text-decoration: none;">Add Facilities</a></li>
+    <li><a th:href="@{/facilityregister}" style="text-decoration: none;">Add Facilities</a></li>
     <li><a th:href="@{/updatefacility}" style="text-decoration: none;">Update Facilities</a></li>
-    <li><a th:href="@{/signupadmin}" style="text-decoration: none;">Register New Staff</a></li>
-    <li><a href="logout" style="text-decoration: none;">Logout</a></li>
+    <li><a th:href="@{/addstaff}" style="text-decoration: none;">Register New Staff</a></li>
+    <li><a th:href="@{/logout}" style="text-decoration: none;">Logout</a></li>
   </ul>
 </li>
 </ul>
