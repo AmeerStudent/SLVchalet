@@ -61,16 +61,14 @@
       <ul>
         <li><a style="text-decoration: none;" class="nav-link scrollto" th:href="@{/index}">Home</a></li>
         <li><a class="nav-link scrollto" th:href="@{/product}">Facilities</a></li>
-<%
-  String adminName = (String) session.getAttribute("Admin");
-%>
+
 
 <li class="dropdown">
   <a href="#" class="nav-account" style="text-decoration: none;">
-    <span class="material-icons">
-      account_circle
-    </span>
-    <span><%= adminName %></span>
+ <body>
+    <span class="material-icons">account_circle</span>
+    <span><%= null %></span>
+  </body>
     <i class="bi bi-chevron-down"></i>
   </a>
   <ul>
