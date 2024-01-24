@@ -49,22 +49,37 @@ if (!isset($_SESSION['Admin'])) {
     <!-- ======= Hero Section ======= -->
 
     <div class="container" style=" margin: auto;width: 50%;border: 3px solid #4154f1;padding: 10px;">
-        <div class="container">
-            <h4>Facility Details</h4>
-									<p>
-											
-										Facility Name : 	<input type="text" name="" th:value="${facility.facilityName}" class="form-control" value="ignore" disabled> <br>  
-										Facility Description :<input type="text" name="" th:value="${facility.facilityDescription}" class="form-control" disabled> <br>
-										Facility Price :<input type="number" name="" th:value="${facility.facilityPrice}" class="form-control" disabled> <br>
-										Facility Quantity :<input type="text" name="" th:value="${facility.facilityQtty}" class="form-control" disabled> <br>
-										Facility Type :<input type="text" name="" th:value="${facility.facilityType}" class="form-control" disabled> <br>
-                    Facility Picture :<input type="text" name="" th:value="${facility.facilityPic}" class="form-control" disabled> <br>
-									</p>
-           
-                
-            
-        </div>
-    </div>
+<body>
+    <h1> Facilities</h1>
+
+    <div id="facilityContainer"></div>
+
+    <script>
+        // Fetch facility data from the server
+        fetch('/api/facilities/1')
+            .then(response => response.json())
+            .then(facility => {
+                // Create a new facility element
+                const facilityElement = document.createElement('div');
+                facilityElement.classList.add('facility');
+
+                // Add facility details to the element
+                facilityElement.innerHTML = `
+                    <h3>${facility.facilityName}</h3>
+                    <p>Description: ${facility.facilityDescription}</p>
+                    <p>Price: $${facility.facilityPrice}</p>
+                `;
+
+                // Add the facility element to the container
+                const facilityContainer = document.getElementById('facilityContainer');
+                facilityContainer.appendChild(facilityElement);
+            })
+            .catch(error => {
+                console.error('Error fetching facility data:', error);
+            });
+    </script>
+</body>
+</html>
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <div class="container">
