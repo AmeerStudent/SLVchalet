@@ -233,11 +233,11 @@ public class FacilitiesController {
             final var resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
-                String facilityId = resultSet.getString("facilityId");
+               
                 String facilityStatus = resultSet.getString("facilityStatus");
-                String facilityPrice = resultSet.getString("facilityPrice");
+                double facilityPrice = resultSet.getDouble("facilityPrice");
                 String facilityName = resultSet.getString("facilityName");
-                String facilityQtty = resultSet.getString("facilityQtty");
+                int facilityQtty = resultSet.getInt("facilityQtty");
                 String facilityDescription = resultSet.getString("facilityDescription");
                 String facilityType = resultSet.getString("facilityType");
                 String facilityPic = resultSet.getString("facilityPic");
@@ -248,7 +248,7 @@ public class FacilitiesController {
                     String roomCategory = resultSet.getString("roomCategory");
                     facility = new room(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, roomCategory, staffId);
                 } else if (facilityType.equalsIgnoreCase("Equipment")) {
-                    String equipType = equipmentResultSet.getString("equipType");
+                    String equipType = resultSet.getString("equipType");
                     facility = new equipment(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, equipType, staffId );
                 } else {
                     // Handle the case when facilityType is neither "room" nor "equipment"
