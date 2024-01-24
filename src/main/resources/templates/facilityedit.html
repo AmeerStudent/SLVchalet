@@ -56,74 +56,100 @@ if (!isset($_SESSION['Admin'])) {
                 <div class="col-md-8 " style=" margin: auto;width: 50%;border: 3px solid #4154f1;padding: 10px;">
                     <div class="container">
                         <div>
-                            <form method="POST" action="upload_file.php" enctype="multipart/form-data">
-                                <h4>Please fill in the form</h4>
-                                <div class="form-group">
-                                    <input id="type" name="type" class="form-control" value="1" hidden>
+                            <form method="post" th:action="@{/facilityedit}" modelAttribute="facilityedit" th:object="(${facilityedit})">
+    <div class="panel-body">
+        <div class="form-group">
+            <p class="input-title">Staff ID</p>
+            <input type="text" id="staffId" name="staffId" class="form-control" th:value="${facility.staffId}" placeholder="Enter Staff ID" required>
+        </div>
+        <div class="form-group">
+            <p class="input-title">Facility ID</p>
+            <input type="text" id="facilityId" name="facilityId" class="form-control" th:value="${facility.facilityId}" placeholder="Enter Facility ID" required>
+        </div>
 
-                                </div>
+                 <!-- Facility Name -->
+        <div class="form-group">
+            <p class="input-title">Facility Name</p>
+            <input type="text" id="facilityName" name="facilityName" class="form-control" th:value="${facility.facilityName}" placeholder="Facility Name"
+                required>
+        </div>
 
-                                <div class="form-group">
-                                    <input id="category" name="category" class="form-control" value="4" hidden>
-                                </div>
+                                        <!-- Facility Price -->
+        <div class="form-group">
+            <p class="input-title">Facility Price</p>
+            <input type="text" id="facilityPrice" name="facilityPrice" class="form-control" th:value="${facility.facilityPrice}" placeholder="Facility Price"
+                required>
+        </div>
+        
+        <!-- Facility Status -->
+        <div class="form-group">
+            <p class="input-title">Facility Status</p>
+            <select id="facilityStatus" name="facilityStatus" class="form-control" th:value="${facility.facilityStatus}" required>
+                <option th:value="available">Available</option>
+                <option th:value="notAvailable">Not Available</option>
+            </select>
+        </div>
 
-                                <!-- Title -->
-                                <div class="form-group">
-                                    <p class="input-title">Title</p>
-                                    <input type="text" id="title" name="title" class="form-control" placeholder="Title" required>
-                                </div>
+        <!-- Facility Quantity -->
+        <div class="form-group">
+            <p class="input-title">Facility Quantity</p>
+            <input type="text" id="facilityQtty" name="facilityQtty" class="form-control" th:value="${facility.facilityQtty}"
+                placeholder="Facility Quantity" required>
+        </div>
 
-                                <!--Variation Options -->
-                                <div class="form-group">
-                                    <p class="input-title">Variation</p>
-                                    <select class="form-select" name="variation" aria-label="variation" id="variation" required>
-                                        <option value="">Select Variation</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                    </select>
-                                </div>
-                                <!-- Variation -->
-                                <div class="container" id="var-container">
-                                    <div class="variation">
+        <!-- Facility Description -->
+        <div class="form-group">
+            <p class="input-title">Facility Description</p>
+            <textarea name="facilityDescription" class="form-control" rows="10" 
+                placeholder="Write anything about this facility..." th:value="${facility.facilityDescription}" required></textarea>
+        </div>
 
-                                    </div>
-                                </div>
+        <!-- Facility Type -->
+        <div class="form-group">
+            <p class="input-title">Facility Type</p>
+            <select id="facilityType" name="facilityType" class="form-control" th:value="${facility.facilityType}" required>
+                <option th:value="room">Room</option>
+                <option th:value="equipment">Equipment</option>
+            </select>
+        </div>
 
-                                <div class="form-group">
-                                    <p class="input-title">Description</p>
-                                    <textarea name="description" class="form-control" rows="10" placeholder="Write anything about this product..." required></textarea>
-                                </div>
-                        </div>
+        <!-- Room Category (if facility type is room) -->
+        <div class="form-group" id="roomCategoryContainer" style="display: none;">
+            <p class="input-title">Room Category</p>
+            <select id="roomCategory" name="roomCategory" class="form-control">
+                <option th:value="riverView">River View</option>
+                <option th:value="nonRiverView">Non River View</option>
+            </select>
+        </div>
 
-                        <!-- Pictures -->
-                        <div class="row" style="margin-top:30px;">
-                            <div id="image_preview" style="display:flex;">
+        <!-- Equipment Type (if facility type is equipment) -->
+        <div class="form-group" id="equipmentTypeContainer" style="display: none;">
+            <p class="input-title">Equipment Type</p>
+            <select id="equipType" name="equipType" class="form-control" >
+                <option th:value="recreation">Recreation</option>
+                <option th:value="hospitality">Hospitality</option>
+            </select>
+        </div>
 
-                            </div>
-                        </div>
-                        <br>
-                        <br>
-                        <div id="select_file">
-                            <div class="form-group">
-                                <p class="input-title">Upload Image </p>
-                            </div>
-                            <div class="form-group">
-                                <div id="wrapper">
-                                    <input type="file" id="upload_file" name="upload_file[]" onchange="preview_image();" multiple required />
-                                    <button type="submit" style="float:right; margin-left:30px;" class="btn btn-primary" name="submit_image">Submit</button>
-                                    <button type="reset" id="reset" style="float:right;" class="btn btn-danger">Reset</button>
-                                </div>
-                            </div>
-                            <p class="form-message"></p>
-                            </form>
+        <!-- Facility Picture -->
+        <div class="form-group">
+            <p class="input-title">Facility Picture</p>
+            <input type="file" id="facilityPic" name="facilityPic" onchange="preview_image();" th:value="${facility.facilityPic}" required />
+        </div>
+
+    
+    <!-- panel-body -->
+</div>
+<!-- panel -->
+<div class="panel-footer">
+    <div class="row">
+        <div class="col-sm-9 col-sm-offset-3">
+            <button type="submit" class="btn btn-default" >Submit</button>
+            <button type="reset" class="btn btn-default" >Reset</button>
+
+        </div>
+    </div>
+</div></form>
                         </div>
                     </div>
                 </div>
