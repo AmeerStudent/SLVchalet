@@ -106,66 +106,66 @@ public class FacilitiesController {
         return "redirect:/facilitylist?success=true";
     }
     // facility list
-    // @GetMapping("/product")
-    // public String product(Model model) {
-    //     List<facility> facilityArray = new ArrayList<>();
+    @GetMapping("/facilitylist")
+    public String facilitylist(Model model) {
+        List<facility> facilitiess = new ArrayList<>();
 
-    //     try {
-    //         Connection connection = dataSource.getConnection();
-    //         String sql = "SELECT facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic FROM facilities ORDER BY facilityName";
-    //         final var statement = connection.createStatement();
-    //         final var resultSet = statement.executeQuery(sql);
+        try {
+            Connection connection = dataSource.getConnection();
+            String sql = "SELECT facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, staffId FROM facilities ORDER BY facilityName";
+            final var statement = connection.createStatement();
+            final var resultSet = statement.executeQuery(sql);
 
-    //         while (resultSet.next()) {
-    //             String facilityId = resultSet.getString("facilityId");
-    //             String facilityStatus = resultSet.getString("facilityStatus");
-    //             String facilityPrice = resultSet.getString("facilityPrice");
-    //             String facilityName = resultSet.getString("facilityName");
-    //             String facilityQtty = resultSet.getString("facilityQtty");
-    //             String facilityDescription = resultSet.getString("facilityDescription");
-    //             String facilityType = resultSet.getString("facilityType");
-    //             String facilityPic = resultSet.getString("facilityPic");
+            while (resultSet.next()) {
+                String facilityId = resultSet.getString("facilityId");
+                String facilityStatus = resultSet.getString("facilityStatus");
+                String facilityPrice = resultSet.getString("facilityPrice");
+                String facilityName = resultSet.getString("facilityName");
+                String facilityQtty = resultSet.getString("facilityQtty");
+                String facilityDescription = resultSet.getString("facilityDescription");
+                String facilityType = resultSet.getString("facilityType");
+                String facilityPic = resultSet.getString("facilityPic");
+                String facilityId = resultSet.getString("staffId");
+                facility facility;
+                if ("room".equalsIgnoreCase(facilityType)) {
+                    String roomSql = "SELECT facilityId, roomCategory FROM room WHERE facilityId=?";
+                    final var roomStatement = connection.prepareStatement(roomSql);
+                    roomStatement.setString(1, facilityId);
+                    final var roomResultSet = roomStatement.executeQuery();
+                    if (roomResultSet.next()) {
+                        String roomCategory = roomResultSet.getString("roomCategory");
+                        facility = new room(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, roomCategory, staffId);
+                    } else {
+                        facility = new facility(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, staffId);
+                    }
+                } else if ("equipment".equalsIgnoreCase(facilityType)) {
+                    String equipmentSql = "SELECT facilityId, equipType FROM equipment WHERE facilityId=?";
+                    final var equipmentStatement = connection.prepareStatement(equipmentSql);
+                    equipmentStatement.setString(1, facilityId);
+                    final var equipmentResultSet = equipmentStatement.executeQuery();
+                    if (equipmentResultSet.next()) {
+                        String equipType = equipmentResultSet.getString("equipType");
+                        facility = new equipment(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, equipType,staffId );
+                    } else {
+                        facility = new facility(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic,staffId);
+                    }
+                } else {
+                    facility = new facility(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, staffId);
+                }
 
-    //             facility facility;
-    //             if ("room".equalsIgnoreCase(facilityType)) {
-    //                 String roomSql = "SELECT facilityId, roomCategory FROM room WHERE facilityId=?";
-    //                 final var roomStatement = connection.prepareStatement(roomSql);
-    //                 roomStatement.setString(1, facilityId);
-    //                 final var roomResultSet = roomStatement.executeQuery();
-    //                 if (roomResultSet.next()) {
-    //                     String roomCategory = roomResultSet.getString("roomCategory");
-    //                     facility = new room(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, roomCategory);
-    //                 } else {
-    //                     facility = new facility(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic);
-    //                 }
-    //             } else if ("equipment".equalsIgnoreCase(facilityType)) {
-    //                 String equipmentSql = "SELECT facilityId, equipType FROM equipment WHERE facilityId=?";
-    //                 final var equipmentStatement = connection.prepareStatement(equipmentSql);
-    //                 equipmentStatement.setString(1, facilityId);
-    //                 final var equipmentResultSet = equipmentStatement.executeQuery();
-    //                 if (equipmentResultSet.next()) {
-    //                     String equipType = equipmentResultSet.getString("equipType");
-    //                     facility = new equipment(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, equipType );
-    //                 } else {
-    //                     facility = new facility(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic);
-    //                 }
-    //             } else {
-    //                 facility = new facility(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic);
-    //             }
+                facilitiess.add(facilities);
+            }
 
-    //             facilityArray.add(facility);
-    //         }
+            model.addAttribute("facilitiess", facilitiess);
 
-    //         model.addAttribute("facilityArray", facilityArray);
+            connection.close();
 
-    //         connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
-    //     } catch (SQLException e) {
-    //         e.printStackTrace();
-    //     }
-
-    //     return "product";
-    // }
+        return "facilitylist";
+    }
 
     // // view facilities
     // @GetMapping("/view")
