@@ -41,17 +41,17 @@ public class CustomerController {
 public String signup(@ModelAttribute("signup")customer customer){
     try{
         Connection connection = dataSource.getConnection();
-        String sql = "INSERT INTO public.customer(custId, custPhoneNo, custEmail, custName, custPass, custAddress) VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO public.customer(custUsername, custPhoneNo, custEmail, custName, custPass, custAddress) VALUES (?,?,?,?,?,?)";
         final var statement = connection.prepareStatement(sql);
 
-        String custId = customer.getCustId();
+        String custUsername = customer.getCustUsername();
         String custPhoneNo = customer.getCustPhoneNo();  
         String custEmail = customer.getCustEmail(); 
         String custName = customer.getCustName();
         String custPass = customer.getCustPass();
         String custAddress = customer.getCustAddress();
 
-        statement.setString(1, custId);
+        statement.setString(1, custUsername);
 		statement.setString(2, custPhoneNo);
 	    statement.setString(3, custEmail);
 		statement.setString(4, custName);
@@ -75,13 +75,13 @@ public String signup(@ModelAttribute("signup")customer customer){
 
     //     List<customer> customers = new ArrayList<customer>();
     //     try (Connection connection = dataSource.getConnection()) {
-    //         String sql = "SELECT custId, custPhoneNo, custEmail, custName, custPass, custAddress FROM public.customer order by custId";
+    //         String sql = "SELECT custUsername, custPhoneNo, custEmail, custName, custPass, custAddress FROM public.customer order by custUsername";
     //         final var statement = connection.prepareStatement(sql);
     //         final var resultSet = statement.executeQuery();
     //         System.out.println("pass try customerList >>>>>");
 
     //         while (resultSet.next()) {
-    //             String custId = resultSet.getString("custId");
+    //             String custUsername = resultSet.getString("custUsername");
     //             String custPhoneNo = resultSet.getString("custPhoneNo");  
     //             String custEmail = resultSet.getString("custEmail"); 
     //             String custName = resultSet.getString("custName");
@@ -89,7 +89,7 @@ public String signup(@ModelAttribute("signup")customer customer){
     //             String custAddress = resultSet.getString("custAddress");
 
     //             customer customer = new customer();
-    //             customer.setCustId(custId);
+    //             customer.setCustUsername(custUsername);
     //             customer.setCustPhoneNo(custPhoneNo);
     //             customer.setCustEmail(custEmail);
     //             customer.setCustName(custName);
