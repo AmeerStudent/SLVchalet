@@ -9,15 +9,7 @@ public class equipment extends facility {
         super(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, staffId);
         this.equipType = equipType;
     }
-	public String getFacilityId() {
-		return facilityId;
-	}
-
-	public void setFacilityId(String facilityId) {
-		this.facilityId = facilityId;
-	}
-
-
+	
 	public String getEquipType() {
 		return equipType;
 	}
