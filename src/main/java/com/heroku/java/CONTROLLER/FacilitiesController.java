@@ -223,11 +223,11 @@ public class FacilitiesController {
         try {
             System.out.println("facility id from parameter: " + facilityId);
             Connection connection = dataSource.getConnection();
-            String sql = "SELECT facility.facilityId, facility.facilityStatus, facility.facilityPrice, facility.facilityName, facility.facilityQtty, facility.facilityDescription, facility.facilityType, facility.facilityPic,  facility.staffId, room.roomCategory, equipment.equipType "
-            + "FROM facility "
-            + "LEFT JOIN room ON facility.facilityId = room.facilityId "
-            + "LEFT JOIN equipment ON equipment.facilityId = facility.facilityId "
-            + "WHERE facility.facilityId = ?";
+            String sql = "SELECT facilities.facilityId, facilities.facilityStatus, facilities.facilityPrice, facilities.facilityName, facilities.facilityQtty, facilities.facilityDescription, facilities.facilityType, facilities.facilityPic,  facilities.staffId, room.roomCategory, equipment.equipType "
+            + "FROM facilities "
+            + "LEFT JOIN room ON facilities.facilityId = room.facilityId "
+            + "LEFT JOIN equipment ON equipment.facilityId = facilities.facilityId "
+            + "WHERE facilities.facilityId = ?";
 
             final var statement = connection.prepareStatement(sql);
             statement.setString(1, facilityId);
