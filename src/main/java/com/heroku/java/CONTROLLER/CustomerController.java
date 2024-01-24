@@ -213,7 +213,7 @@ public String signup(@ModelAttribute("signup")customer customer){
 
     //     }
 	@GetMapping("/viewCustomer")
-         public String viewCustomer(@RequestParam("custUsername") String custUsername, Model model) {
+         public String viewCustomer(@RequestParam("custUsername") String custUsername, Model model){
            System.out.println("Customer Username : " + custUsername);
            try{
                 Connection connection = dataSource.getConnection();
