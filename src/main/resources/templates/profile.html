@@ -74,7 +74,7 @@ if (!isset($_SESSION['User'])) {
                             <a style="text-decoration: none;" href="#"><span>Setting</span> <i class="bi bi-chevron-right"></i></a>
                             <ul>
                                 <li><a style="text-decoration: none;" th:href="@{/updateprofile}">Update Profile</a></li>
-                                <li><a style="text-decoration: none;" th:href="@{/updatepassword}">Change Password</a></li>
+                                <!-- <li><a style="text-decoration: none;" th:href="@{/updatepassword}">Change Password</a></li> -->
                             </ul>
                         </li>
                     </ul>
@@ -110,10 +110,12 @@ if (!isset($_SESSION['User'])) {
   <!-- ======= Hero Section ======= -->
   <div class="container" style="margin-top:150px;">
     <div class="row">
+      <a th:href="@{/profile}"></a>
       <div class="col-lg-6" style="width: 35%;">
         <div class="profile">
           <h1>Profile</h1>
-          <div class="card" style="height: 100%;">
+
+          <!-- <div class="card" style="height: 100%;">
             <div class="card-body" style="display: flex; flex-direction: column;">
               <img src="images/profile/<?php echo $row['profile_pic'] ?>" style="border-radius:50%;  width: 100px;" alt="">
               <div class="container">
@@ -132,15 +134,20 @@ if (!isset($_SESSION['User'])) {
                     </span>
                     Unverified User
                   </p>
-                <?php } ?>
+                <?php } ?> -->
+
+                <p class="title-profile"> Customer Username :</p>
+    <p th:text="${customer.custUsername}"></p>
                 <p class="title-profile">Full Name :</p>
-                <p><?php echo $row['full_name'] ?></p>
-		<p class="title-profile"> Customer Id :</p>
-                <p><?php echo $row['custId'] ?></p>
+                <p th:text="${customer.custName}"></p>
                 <p class="title-profile">Email :</p>
-                <p><?php echo $row['custEmail'] ?></p>
+                <p th:text="${customer.custEmail}"></p>
 		<p class="title-profile">Phone Number :</p>
-                <p><?php echo $row['custPhoneNo'] ?></p>
+    <p th:text="${customer.custPhoneNo}"></p>
+    <p class="title-profile">Address :</p>
+    <p th:text="${customer.custAddress}"></p>
+    <p class="title-profile">Password :</p>
+    <p th:text="${customer.custPass}"></p>
 
                 <div class="center-btn">
                   <button class="profile-update" th:href="@{/updateprofile}" >Update Profile</button>
@@ -169,7 +176,7 @@ if (!isset($_SESSION['User'])) {
               </ul>
               <div class="tab-content">
                 <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                  <?php
+                  <!-- <?php
                   $query2 = "SELECT * FROM var_receipt WHERE username ='$usernameSESSION' AND status = 'Pending' ";
                   $result2 = mysqli_query($sql_connect, $query2);
                   if (mysqli_num_rows($result2) == 0) {
@@ -188,13 +195,13 @@ if (!isset($_SESSION['User'])) {
                       $queryphone = "SELECT phone_num FROM user WHERE username = '" . $row2['var_seller'] . "'";
                       $resultphone = mysqli_query($sql_connect, $queryphone);
                       $phonenum = mysqli_fetch_assoc($resultphone);
-                  ?>
+                  ?> -->
                       <div class="card-body">
                         <div class="item d-inline-flex">
-                          <div class="image" style="max-height: 192px; ">
+                          <!-- <div class="image" style="max-height: 192px; ">
                             <img style="height:190px; object-fit:scale-down;" src="images/<?php echo $pic['pic_name'] ?>" alt="">
-                          </div>
-                          <div class="title">
+                          </div> -->
+                          <!-- <div class="title">
                             <h5><a href="view.php?view_prod=<?php echo $row2['product_id'] ?>"><?php echo $row2['product_title'] ?></a></h5>
                             <p><strong>Variation : </strong><?php echo $row2['var_product_title']; ?></p>
                             <p><strong>Quantity : </strong><?php echo $row2['var_product_quan']; ?></p>
@@ -204,12 +211,12 @@ if (!isset($_SESSION['User'])) {
                             <div class="btn-prod">
                               <button type="button" class="btn btn-secondary" target="_blank" onclick="window.open('receipt/receipt.php?id=<?php echo $row2['receipt_id'] ?>');">View Receipt</button>
                             </div>
-                          </div>
+                          </div> -->
                         </div>
                       </div>
                       <hr>
-                  <?php }
-                  } ?>
+                  <!-- <?php }
+                  } ?> -->
                 </div>
                 </div>
               </div>
@@ -439,7 +446,7 @@ if (!isset($_SESSION['User'])) {
       document.getElementById("settings").className += " active";
     }
   </script>
-  <?php
+  <!-- <?php
   if (isset($_SESSION['received'])) {
     echo '<script type="text/javascript">notification();</script>';
     unset($_SESSION['received']);
@@ -464,7 +471,7 @@ if (!isset($_SESSION['User'])) {
     echo '<script type="text/javascript">send();</script>';
     unset($_SESSION['send']);
   }
-  ?>
+  ?> -->
 </body>
 
 </html>
