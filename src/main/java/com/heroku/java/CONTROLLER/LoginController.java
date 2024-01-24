@@ -62,12 +62,12 @@ public class LoginController {
                     session.setAttribute("adminId", inputId);
                     session.setAttribute("staffPass", inputPass);
                     
-                    return "redirect:/index?success=true";
+                    return "redirect:/adminDashboard?success=true";
                 }   
             }
 
             connection.close();
-            return "redirect:/admin?invalidUsername&Password";
+            return "redirect:/adminDashboard?invalidUsername&Password";
 
             
 
@@ -131,7 +131,7 @@ public class LoginController {
                         // debug
                         System.out.println("manager name : " + staffName);
                         System.out.println("manager id: " + adminId);
-                        return "redirect:/admindashboard?success=true";
+                        return "redirect:/staffdashboard?success=true";
 
                     } else {
 
@@ -196,12 +196,12 @@ public class LoginController {
                     session.setAttribute("custUsername", inputUsername);
                     session.setAttribute("custUsername", inputPassword);
                     
-                    return "redirect:/facilitylist?success=true";
+                    return "redirect:/reservationCust?success=true";
                 }
             }
 
             connection.close();
-            return "redirect:/facilitylist?invalidUsername&Password";
+            return "redirect:/reservationCust?-";
 
         } catch (SQLException sqe) {
             System.out.println("Error Code = " + sqe.getErrorCode());
