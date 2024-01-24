@@ -273,17 +273,33 @@ public class FacilitiesController {
             String sql = "UPDATE facility SET facilityId=?, facilityStatus=?, facilityPrice=?, facilityName=?, facilityQtty=?, facilityDescription=?, facilityType=?, facilityPic=?, staffId=? WHERE facilityId=?";
             final var statement = connection.prepareStatement(sql);
 
-            statement.setString(1, facility.getFacilityId());
-            statement.setString(2, facility.getFacilityStatus());
-            statement.setDouble(3, facility.getFacilityPrice());
-            statement.setString(4, facility.getFacilityName());
-            statement.setInt(5, facility.getFacilityQtty());
-            statement.setString(6, facility.getFacilityDescription());
-            statement.setString(7, facility.getFacilityType());
-            statement.setBytes(8, facility.getFacilityPic());
-           statement.setString(9, facility.getStaffId());
-            statement.executeUpdate();
+            String facilityId=facility.getFacilityId();
+            String facilityStatus=facility.getFacilityStatus();
+            double facilityPrice=facility.getFacilityPrice();
+            String facilityName=facility.getFacilityName();
+            int facilityQtty=facility.getFacilityQtty();
+            String facilityDescription=facility.getFacilityDescription();
+            String facilityType=facility.getFacilityType();
+            byte[] facilityPic=facility.getFacilityPic();
+            String staffId=facility.getStaffId();
 
+            if (facilityType.equalsIgnoreCase("room")){
+            facilityType = "Room";}
+            else {
+            facilityType = "Equipment";}
+
+            
+            statement.setString(1, facilityId);
+            statement.setString(2, facilityStatus);
+            statement.setDouble(3, facilityPrice);
+            statement.setString(4, facilityName);
+            statement.setInt(5, facilityQtty);
+            statement.setString(6, facilityDescription);
+            statement.setString(7, facilityType);
+            statement.setBytes(8, facilityPic);
+            statement.setString(9, staffId);
+
+            statement.executeUpdate();
 
             // Update fields specific to "room" or "equipment" based on the facility type
             if ("Room".equalsIgnoreCase(facility.getFacilityType())) {
@@ -301,14 +317,14 @@ public class FacilitiesController {
 
                 equipmentStatement.executeUpdate();
             }
-
+             System.out.println("debug= " + facilityId + " " + facilityName);
             connection.close();
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return "redirect:/facilityedit?success=false";
+        } catch (Throwable t) {
+            System.out.println("message : " + t.getMessage());
+            System.out.println("error");
         }
-        return "redirect:/facilitylist?success=true";
+        return  "redirect:/facilitylist";
     }
 
 }
