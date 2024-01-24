@@ -339,7 +339,7 @@ public class FacilitiesController {
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.setString(1, facilityId);
                 //int rowsAffected = statement.executeUpdate();
-
+                statement.executeUpdate();
                 if (rowsAffected > 0) {
                     // Deletion successful
                     connection.close();
