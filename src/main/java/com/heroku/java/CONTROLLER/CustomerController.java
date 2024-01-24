@@ -71,7 +71,7 @@ public String signup(@ModelAttribute("signup")customer customer){
     }
 
     @GetMapping("/customerList")
-    public String customerList(MODEL model){
+    public String customerList(Model model){
 
         List<customer> customers = new ArrayList<customer>();
         try (Connection connection = dataSource.getConnection()) {
