@@ -67,7 +67,11 @@ public class GettingStartedApplication {
 
     }
 
-    
+     @GetMapping("/addstaff")
+    public String addstaff() {
+        return "addstaff";
+
+    }
 
     
     @GetMapping("/login")
