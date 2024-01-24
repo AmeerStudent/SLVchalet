@@ -83,7 +83,7 @@ session_start();
                         <li><a style="text-decoration: none;" th:href="@{/admindashboard}">Dashboard</a></li>
                         <li><a style="text-decoration: none;" th:href="@{/facilityedit}">Update Facilities</a></li>
                         <li><a style="text-decoration: none;" th:href="@{/facilityregister}">Add Facility</a></li>
-                        <li><a style="text-decoration: none;" th:href="@{/staffregister}">Register New staff</a></li>
+                        <li><a style="text-decoration: none;" th:href="@{/addstaff}">Register New staff</a></li>
                         <li><a style="text-decoration: none;" th:href="@{/logout}">Logout</a></li>
                     </ul>
                 </li>
@@ -156,7 +156,7 @@ session_start();
 										</td>
  										<td>
                    								<a 
-										th:href="@{/updateStaff?staffId=}+${staffs.staffId}" class="btn update-button btn-primary">Edit</a>
+										th:href="@{/updatestaff?staffId=}+${staffs.staffId}" class="btn update-button btn-primary">Edit</a>
             									</td>
 										<td>
              								  	<a 
@@ -168,7 +168,7 @@ session_start();
 									</tbody>
 								</table>
 								<div style="color: white; font-size: 10px;">
-									&nbsp; <a th:href="@{/staffregister}" class="btn btn-danger square-btn-adjust">Register Staff</a>
+									&nbsp; <a th:href="@{/addstaff}" class="btn btn-danger square-btn-adjust">Register Staff</a>
 								</div>
 							</div>
 
