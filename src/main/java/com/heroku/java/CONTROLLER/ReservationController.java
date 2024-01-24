@@ -206,10 +206,7 @@ public class ReservationController {
             statement.setString(5, paymentStatus);
             statement.setString(6, receipt);
 
-            statement.executeUpdate();
-
-
-                equipmentStatement.executeUpdate();
+            statement.executeUpdate();               
             }
              System.out.println("debug= " + reserveId);
             connection.close();
