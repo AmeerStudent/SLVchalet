@@ -70,45 +70,45 @@ public String signup(@ModelAttribute("signup")customer customer){
         return "redirect:/profile";
     }
 
-    // @GetMapping("/customerList")
-    // public String customerList(MODEL model){
+    @GetMapping("/customerList")
+    public String customerList(MODEL model){
 
-    //     List<customer> customers = new ArrayList<customer>();
-    //     try (Connection connection = dataSource.getConnection()) {
-    //         String sql = "SELECT custUsername, custPhoneNo, custEmail, custName, custPass, custAddress FROM public.customer order by custUsername";
-    //         final var statement = connection.prepareStatement(sql);
-    //         final var resultSet = statement.executeQuery();
-    //         System.out.println("pass try customerList >>>>>");
+        List<customer> customers = new ArrayList<customer>();
+        try (Connection connection = dataSource.getConnection()) {
+            String sql = "SELECT custUsername, custPhoneNo, custEmail, custName, custPass, custAddress FROM public.customer order by custUsername";
+            final var statement = connection.prepareStatement(sql);
+            final var resultSet = statement.executeQuery();
+            System.out.println("pass try customerList >>>>>");
 
-    //         while (resultSet.next()) {
-    //             String custUsername = resultSet.getString("custUsername");
-    //             String custPhoneNo = resultSet.getString("custPhoneNo");  
-    //             String custEmail = resultSet.getString("custEmail"); 
-    //             String custName = resultSet.getString("custName");
-    //             String custPass = resultSet.getString("custPass");
-    //             String custAddress = resultSet.getString("custAddress");
+            while (resultSet.next()) {
+                String custUsername = resultSet.getString("custUsername");
+                String custPhoneNo = resultSet.getString("custPhoneNo");  
+                String custEmail = resultSet.getString("custEmail"); 
+                String custName = resultSet.getString("custName");
+                String custPass = resultSet.getString("custPass");
+                String custAddress = resultSet.getString("custAddress");
 
-    //             customer customer = new customer();
-    //             customer.setCustUsername(custUsername);
-    //             customer.setCustPhoneNo(custPhoneNo);
-    //             customer.setCustEmail(custEmail);
-    //             customer.setCustName(custName);
-    //             customer.setCustPass(custPass);
-    //             customer.setCustAddress(custAddress);
+                customer customer = new customer();
+                customer.setCustUsername(custUsername);
+                customer.setCustPhoneNo(custPhoneNo);
+                customer.setCustEmail(custEmail);
+                customer.setCustName(custName);
+                customer.setCustPass(custPass);
+                customer.setCustAddress(custAddress);
 
-    //             customers.add(customer);
-    //             MODEL.addAttribute("customers", customers);
+                customers.add(customer);
+                MODEL.addAttribute("customers", customers);
 
-    //         }
-    //         connection.close();
-    //          return "customerList";
-    //         } catch (SQLException e) {
-    //             e.printStackTrace();
-    //              // Handle the exception as desired (e.g., show an error message)
-    //             return "error";
-    //         }
-    //     }
-    // }
+            }
+            connection.close();
+             return "customerList";
+            } catch (SQLException e) {
+                e.printStackTrace();
+                 // Handle the exception as desired (e.g., show an error message)
+                return "error";
+            }
+        }
+    }
 
 	@GetMapping("/profile")
          public String profile(@RequestParam("custUsername") String custUsername, Model model) {
