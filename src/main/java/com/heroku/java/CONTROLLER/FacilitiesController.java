@@ -221,6 +221,7 @@ public class FacilitiesController {
      @GetMapping("/facilityedit")
     public String facilityedit(@RequestParam("facilityId") String facilityId, Model model) {
         try {
+            System.out.println("facility id from parameter: " + facilityId);
             Connection connection = dataSource.getConnection();
             String sql = "SELECT facility.facilityId, facility.facilityStatus, facility.facilityPrice, facility.facilityName, facility.facilityQtty, facility.facilityDescription, facility.facilityType, facility.facilityPic,  facility.staffId, room.roomCategory, equipment.equipType "
             + "FROM facility "
