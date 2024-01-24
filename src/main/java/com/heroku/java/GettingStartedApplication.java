@@ -97,6 +97,11 @@ public class GettingStartedApplication {
     public String custregister() {
         return "user/customerregister";
     }
+     @GetMapping("/facilityedit")
+    public String facilityedit() {
+        return "facilityedit";
+    }
+
 
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
