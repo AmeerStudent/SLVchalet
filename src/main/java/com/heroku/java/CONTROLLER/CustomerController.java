@@ -238,7 +238,7 @@ public String signup(@ModelAttribute("signup")customer customer){
                 customer.setCustPass(custPass);
                 customer.setCustAddress(custAddress);
 
-                model.addAttribute("customers", customers);
+                model.addAttribute("customers", customer);
                 connection.close();
             }
            }  catch (Exception e) {
