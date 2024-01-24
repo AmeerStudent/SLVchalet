@@ -93,10 +93,7 @@ public class GettingStartedApplication {
 
     }
     
-    @GetMapping("/profile")
-    public String profile() {
-        return "profile";
-    }
+    
 
     @GetMapping("/product")
     public String product() {
