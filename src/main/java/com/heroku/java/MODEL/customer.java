@@ -1,18 +1,18 @@
 package com.heroku.java.MODEL;
 
 public class customer {
-    private String custId;
+    private String custUsername;
 	private String custPhoneNo;
 	private String custEmail;
 	private String custName;
 	private String custPass;
 	private String custAddress;
 	
-	public String getCustId() {
-		return custId;
+	public String getCustUsername() {
+		return custUsername;
 	}
-	public void setCustId(String custId) {
-		this.custId = custId;
+	public void setCustUsername(String custUsername) {
+		this.custUsername = custUsername;
 	}
 	public String getCustPhoneNo() {
 		return custPhoneNo;
