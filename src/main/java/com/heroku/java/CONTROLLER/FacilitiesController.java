@@ -266,49 +266,49 @@ public class FacilitiesController {
     //     return "facilityedit";
     // }
 
-    // @PostMapping("/facilityedit")
-    // public String facilityedit(@ModelAttribute("productadmin")  facility facility, room room, equipment equipment) {
-    //     try {
-    //         Connection connection = dataSource.getConnection();
-    //         String sql = "UPDATE facility SET facilityId=?, facilityStatus=?, facilityPrice=?, facilityName=?, facilityQtty=?, facilityDescription=?, facilityType=?, facilityPic=?, staffId=? WHERE facilityId=?";
-    //         final var statement = connection.prepareStatement(sql);
+    @PostMapping("/facilityedit")
+    public String facilityedit(@ModelAttribute("facilityedit")  facility facility, room room, equipment equipment) {
+        try {
+            Connection connection = dataSource.getConnection();
+            String sql = "UPDATE facility SET facilityId=?, facilityStatus=?, facilityPrice=?, facilityName=?, facilityQtty=?, facilityDescription=?, facilityType=?, facilityPic=?, staffId=? WHERE facilityId=?";
+            final var statement = connection.prepareStatement(sql);
 
-    //         statement.setString(1, facility.getFacilityId());
-    //         statement.setString(2, facility.getFacilityStatus());
-    //         statement.setString(3, facility.getFacilityPrice());
-    //         statement.setString(4, facility.getFacilityName());
-    //         statement.setString(5, facility.getFacilityQtty());
-    //         statement.setString(6, facility.getFacilityDescription());
-    //         statement.setString(7, facility.getFacilityType());
-    //         statement.setString(8, facility.getFacilityPic());
-    //        statement.setString(9, facility.getStaffId());
-    //         statement.executeUpdate();
+            statement.setString(1, facility.getFacilityId());
+            statement.setString(2, facility.getFacilityStatus());
+            statement.setString(3, facility.getFacilityPrice());
+            statement.setString(4, facility.getFacilityName());
+            statement.setString(5, facility.getFacilityQtty());
+            statement.setString(6, facility.getFacilityDescription());
+            statement.setString(7, facility.getFacilityType());
+            statement.setString(8, facility.getFacilityPic());
+           statement.setString(9, facility.getStaffId());
+            statement.executeUpdate();
 
 
-    //         // Update fields specific to "room" or "equipment" based on the facility type
-    //         if ("Room".equalsIgnoreCase(facility.getFacilityType())) {
-    //             String roomSql = "UPDATE room SET roomCategory=? WHERE facilityId=?";
-    //             final var roomStatement = connection.prepareStatement(roomSql);
-    //             roomStatement.setString(1, room.getRoomCategory());
-    //             roomStatement.setString(2, facility.getFacilityId());
+            // Update fields specific to "room" or "equipment" based on the facility type
+            if ("Room".equalsIgnoreCase(facility.getFacilityType())) {
+                String roomSql = "UPDATE room SET roomCategory=? WHERE facilityId=?";
+                final var roomStatement = connection.prepareStatement(roomSql);
+                roomStatement.setString(1, room.getRoomCategory());
+                roomStatement.setString(2, facility.getFacilityId());
 
-    //             roomStatement.executeUpdate();
-    //         } else if ("Equipment".equalsIgnoreCase(facility.getFacilityType())) {
-    //             String equipmentSql = "UPDATE equipment SET equipType=? WHERE facilityId=?";
-    //             final var equipmentStatement = connection.prepareStatement(equipmentSql);
-    //             equipmentStatement.setString(1, equipment.getEquipType());
-    //             equipmentStatement.setString(2, facility.getFacilityId());
+                roomStatement.executeUpdate();
+            } else if ("Equipment".equalsIgnoreCase(facility.getFacilityType())) {
+                String equipmentSql = "UPDATE equipment SET equipType=? WHERE facilityId=?";
+                final var equipmentStatement = connection.prepareStatement(equipmentSql);
+                equipmentStatement.setString(1, equipment.getEquipType());
+                equipmentStatement.setString(2, facility.getFacilityId());
 
-    //             equipmentStatement.executeUpdate();
-    //         }
+                equipmentStatement.executeUpdate();
+            }
 
-    //         connection.close();
+            connection.close();
 
-    //     } catch (SQLException e) {
-    //         e.printStackTrace();
-    //         return "redirect:/facilityedit?success=false";
-    //     }
-    //     return "redirect:/facilitylist?success=true";
-    // }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "redirect:/facilityedit?success=false";
+        }
+        return "redirect:/facilitylist?success=true";
+    }
 
 }
