@@ -201,7 +201,7 @@ public class LoginController {
             }
 
             connection.close();
-            return "redirect:/product?invalidUsername&Password";
+            return "redirect:/login?invalidUsername&Password";
 
         } catch (SQLException sqe) {
             System.out.println("Error Code = " + sqe.getErrorCode());
