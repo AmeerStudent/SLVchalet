@@ -135,8 +135,7 @@ session_start();
 					<div class="panel panel-default">
 						<div class="panel-heading">FACILITIES</div>
 						<div class="panel-body">
-						<!-- Search Bar -->
-                            			<input type="text" class="form-control mb-2" id="searchInput" placeholder="Search...">
+						
 							<div class="table-responsive">
 								<table class="table table-striped table-bordered table-hover"
 									id="dataTables-example">
@@ -215,40 +214,5 @@ session_start();
         		}
     		}
 	</script>
-	<script>
-    // Add event listener to the search input
-    document.getElementById('searchInput').addEventListener('input', function() {
-        searchTable();
-    });
-
-    // Function to filter the table based on the search input
-    function searchTable() {
-        var input, filter, table, tr, tdID, tdName, i, txtValueID, txtValueName;
-        input = document.getElementById("searchInput");
-        filter = input.value.toUpperCase();
-        table = document.querySelector("#dataTables-example");
-        tr = table.getElementsByTagName("tr");
-
-        for (i = 0; i < tr.length; i++) {
-            // Loop through all table rows, and hide those that don't match the search query
-            tdID = tr[i].getElementsByTagName("td")[0]; 
-            tdName = tr[i].getElementsByTagName("td")[1]; 
-
-            if (tdID && tdName) {
-                txtValueID = tdID.textContent || tdID.innerText;
-                txtValueName = tdName.textContent || tdName.innerText;
-
-              
-                if (
-                    txtValueID.toUpperCase().indexOf(filter) > -1 ||
-                    txtValueName.toUpperCase().indexOf(filter) > -1
-                ) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
-</script>
+	
 </html>
