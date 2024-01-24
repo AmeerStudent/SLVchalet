@@ -152,71 +152,71 @@ public class ReservationController {
     }
 
     // // get and post mapping for update reservation
-     @GetMapping("/updateReservation")
-    public String updateReservation(@RequestParam("reserveId") String reserveId, Model model) {
-        try {
-            System.out.println("reserveId from parameter: " + reserveId);
-            Connection connection = dataSource.getConnection();
-            String sql = "SELECT reserveId, reserveCheckIn, reserveCheckOut, reserveStatus, paymentStatus, receipt FROM reservation WHERE reserveId = ?";
+    //  @GetMapping("/updateReservation")
+    // public String updateReservation(@RequestParam("reserveId") String reserveId, Model model) {
+    //     try {
+    //         System.out.println("reserveId from parameter: " + reserveId);
+    //         Connection connection = dataSource.getConnection();
+    //         String sql = "SELECT reserveId, reserveCheckIn, reserveCheckOut, reserveStatus, paymentStatus, receipt FROM reservation WHERE reserveId = ?";
 
-            final var statement = connection.prepareStatement(sql);
-            statement.setString(1, reserveId);
-            final var resultSet = statement.executeQuery();
+    //         final var statement = connection.prepareStatement(sql);
+    //         statement.setString(1, reserveId);
+    //         final var resultSet = statement.executeQuery();
 
-            if (resultSet.next()) {
+    //         if (resultSet.next()) {
                
                 
-                String reserveCheckIn = resultSet.getString("reserveCheckIn");
-                String reserveCheckOut = resultSet.getString("reserveCheckOut");
-                String reserveStatus = resultSet.getString("reserveStatus");
-                String paymentStatus = resultSet.getString("paymentStatus");
-                String receipt = resultSet.getString("receipt");
+    //             String reserveCheckIn = resultSet.getString("reserveCheckIn");
+    //             String reserveCheckOut = resultSet.getString("reserveCheckOut");
+    //             String reserveStatus = resultSet.getString("reserveStatus");
+    //             String paymentStatus = resultSet.getString("paymentStatus");
+    //             String receipt = resultSet.getString("receipt");
 
-                model.addAttribute("reservation", reservation); // Use "reservation" as the model attribute name
+    //             model.addAttribute("reservation", reservation); // Use "reservation" as the model attribute name
 
-                connection.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    //             connection.close();
+    //         }
+    //     } catch (SQLException e) {
+    //         e.printStackTrace();
+    //     }
 
-        return "updateReservation";
-    }
+    //     return "updateReservation";
+    // }
 
-    @PostMapping("/updateReservation")
-    public String updateReservation(@ModelAttribute("updateReservation")  reservation reservation) {
-        try {
-            Connection connection = dataSource.getConnection();
-            String sql = "UPDATE reservation SET reserveId=?, reserveCheckIn=?, reserveCheckOut=?, reserveStatus=?, paymentStatus=?, receipt=? FROM reservation WHERE reserveId = ?";
-            final var statement = connection.prepareStatement(sql);
+    // @PostMapping("/updateReservation")
+    // public String updateReservation(@ModelAttribute("updateReservation")  reservation reservation) {
+    //     try {
+    //         Connection connection = dataSource.getConnection();
+    //         String sql = "UPDATE reservation SET reserveId=?, reserveCheckIn=?, reserveCheckOut=?, reserveStatus=?, paymentStatus=?, receipt=? FROM reservation WHERE reserveId = ?";
+    //         final var statement = connection.prepareStatement(sql);
 
-            String reserveId=reservation.getReserveId();
-            String reserveCheckIn=reservation.getReserveCheckIn();
-            String reserveCheckOut=reservation.getReserveCheckOut();
-            String reserveStatus=reservation.getReserveStatus();
-            String paymentStatus=reservation.getPaymentStatus();
-            String receipt=reservation.getReceipt();
+    //         String reserveId=reservation.getReserveId();
+    //         String reserveCheckIn=reservation.getReserveCheckIn();
+    //         String reserveCheckOut=reservation.getReserveCheckOut();
+    //         String reserveStatus=reservation.getReserveStatus();
+    //         String paymentStatus=reservation.getPaymentStatus();
+    //         String receipt=reservation.getReceipt();
             
 
             
-            statement.setString(1, reserveId);
-            statement.setString(2, reserveCheckIn);
-            statement.setString(3, reserveCheckOut);
-            statement.setString(4, reserveStatus);
-            statement.setString(5, paymentStatus);
-            statement.setString(6, receipt);
+    //         statement.setString(1, reserveId);
+    //         statement.setString(2, reserveCheckIn);
+    //         statement.setString(3, reserveCheckOut);
+    //         statement.setString(4, reserveStatus);
+    //         statement.setString(5, paymentStatus);
+    //         statement.setString(6, receipt);
 
-            statement.executeUpdate();               
+    //         statement.executeUpdate();               
             
-             System.out.println("debug= " + reserveId);
-            connection.close();
+    //          System.out.println("debug= " + reserveId);
+    //         connection.close();
 
-        } catch (Throwable t) {
-            System.out.println("message : " + t.getMessage());
-            System.out.println("error");
-        }
-        return  "redirect:/reservationList";
-    }
+    //     } catch (Throwable t) {
+    //         System.out.println("message : " + t.getMessage());
+    //         System.out.println("error");
+    //     }
+    //     return  "redirect:/reservationList";
+    // }
 
     @GetMapping("/deleteReservation")
     public String deleteReservation(String reserveId) {
