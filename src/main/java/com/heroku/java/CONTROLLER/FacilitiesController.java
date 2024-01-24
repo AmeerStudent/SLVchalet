@@ -124,7 +124,7 @@ public class FacilitiesController {
                 int facilityQtty = resultSet.getInt("facilityQtty");
                 String facilityDescription = resultSet.getString("facilityDescription");
                 String facilityType = resultSet.getString("facilityType");
-                 byte[] facilityPic = resultSet.getByte[]("facilityPic");
+                 byte[] facilityPic = resultSet.getBytes("facilityPic");
                 String staffId = resultSet.getString("staffId");
                 facility facility;
                 if (facilityType.equalsIgnoreCase("room")) {
