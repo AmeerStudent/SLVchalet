@@ -128,100 +128,58 @@ session_start();
       </div>
     </form>
     <h1>Facilities Listing</h1>
-    <?php
-    if (isset($_GET['title'])) {
-      if (!empty($_GET['title'])) {
-        $title = $_GET['title'];
+    <!-- /. ROW  -->
+				<hr />
+				<div class="col-md-12">
+					<!-- Advanced Tables -->
+					<div class="panel panel-default">
+						<div class="panel-heading">facilities</div>
+						<div class="panel-body">
+						<!-- Search Bar -->
+                            			<input type="text" class="form-control mb-2" id="searchInput" placeholder="Search...">
+							<div class="table-responsive">
+								<table class="table table-striped table-bordered table-hover"
+									id="dataTables-example">
+									<thead>
+										<tr>
+											<th>FACILITY ID</th>
+											<th>FCILITY NAME</th>
+											<th colspan="2">Action</th>
+										</tr>
+									</thead>
+									<tbody></tbody>
+										<tr th:each="facilities : ${facilitiess}">
+										<td th:text="${facilities.facilityId}"></td>
+        									<td th:text="${facilities.facilityName}"></td>	
+ 										<td>
+										<a
+										th:href="@{/facilityview?facilityId=}+${facilities.facilityId}" class="btn view-button btn-info">Info</a>
+										</td>
+ 										<td>
+                   								<a 
+										th:href="@{/facilityedit?facilityId=}+${facilities.facilityId}" class="btn update-button btn-primary">Edit</a>
+            									</td>
+										<td>
+             								  	<a 
+                   								th:href="@{/deletefacility/(facilityId=${facilities.facilityId})}" 
+                   								value="{facilities.facilityId}" 
+                   								onclick="return confirm('Are you sure you want to delete this facility?')"><button class="btn delete-button btn-danger" >Delete</button></a>
+            									</td>
+									</tr>
+									</tbody>
+								</table>
+								<div style="color: white; font-size: 10px;">
+									&nbsp; <a th:href="@{/facilityregister}" class="btn btn-danger square-btn-adjust">Register facility</a>
+								</div>
+							</div>
 
-        if ($_GET['category'] == '1') {
-          $query = "SELECT * FROM products WHERE type = 'Product' AND product_title LIKE '%$title%' ";
-          $result = mysqli_query($sql_connect, $query);
-        } else if ($_GET['category'] == '2') {
-          $query = "SELECT * FROM products WHERE type = 'Product' AND product_category = 'Food And Beverages' AND product_title LIKE '%$title%' ";
-          $result = mysqli_query($sql_connect, $query);
-        } else if ($_GET['category'] == '3') {
-          $query = "SELECT * FROM products WHERE type = 'Product' AND product_category = 'Fashion' AND product_title LIKE '%$title%' ";
-          $result = mysqli_query($sql_connect, $query);
-        } else if ($_GET['category'] == '4') {
-          $query = "SELECT * FROM products WHERE type = 'Product' AND product_category = 'Electronics' AND product_title LIKE '%$title%' ";
-          $result = mysqli_query($sql_connect, $query);
-        } else if ($_GET['category'] == '5') {
-          $query = "SELECT * FROM products WHERE type = 'Product' AND product_category = 'Others' AND product_title LIKE '%$title%' ";
-          $result = mysqli_query($sql_connect, $query);
-        }
-      } else if (empty($_GET['title'])) {
-        if ($_GET['category'] == '1') {
-          $query = "SELECT * FROM products WHERE type = 'Product' ORDER BY product_date DESC";
-          $result = mysqli_query($sql_connect, $query);
-        } else if ($_GET['category'] == '2') {
-          $query = "SELECT * FROM products WHERE type = 'Product' AND product_category = 'Food And Beverages'";
-          $result = mysqli_query($sql_connect, $query);
-        } else if ($_GET['category'] == '3') {
-          $query = "SELECT * FROM products WHERE type = 'Product' AND product_category = 'Fashion'";
-          $result = mysqli_query($sql_connect, $query);
-        } else if ($_GET['category'] == '4') {
-          $query = "SELECT * FROM products WHERE type = 'Product' AND product_category = 'Electronics'";
-          $result = mysqli_query($sql_connect, $query);
-        } else if ($_GET['category'] == '5') {
-          $query = "SELECT * FROM products WHERE type = 'Product' AND product_category = 'Others'";
-          $result = mysqli_query($sql_connect, $query);
-        }
-      }
-    } else {
-      $query = "SELECT * FROM products WHERE type = 'Product' ORDER BY product_date DESC";
-      $result = mysqli_query($sql_connect, $query);
-    }
 
-    if (mysqli_num_rows($result) == 0) {
-      echo '<div class="card">
-              <div class="card-body">
-                No ads found.
-              </div>
-            </div>';
-    } else {
-      while ($prod = mysqli_fetch_assoc($result)) {
-    ?>
-        <div class="card">
-          <div class="card-body">
-            <div class="image" style="max-height:192px; ">
-              <?php
-              $id = $prod['product_id'];
-              $query2 = "SELECT pic_name FROM pic_product WHERE product_id = '$id'";
-              $result2 = mysqli_query($sql_connect, $query2);
-              $pic = mysqli_fetch_assoc($result2);
-              ?>
-              <img style="max-height:190px; object-fit:scale-down;" src="images/<?php echo $pic['pic_name'] ?>" alt="">
-            </div>
-            <div class="title">
-              <h4 style="font-weight:1000;"><?php echo $prod['product_title'] ?></h4>
-              <p style="width: 650px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
-                <?php echo $prod['product_des'] ?>
-              </p>
+						</div>
 
-              <?php
-              $query_min_price = "SELECT MIN(`var_product_price`) AS lowest , MAX(`var_product_price`) AS highest FROM  `var_product` WHERE product_id = '$id'";
-              $result_price = mysqli_query($sql_connect, $query_min_price);
-              if ($row = mysqli_fetch_array($result_price)) {
-                if ($row['highest'] == $row['lowest'])
-                  $price = 'RM' . $row['highest'];
 
-                else
-                  $price = 'RM' . $row['lowest'] . ' - RM ' . $row['highest'];
-              }
-              ?>
-              
-              <h4 class="price-tag">Price : <?php echo $price ?></h4>
-              <div class="btn-prod">
-                <form action="view.php" method="get">
-                  <button class="go-to-btn" name="view_prod" type="submit" value="<?php echo $prod['product_id']; ?>">Book Now </button>
-                </form>
-              </div>
-            </div>
-          </div>
-          </div>
-        </div>
-    <?php  }
-    } ?>
+
+					</div>
+				</div>
   </div>
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
@@ -247,5 +205,50 @@ session_start();
   <script src="assets/js/main.js"></script>
 
 </body>
+<script>
+    		function hideDeleteButton(role) {
+        		if (staffId == null) {
+            			var deleteButtons = document.getElementsByClassName('delete-button');
+			        for (var i = 0; i < deleteButtons.length; i++) {
+                		deleteButtons[i].style.display = 'none';
+			        }
+        		}
+    		}
+	</script>
+	<script>
+    // Add event listener to the search input
+    document.getElementById('searchInput').addEventListener('input', function() {
+        searchTable();
+    });
 
+    // Function to filter the table based on the search input
+    function searchTable() {
+        var input, filter, table, tr, tdID, tdName, i, txtValueID, txtValueName;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.querySelector("#dataTables-example");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            // Loop through all table rows, and hide those that don't match the search query
+            tdID = tr[i].getElementsByTagName("td")[0]; // Column index for Diagnosis ID
+            tdName = tr[i].getElementsByTagName("td")[1]; // Column index for Diagnosis Name
+
+            if (tdID && tdName) {
+                txtValueID = tdID.textContent || tdID.innerText;
+                txtValueName = tdName.textContent || tdName.innerText;
+
+                // Check if either Diagnosis ID or Diagnosis Name contains the filter text
+                if (
+                    txtValueID.toUpperCase().indexOf(filter) > -1 ||
+                    txtValueName.toUpperCase().indexOf(filter) > -1
+                ) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
 </html>
