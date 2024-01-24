@@ -49,43 +49,45 @@
                         <tr>
                             <th scope="col"></th>
                             <th scope="col" style="text-align:center;">Item</th>
-                            <th scope="col"></th>
+                            <th scope="col">Description</th>
                             <th scope="col">Price</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Date</th>
                             <th scope="col">Subtotal</th>
                         </tr>
+                      										Staff ID : 	<input type="text" name="" th:value="${facility.staffId}" class="form-control" value="ignore" disabled> <br>  
+										Facility ID :<input type="text" name="" th:value="${facility.facilityId}" class="form-control" disabled> <br>
+										Facility Name :<input type="text" name="" th:value="${facility.facilityName}" class="form-control" disabled> <br>
+										Facility Price :<input type="text" name="" th:value="${facility.facilityPrice}" class="form-control" disabled> <br>
+                                        Facility Status : 	<input type="text" name="" th:value="${facility.facilityStatus}" class="form-control" value="ignore" disabled> <br>  
+										Facility Quantity :<input type="text" name="" th:value="${facility.facilityQtty}" class="form-control" disabled> <br>
+										Facility Description :<input type="text" name="" th:value="${facility.facilityDescription}" class="form-control" disabled> <br>
+										Facility Type :<input type="text" name="" th:value="${facility.facilityType}" class="form-control" disabled> <br>
+                                        Facility Picture :<input type="text" name="" th:value="${facility.facilityPic}" class="form-control" disabled> <br>
+									</p>
                     </thead>
-                    <tr>
-                        <th scope="row" style="text-align:center; vertical-align:middle;">
-                            <form action="inc/deletecart.php" method="POST">
-                                <button type="submit" name="submit" id="submit" value="1" class="btn btn-danger">
-                                    <span class="material-icons align-middle">
-                                        highlight_off
-                                    </span>
-                                </button>
-                            </form>
-                        </th>
-                        <td width=200px; style="text-align:center;">
-                            <img src="images/product1.jpg" height=100px; alt="">
-                        </td>
-                        <td style="vertical-align:middle;">
-                            <p><a href="view.php?view_prod=1">Product 1</a></p>
-                            <p>Variation : Variation 1</p>
-                        </td>
-                        <td style="vertical-align:middle;">
-                            RM 100
-                        </td>
-                        <td style="vertical-align:middle;">
-                            2
-                        </td>
-                        <td style="vertical-align:middle;">
-
-                        </td>
-                        <td style="vertical-align:middle;">
-                            RM 200
-                        </td>
-                    </tr>
+                  <tr th:each="facilities : ${facilitiess}">
+										<td th:text="${facilities.facilityName}"></td>
+                    <td th:text="${facilities.facilityPrice}"></td>
+                    <td th:text="${facilities.facilityDescription}"></td>
+                    <td th:text="${facilities.facilityQtty}"></td>
+                    <td th:text="${facilities.facilityDate}"></td>
+        						<td th:text="${facilities.facilitySubtotal}"></td>	
+ 										<td>
+										<a
+										th:href="@{/facilityview?facilityId=}+${facilities.facilityId}" class="btn view-button btn-info">Info</a>
+										</td>
+ 										<td>
+                   								<a 
+										th:href="@{/facilityedit?facilityId=}+${facilities.facilityId}" class="btn update-button btn-primary">Edit</a>
+            									</td>
+										<td>
+             								  	<a 
+                   								th:href="@{/deletefacility?facilityId=}+${facilities.facilityId}" 
+                   								value="{facilities.facilityId}" 
+                   								onclick="return confirm('Are you sure you want to delete this facility?')"><button class="btn delete-button btn-danger" >Delete</button></a>
+            									</td>
+									</tr>
                 </table>
             </tbody>
         </div>
