@@ -107,7 +107,7 @@ session_start();
     font-family: 'Montserrat', sans-serif;
   }
 </style>
-    <h1>Looking for facilities ?</h1>
+<!--     <h1>Looking for facilities ?</h1>
     <form method="GET">
       <div class="card">
         <div class="card-body">
@@ -126,7 +126,7 @@ session_start();
           </div>
         </div>
       </div>
-    </form>
+    </form> -->
     <h1>Facilities Listing</h1>
     <!-- /. ROW  -->
 				<hr />
@@ -159,12 +159,12 @@ session_start();
                    								<a 
 										th:href="@{/facilityedit?facilityId=}+${facilities.facilityId}" class="btn update-button btn-primary">Edit</a>
             									</td>
-										<td>
+<!-- 										<td>
              								  	<a 
                    								th:href="@{/deletefacility?facilityId=}+${facilities.facilityId}" 
                    								value="{facilities.facilityId}" 
                    								onclick="return confirm('Are you sure you want to delete this facility?')"><button class="btn delete-button btn-danger" >Delete</button></a>
-            									</td>
+            									</td> -->
 									</tr>
 									</tbody>
 								</table>
