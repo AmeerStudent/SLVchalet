@@ -329,4 +329,39 @@ public class FacilitiesController {
         return  "redirect:/facilitylist";
     }
 
+    @GetMapping("/deletefacility/")
+    public String deletefacility(String facilityId) {
+        
+        
+            try (Connection connection = dataSource.getConnection()){
+                
+                String sql = "DELETE FROM facilities WHERE facilityId = ?";
+                PreparedStatement statement = connection.prepareStatement(sql);
+                statement.setString(1, facilityId);
+                int rowsAffected = statement.executeUpdate();
+
+                if (rowsAffected > 0) {
+                    // Deletion successful
+                    connection.close();
+                    return "redirect:/facilitylist"; 
+                    // Redirect back to the facility list
+                } else {
+                    // Deletion failed
+                    connection.close();
+                    return "redirect:/facilitylist";
+                    // Redirect to an error page or show an error message
+                }
+
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                // Handle the exception as desired (e.g., show an error message)
+                // Redirect to an error page or show an error message
+                return "facilitylist";
+            }
+        
+
+        
+    }
+
 }
