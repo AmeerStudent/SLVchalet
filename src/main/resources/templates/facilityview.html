@@ -48,98 +48,24 @@ if (!isset($_SESSION['Admin'])) {
     <!-- <?php include 'inc/header.php' ?> -->
     <!-- ======= Hero Section ======= -->
 
-    <div class="container" style="margin-top:150px;">
+    <div class="container" style=" margin: auto;width: 50%;border: 3px solid #4154f1;padding: 10px;">
         <div class="container">
-            <h2>Create new facilities</h2>
-            <hr>
-            <div class="row">
-                <div class="col-md-8 " style=" margin: auto;width: 50%;border: 3px solid #4154f1;padding: 10px;">
-                    <div class="container">
-                        <div>
-                            <h4>Facility Details</h4>
-                        
-                            <!-- Staff ID -->
-                            <div class="form-group">
-                                <label for="staffId" class="input-title">Staff ID</label>
-                                <input type="text" id="staffId" name="staffId" class="form-control"  readonly>
-                            </div>
-                        
-                            <!-- Facility ID -->
-                            <div class="form-group">
-                                <label for="facilityId" class="input-title">Facility ID</label>
-                                <input type="text" id="facilityId" name="facilityId" class="form-control" readonly>
-                            </div>
-                        
-                            <!-- Facility Name -->
-                            <div class="form-group">
-                                <label for="facilityName" class="input-title">Facility Name</label>
-                                <input type="text" id="facilityName" name="facilityName" class="form-control" readonly>
-                            </div>
-                        
-                            <!-- Facility Price -->
-                            <div class="form-group">
-                                <label for="facilityPrice" class="input-title">Facility Price</label>
-                                <input type="text" id="facilityPrice" name="facilityPrice" class="form-control" readonly>
-                            </div>
-                        
-                            <!-- Facility Status -->
-                            <div class="form-group">
-                                <label for="facilityStatus" class="input-title">Facility Status</label>
-                                <select id="facilityStatus" name="facilityStatus" class="form-control" readonly>
-                                    <option value="available">Available</option>
-                                    <option value="notAvailable">Not Available</option>
-                                </select>
-                            </div>
-                        
-                            <!-- Facility Quantity -->
-                            <div class="form-group">
-                                <label for="facilityQtty" class="input-title">Facility Quantity</label>
-                                <input type="text" id="facilityQtty" name="facilityQtty" class="form-control" placeholder="Facility Quantity" readonly>
-                            </div>
-                        
-                            <!-- Facility Description -->
-                            <div class="form-group">
-                                <label for="facilityDescription" class="input-title">Facility Description</label>
-                                <textarea name="facilityDescription" class="form-control" rows="10"  readonly></textarea>
-                            </div>
-                        
-                            <!-- Facility Type -->
-                            <div class="form-group">
-                                <label for="facilityType" class="input-title">Facility Type</label>
-                                <select id="facilityType" name="facilityType" class="form-control" readonly>
-                                    <option value="room">Room</option>
-                                    <option value="equipment">Equipment</option>
-                                </select>
-                            </div>
-                        
-                            <!-- Room Category (if facility type is room) -->
-                            <div class="form-group" id="roomCategoryContainer" style="display: none;">
-                                <label for="roomCategory" class="input-title">Room Category</label>
-                                <select id="roomCategory" name="roomCategory" class="form-control">
-                                    <option value="riverView">River View</option>
-                                    <option value="nonRiverView">Non River View</option>
-                                </select>
-                            </div>
-                        
-                            <!-- Equipment Type (if facility type is equipment) -->
-                            <div class="form-group" id="equipmentTypeContainer" style="display: none;">
-                                <label for="equipType" class="input-title">Equipment Type</label>
-                                <select id="equipType" name="equipType" class="form-control">
-                                    <option value="recreation">Recreation</option>
-                                    <option value="hospitality">Hospitality</option>
-                                </select>
-                            </div>
-                        
-                            <!-- Facility Picture -->
-                            <div class="form-group">
-                                <label for="facilityPic" class="input-title">Facility Picture</label>
-                                <input type="file" id="facilityPic" name="facilityPic" onchange="preview_image();" readonly />
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
+            <h4>Facility Details</h4>
+									<p>
+											
+										Staff ID : 	<input type="text" name="" th:value="${facilities.staffId}" class="form-control" value="ignore" disabled> <br>  
+										Facility ID :<input type="text" name="" th:value="${facility.facilityId}" class="form-control" disabled> <br>
+										Facility Name :<input type="text" name="" th:value="${facility.facilityName}" class="form-control" disabled> <br>
+										Facility Price :<input type="text" name="" th:value="${facility.facilityPrice}" class="form-control" disabled> <br>
+                                        Facility Status : 	<input type="text" name="" th:value="${facility.facilityStatus}" class="form-control" value="ignore" disabled> <br>  
+										Facility Quantity :<input type="text" name="" th:value="${facility.facilityQtty}" class="form-control" disabled> <br>
+										Facility Description :<input type="text" name="" th:value="${facility.facilityDescription}" class="form-control" disabled> <br>
+										Facility Type :<input type="text" name="" th:value="${facility.facilityType}" class="form-control" disabled> <br>
+                                        Facility Picture :<input type="text" name="" th:value="${facility.facilityPic}" class="form-control" disabled> <br>
+									</p>
+           
+                
+            
         </div>
     </div>
     <!-- ======= Footer ======= -->
