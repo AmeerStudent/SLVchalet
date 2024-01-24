@@ -94,29 +94,68 @@
       </div>
     </form>
 
-    <h1>Facilities Listing</h1>
+   <div id="page-wrapper">
+			<div id="page-inner">
+				<div class="row">
+					<div class="col-md-12">
+						<h2>Patient List</h2>
 
-   <c:forEach var="facility" items="${listFacility}">
-  <div class="card">
-    <div class="card-body">
-      <div class="image" style="max-height: 192px;">
-        <img style="max-height: 190px; object-fit: scale-down;" src="images/${facility.facilityPic}" alt="">
-      </div>
-      <div class="title">
-        <img   th:value="${facility.facilityPic}" style="width: 100px; height: 100px;"/>
-        <h4 style="font-weight: 1000;" th:value="${facilityName}"/h4>
-        <p style="width: 650px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"th:value="${facility.facilityPic}">
-         
-        </p>
-        <h4 class="price-tag"th:value="${facility.facilityPic}">Price:</h4>
-        <div class="btn-prod">
-            <button class="go-to-btn" name="id" type="submit" value="${facility.facilityId}">Book</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</c:forEach>
+
+					</div>
+				</div>
+				<!-- /. ROW  -->
+				<hr />
+				<div class="col-md-12">
+					<!-- Advanced Tables -->
+					<div class="panel panel-default">
+						<div class="panel-heading">Patient's Account Table</div>
+						<div class="panel-body">
+							<!-- Search Bar -->
+                           				<input type="text" class="form-control mb-2" id="searchInput" placeholder="Search...">
+							<div class="table-responsive">
+								<table class="table table-striped table-bordered table-hover"
+									id="dataTables-example">
+									<thead>
+										<tr>
+											<th>Patient IC</th>
+											<th>Patient Name</th>
+											<th>Patient Tel</th>
+                                            						<th>Patient Gender</th>
+											<th colspan="3">Action</th>
+										</tr>
+									</thead>
+                                    					<tbody>
+									<tr th:each="patient : ${patients}">
+										<td th:text="${patient.patientIC}"></td>
+        									<td th:text="${patient.patientName}"></td>
+            									<td th:text="${patient.patientTel}"></td>
+										<td th:text="${patient.patientGender}"></td>
+										<td>
+										<a
+										th:href="@{/patientview?patientIC=}+${patient.patientIC}" class="btn view-button btn-info" >INFO</a>
+										</td>
+ 										<td>
+                   								<a
+										th:href="@{/patientedit?patientIC=}+${patient.patientIC}" class="btn edit-button btn-primary">EDIT</a>
+            									</td>
+										<td>
+             								  	<a
+                   								th:href="@{/deletepatient/(patientIC=${patient.patientIC})}" 
+                   								value="{patient.patientIC}" 
+                   								onclick="return confirm('Are you sure you want to delete this patient?')"><button class="btn delete-button btn-danger" >DELETE</button></a>
+            									</td>
+									</tr>
+								</tbody>
+                                </table>
+								<div style="color: white; font-size: 10px;">
+									&nbsp; <a th:href="@{/patientregister}" class="btn btn-danger square-btn-adjust">Register Patient </a>
+								 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End Advanced Tables -->
+                    
+		</div>
             <!-- Facility details table -->
 
 
