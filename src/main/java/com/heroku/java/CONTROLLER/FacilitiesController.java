@@ -218,53 +218,53 @@ public class FacilitiesController {
     // }
 
     // // get and post mapping for update facility
-    //  @GetMapping("/facilityedit")
-    // public String facilityedit(@RequestParam("facilityId") String facilityId, Model model) {
-    //     try {
-    //         Connection connection = dataSource.getConnection();
-    //         String sql = "SELECT facility.facilityId, facility.facilityStatus, facility.facilityPrice, facility.facilityName, facility.facilityQtty, facility.facilityDescription, facility.facilityType, facility.facilityPic,  facility.staffId, room.roomCategory, equipment.equipType "
-    //         + "FROM facility "
-    //         + "LEFT JOIN room ON facility.facilityId = room.facilityId "
-    //         + "LEFT JOIN equipment ON equipment.facilityId = facility.facilityId "
-    //         + "WHERE facility.facilityId = ?";
+     @GetMapping("/facilityedit")
+    public String facilityedit(@RequestParam("facilityId") String facilityId, Model model) {
+        try {
+            Connection connection = dataSource.getConnection();
+            String sql = "SELECT facility.facilityId, facility.facilityStatus, facility.facilityPrice, facility.facilityName, facility.facilityQtty, facility.facilityDescription, facility.facilityType, facility.facilityPic,  facility.staffId, room.roomCategory, equipment.equipType "
+            + "FROM facility "
+            + "LEFT JOIN room ON facility.facilityId = room.facilityId "
+            + "LEFT JOIN equipment ON equipment.facilityId = facility.facilityId "
+            + "WHERE facility.facilityId = ?";
 
-    //         final var statement = connection.prepareStatement(sql);
-    //         statement.setString(1, facilityId);
-    //         final var resultSet = statement.executeQuery();
+            final var statement = connection.prepareStatement(sql);
+            statement.setString(1, facilityId);
+            final var resultSet = statement.executeQuery();
 
-    //         if (resultSet.next()) {
-    //             String facilityId = resultSet.getString("facilityId");
-    //             String facilityStatus = resultSet.getString("facilityStatus");
-    //             String facilityPrice = resultSet.getString("facilityPrice");
-    //             String facilityName = resultSet.getString("facilityName");
-    //             String facilityQtty = resultSet.getString("facilityQtty");
-    //             String facilityDescription = resultSet.getString("facilityDescription");
-    //             String facilityType = resultSet.getString("facilityType");
-    //             String facilityPic = resultSet.getString("facilityPic");
-     //              String staffId = resultSet.getString("staffId");
+            if (resultSet.next()) {
+                String facilityId = resultSet.getString("facilityId");
+                String facilityStatus = resultSet.getString("facilityStatus");
+                String facilityPrice = resultSet.getString("facilityPrice");
+                String facilityName = resultSet.getString("facilityName");
+                String facilityQtty = resultSet.getString("facilityQtty");
+                String facilityDescription = resultSet.getString("facilityDescription");
+                String facilityType = resultSet.getString("facilityType");
+                String facilityPic = resultSet.getString("facilityPic");
+                  String staffId = resultSet.getString("staffId");
 
-    //             facility facility;
-    //             if (facilityType.equalsIgnoreCase("Room")) {
-    //                 String roomCategory = resultSet.getString("roomCategory");
-    //                 facility = new room(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, roomCategory, staffId);
-    //             } else if (facilityType.equalsIgnoreCase("Equipment")) {
-    //                 String equipType = equipmentResultSet.getString("equipType");
-    //                 facility = new equipment(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, equipType, staffId );
-    //             } else {
-    //                 // Handle the case when facilityType is neither "room" nor "equipment"
-    //                 facility = new facility(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, staffId);
-    //             }
+                facility facility;
+                if (facilityType.equalsIgnoreCase("Room")) {
+                    String roomCategory = resultSet.getString("roomCategory");
+                    facility = new room(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, roomCategory, staffId);
+                } else if (facilityType.equalsIgnoreCase("Equipment")) {
+                    String equipType = equipmentResultSet.getString("equipType");
+                    facility = new equipment(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, equipType, staffId );
+                } else {
+                    // Handle the case when facilityType is neither "room" nor "equipment"
+                    facility = new facility(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, staffId);
+                }
 
-    //             model.addAttribute("facility", facility); // Use "facility" as the model attribute name
+                model.addAttribute("facility", facility); // Use "facility" as the model attribute name
 
-    //             connection.close();
-    //         }
-    //     } catch (SQLException e) {
-    //         e.printStackTrace();
-    //     }
+                connection.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
-    //     return "facilityedit";
-    // }
+        return "facilityedit";
+    }
 
     @PostMapping("/facilityedit")
     public String facilityedit(@ModelAttribute("facilityedit")  facility facility, room room, equipment equipment) {
