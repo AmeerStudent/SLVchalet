@@ -5,7 +5,7 @@ public class equipment extends facility {
 	public equipment(){
 	}
 
-	public equipment(String facilityId, String facilityStatus, double facilityPrice, String facilityName, int facilityQtty, String facilityDescription, String facilityType, byte[] facilityPic, , String staffId, String equipType){
+	public equipment(String facilityId, String facilityStatus, double facilityPrice, String facilityName, int facilityQtty, String facilityDescription, String facilityType, byte[] facilityPic, String staffId, String equipType){
         super(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, staffId);
         this.equipType = equipType;
     }
