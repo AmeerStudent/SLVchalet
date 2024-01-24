@@ -165,7 +165,7 @@ public class ReservationController {
 
             if (resultSet.next()) {
                
-                String reserveId = resultSet.getString("reserveId");
+                
                 String reserveCheckIn = resultSet.getString("reserveCheckIn");
                 String reserveCheckOut = resultSet.getString("reserveCheckOut");
                 String reserveStatus = resultSet.getString("reserveStatus");
@@ -227,7 +227,7 @@ public class ReservationController {
                 String sql = "DELETE FROM reservation WHERE reserveId = ?";
                 PreparedStatement statement = connection.prepareStatement(sql);
                 statement.setString(1, reserveId);
-                // int rowsAffected = statement.executeUpdate();
+                int rowsAffected = statement.executeUpdate();
 
                 if (rowsAffected > 0) {
                     // Deletion successful
