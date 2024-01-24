@@ -36,7 +36,7 @@
 
 <body>
 
-<!-- <style>
+<style>
   .quantity {
     display: inline-block;
   }
@@ -207,7 +207,21 @@
     margin: 0 auto;
     position: relative;
   }
-</style> -->
+
+	.booking-form {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.cart {
+  width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+</style>
 
 
 <body>
@@ -242,97 +256,52 @@
 </header>
   <!-- ======= Hero Section ======= -->
  
-  <div class="container" style="margin-top:10%; border:1px">
-    <div class="row">
-      <div class="col-lg-6 hero-img">
-        <div class="container-slider">
-          <button class="btn left-btn hide">
-            <i class="fa fa-chevron-circle-left"></i>
-          </button>
+  <div class="booking-form">
+  <h2>Book a Facility</h2>
+  <form>
+    <label for="facilityId">Facility ID:</label>
+    <input type="text" id="facilityId" name="facilityId"><br>
+    <label for="checkIn">Check-in Date:</label>
+    <input type="date" id="checkIn" name="checkIn"><br>
+    <label for="checkOut">Check-out Date:</label>
+    <input type="date" id="checkOut" name="checkOut"><br>
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" name="quantity" min="1"><br>
+    <button type="button" id="addToCart">Add to Cart</button>
+  </form>
+</div>
 
-          <div class="carousel-container">
-            <ul class="carousel">
+<div class="cart">
+  <h2>Cart</h2>
+  <ul id="cartItems"></ul>
+</div>
 
-                  <li class="slide active">
-                    <img src="images/" value="" class="form-control" alt="">
-                  </li>
-                <?php } else { ?>
+<script>
+const form = document.querySelector('form');
+const cartItems = document.getElementById('cartItems');
 
-                  <li class="slide">
-                    <img src="images/" value="" class="form-control" alt="">
-                  </li>
-                <?php } ?>
-              <?php } ?>
-            </ul>
-          </div>
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
 
-          <div class="nav">
+  const facilityId = document.getElementById('facilityId').value;
+  const checkIn = document.getElementById('checkIn').value;
+  const checkOut = document.getElementById('checkOut').value;
+  const quantity = document.getElementById('quantity').value;
 
-          </div>
-        </div>
+  // You can fetch the facility image based on the facilityId here
+  const facilityImage = 'image.jpg'; // Replace this with the actual image URL
 
-      </div>
-
-      <div class="col-lg-6 d-flex flex-column">
-        <h3 style="font-weight:1000"></h3>
-	  <input style="padding:5px;background-color: #eee6ff; text-align:center; font-weight:1000" type="text" id="facilityName" name="facilityName" value="<%=selF.getFacilityName()%>" class="form-control"  readonly>
-        <input  style="cols=30; rows=10" name="facilityDescription" id="facilityDescription" value=""rows="10" class="form-control"  readonly>
-        <div class="option" style="display:flex; margin-top:10px;">
-          <h4 style="font-weight:1000"> Category Type: </h4>
-          <form action="inc/addtocart.php" method="POST">
-            <ul style="list-style-type: none;">
-            
-                  <label for="facilityQtty">  <span id="facilityQtty"> </span> </label>
-                </li>
-              <?php } ?>
-            </ul>
-        </div>
-        <div class="option" style="display:flex; margin-bottom:20px;">
-          <h4 style="font-weight:1000">Quantity : </h4>
-          <div class="quantity buttons_added" style="margin-left:30px;">
-            <input type="button" value="-" class="minus">
-            <input type="number" step="1" min="1" max="" name="facilityQtty" id="facilityQtty" value="1" title="facilityQtty" class="input-text qty text" size="4" pattern="" onchange="box_quan();">
-            <input type="button" value="+" class="plus">
-          </div>
-        </div>
-        <div class="option" style="display:flex; margin-bottom:20px;">
-          <h5 style="font-weight:1000">Check In Date : </h5>
-                   <td><input type="date" name="reserveCheckIn" onfocus="this.min=new Date().toISOString().split('T')[0]"></td>
-                 </div>
-
-                 <div class="option" style="display:flex; margin-bottom:20px;">
-          <h5 style="font-weight:1000">Check Out Date : </h5>
-                   <td><input type="date" name="reserveCheckOut" onfocus="this.min=new Date().toISOString().split('T')[0]"></td>
-                 </div>
-          
-        <input type="text" value="<?php echo $id ?>" name="prodid" id="prodid" hidden>
-        <div class="btn-prod">
-            <button type="submit" name="submit" value="submit" class="go-to-btn">Add to cart <i class='fa fa-shopping-cart'></i></button>
-            <p class="form-message"></p>
-          <?php } ?>
-        </div>
-      </div>
-      </form>
-    </div>
-  </div>
-
-
-
-    <div class="container">
-      <div class="card">
-        <div class="card-body">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-6 d-flex flex-column">
-                <p>No review on this product yet . </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
+  const cartItem = document.createElement('li');
+  cartItem.innerHTML = `
+    <img src="${facilityImage}" alt="Facility Image">
+    <p>Facility ID: ${facilityId}</p>
+    <p>Check-in Date: ${checkIn}</p>
+    <p>Check-out Date: ${checkOut}</p>
+    <p>Quantity: ${quantity}</p>
+  `;
+  cartItems.appendChild(cartItem);
+});
+</script>
 
 
   <!-- ======= Footer ======= -->
