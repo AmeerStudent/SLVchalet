@@ -196,12 +196,12 @@ public class LoginController {
                     session.setAttribute("custUsername", inputUsername);
                     session.setAttribute("custUsername", inputPassword);
                     
-                    return "redirect:/product?success=true";
+                    return "redirect:/facilitylist?success=true";
                 }
             }
 
             connection.close();
-            return "redirect:/login?invalidUsername&Password";
+            return "redirect:/facilitylist?invalidUsername&Password";
 
         } catch (SQLException sqe) {
             System.out.println("Error Code = " + sqe.getErrorCode());
