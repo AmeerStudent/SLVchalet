@@ -94,21 +94,10 @@
       </div>
     </form>
 
-   <div id="page-wrapper">
-			<div id="page-inner">
-				<div class="row">
-					<div class="col-md-12">
-						<h2>Patient List</h2>
-
-
-					</div>
-				</div>
-				<!-- /. ROW  -->
-				<hr />
 				<div class="col-md-12">
 					<!-- Advanced Tables -->
 					<div class="panel panel-default">
-						<div class="panel-heading">Patient's Account Table</div>
+						<div class="panel-heading">Facilities</div>
 						<div class="panel-body">
 							<!-- Search Bar -->
                            				<input type="text" class="form-control mb-2" id="searchInput" placeholder="Search...">
@@ -117,22 +106,20 @@
 									id="dataTables-example">
 									<thead>
 										<tr>
-											<th>Patient IC</th>
-											<th>Patient Name</th>
-											<th>Patient Tel</th>
-                                            						<th>Patient Gender</th>
+											<th>Facility Name</th>
+											<th>Facility Description</th>
+											<th>Facility Price</th>
 											<th colspan="3">Action</th>
 										</tr>
 									</thead>
                                     					<tbody>
-									<tr th:each="patient : ${patients}">
-										<td th:text="${patient.patientIC}"></td>
-        									<td th:text="${patient.patientName}"></td>
-            									<td th:text="${patient.patientTel}"></td>
-										<td th:text="${patient.patientGender}"></td>
+									<tr th:each="facility : ${facilities}">
+										<td th:text="${facility.facilityName}"></td>
+        									<td th:text="${facility.facilityDescription}"></td>
+            									<td th:text="${facility.facilityPrice}"></td>
 										<td>
 										<a
-										th:href="@{/patientview?patientIC=}+${patient.patientIC}" class="btn view-button btn-info" >INFO</a>
+										th:href="@{/reservationCust?facilityId=}+${facility.facilityId}" class="btn view-button btn-info" >Booking</a>
 										</td>
  										<td>
                    								<a
@@ -142,14 +129,12 @@
              								  	<a
                    								th:href="@{/deletepatient/(patientIC=${patient.patientIC})}" 
                    								value="{patient.patientIC}" 
-                   								onclick="return confirm('Are you sure you want to delete this patient?')"><button class="btn delete-button btn-danger" >DELETE</button></a>
+                   								</a>
             									</td>
 									</tr>
 								</tbody>
                                 </table>
-								<div style="color: white; font-size: 10px;">
-									&nbsp; <a th:href="@{/patientregister}" class="btn btn-danger square-btn-adjust">Register Patient </a>
-								 </div>
+					
                             </div>
                         </div>
                     </div>
