@@ -2,8 +2,8 @@ package com.heroku.java.MODEL;
 public class facility {
 	
 	 private String facilityStatus;
-	 private Double facilityPrice;
 	 private String facilityName;
+	private Double facilityPrice;
 	 private String facilityDescription;
 	 private String facilityId;
 	 private int facilityQtty;
