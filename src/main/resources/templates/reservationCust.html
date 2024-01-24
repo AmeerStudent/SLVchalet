@@ -76,70 +76,63 @@
         font-family: 'Montserrat', sans-serif;
       }
     </style>
-    <h1>Looking for facilities ?</h1>
-    <form action="" method="GET">
-      <div class="card">
-        <div class="card-body">
-          <div class="input-group">
-            <input type="text" class="form-control" name="title"
-              aria-label="Text input with dropdown button" style="margin-right:20px">
-            <select class="custom-select" name="category" id="inputGroupSelect01" style="margin-right:20px">
-              <option value="1">All</option>
-              <option value="2">Facilities</option>
-              <option value="3">Activities</option>
-              <option value="4">Chalet</option>
-              <option value="5">Others</option>
-            </select>
-            <div class="input-group-prepend">
-              <button class="btn btn-primary">Search</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </form>
-
+   <h1>Facilities Listing</h1>
+    <!-- /. ROW  -->
+				<hr />
 				<div class="col-md-12">
 					<!-- Advanced Tables -->
 					<div class="panel panel-default">
-						<div class="panel-heading">Facilities</div>
+						<div class="panel-heading">FACILITIES</div>
 						<div class="panel-body">
-							<!-- Search Bar -->
-                           				<input type="text" class="form-control mb-2" id="searchInput" placeholder="Search...">
+						
 							<div class="table-responsive">
 								<table class="table table-striped table-bordered table-hover"
 									id="dataTables-example">
 									<thead>
 										<tr>
 											<th>FACILITY ID</th>
-											<th>Facility Name</th>
-											<th>Facility Description</th>
-											<th>Facility Price</th>
-											<th colspan="4">Action</th>
+											<th>FACILITY NAME</th>
+											<th>FACILITY DESCRIPTION</th>
+											<th>FACILITY PRICE</th>
+											<th colspan="2">Action</th>
 										</tr>
 									</thead>
-                                    					<tbody></tbody>
-									<tr th:each="facilities : ${facilitiess}">
+									<tbody></tbody>
+										<tr th:each="facilities : ${facilitiess}">
 										<td th:text="${facilities.facilityId}"></td>
-										<td th:text="${facilities .facilityName}"></td>
-        									<td th:text="${facilities .facilityDescription}"></td>
-            									<td th:text="${facilities .facilityPrice}"></td>
-										<td>
+        									<td th:text="${facilities.facilityName}"></td>
+										<td th:text="${facilities.facilityDescription}"></td>
+										<td th:text="${facilities.facilityPrice}"></td>	
+ 										<td>
 										<a
-										th:href="@{/reservationCust?facilityId=}+${facilities .facilityId}" class="btn view-button btn-info" >Booking</a>
+										th:href="@{/bookingList?facilityId=}+${facilities.facilityId}" class="btn view-button btn-info">View</a>
 										</td>
+<!--  										<td>
+                   								<a 
+										th:href="@{/facilityedit?facilityId=}+${facilities.facilityId}" class="btn update-button btn-primary">Edit</a>
+            									</td> -->
+<!-- 										<td>
+             								  	<a 
+                   								th:href="@{/deletefacility?facilityId=}+${facilities.facilityId}" 
+                   								value="{facilities.facilityId}" 
+                   								onclick="return confirm('Are you sure you want to delete this facility?')"><button class="btn delete-button btn-danger" >Delete</button></a>
+            									</td> -->
+									</tr>
+									</tbody>
+								</table>
+<!-- 								<div style="color: white; font-size: 10px;">
+									&nbsp; <a th:href="@{/facilityregister}" class="btn btn-danger square-btn-adjust">Register Facility</a>
+								</div> -->
+							</div>
 
-								</tbody>
-                                </table>
-					
-                            </div>
-                        </div>
-                    </div>
+
+						</div>
+
+
+
+					</div>
 				</div>
   </div>
-                    <!--End Advanced Tables -->
-                    
-		</div>
-            <!-- Facility details table -->
 
 
     <!-- ======= Footer ======= -->
