@@ -47,70 +47,157 @@ if (!isset($_SESSION['Admin'])) {
     <!-- ======= Header ======= -->
     <!-- <?php include 'inc/header.php' ?> -->
     <!-- ======= Hero Section ======= -->
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
+.product {
+  width: 30%;
+  margin-bottom: 2rem;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.star {
+  font-size: 1.5rem;
+  color: #ffc107;
+}
+
+.half {
+  position: relative;
+}
+
+.half::before {
+  content: '★';
+  position: absolute;
+  left: -1.5rem;
+  top: -0.2rem;
+  font-size: 1.5rem;
+  color: #ccc;
+}
+
+.score {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.name {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+  color: #ccc;
+  margin-left: 0.5rem;
+}
+
+.shipping {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  background-color: #ffc107;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e0b90f;
+}
     <div class="container" style=" margin: auto;width: 50%;border: 3px solid #4154f1;padding: 10px;">
 <body>
     <h1> Facilities</h1>
-      <style>
-        .facility {
-            margin-bottom: 20px;
-        }
+    <div class="products">
+  <div class="product">
+    <div class="rating">
+      <span class="star">★</span>
+      <span class="star">★</span>
+      <span class="star">★</span>
+      <span class="star">★</span>
+      <span class="star half">★</span>
+    </div>
+    <p class="score">7/10</p>
+    <h3 class="name">Great product name goes here</h3>
+    <p class="description">Take it as demo specs, ¡psum dolor sit amet, consectetuer adipiscing elit, Lorem ipsum dolor sit amet, consectetuer adipiscing elit, Ut wisi enim ad minim veniam</p>
+    <p class="price">$140 <span class="strikethrough">$198</span></p>
+    <p class="shipping">Free shipping</p>
+    <button class="details">Details</button>
+    <button class="wishlist">Add to wishlist</button>
+  </div>
+  <div class="product">
+    <div class="rating">
+      <span class="star">★</span>
+      <span class="star">★</span>
+      <span class="star">★</span>
+      <span class="star">★</span>
+      <span class="star">★</span>
+    </div>
+    <p class="score">7/10</p>
+    <h3 class="name">Great product name goes here</h3>
+    <p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, Lorem ipsum dolor sit amet, consectetuer adipiscing elit, Ut wisi enim ad minim veniam</p>
+    <p class="price">$56 <span class="strikethrough">$85</span></p>
+    <p class="shipping">Free shipping</p>
+    <button class="details">Details</button>
+    <button class="wishlist">Add to wishlist</button>
+  </div>
+  <div class="product">
+    <div class="rating">
+      <span class="star">★</span>
+      <span class="star">★</span>
+      <span class="star">★</span>
+      <span class="star">★</span>
+      <span class="star">★</span>
+    </div>
+    <p class="score">7/10</p>
+    <h3 class="name">Great product name goes here</h3>
+    <p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, Lorem ipsum dolor sit amet, consectetuer adipiscing elit, Ut wisi enim ad minim veniam</p>
+    <p class="price">$56.00</p>
+    <p class="shipping">Free shipping</p>
+    <button class="details">Details</button>
+    <button class="wishlist">Add to wishlist</button>
+  </div>
+        const products = document.querySelectorAll('.product');
 
-        .facility h3 {
-            margin-bottom: 10px;
-        }
+products.forEach(product => {
+  const detailsButton = product.querySelector('.details');
+  const wishlistButton = product.querySelector('.wishlist');
 
-        .facility p {
-            margin-bottom: 10px;
-        }
-    </style>
-    <div id="facilityContainer"></div>
+  detailsButton.addEventListener('click', () => {
+    // Add functionality to show product details
+  });
 
-    <script>
-        // Fetch facility data from the server
-        fetch('/api/facilities/1')
-            .then(response => response.json())
-            .then(facility => {
-                // Create a new facility element
-                const facilityElement = document.createElement('div');
-                facilityElement.classList.add('facility');
-
-                // Add facility details to the element
-                facilityElement.innerHTML = `
-                    <h3>th:value="${facility.facilityName}"</h3>
-                    <p>Description: th:value="${facility.facilityDescription}"</p>
-                    <p>Price: th:value="${facility.facilityPrice}"</p>
-                `;
-
-                if (facility.facilityPic) {
-            const facilityPic = document.createElement('img');
-            facilityPic.src = facility.facilityPic;
-            facilityPic.alt = facility.name;
-            facilityElement.appendChild(facilityPic);
-        }
-                // Add the facility element to the container
-                const facilityContainer = document.getElementById('facilityContainer');
-                facilityContainer.appendChild(facilityElement);
-            })
-            .catch(error => {
-                console.error('Error fetching facility data:', error);
-            });
-    </script>
-</body>
-</html>
-    <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer">
-        <div class="container">
-            <div class="copyright">
-                &copy; Copyright <strong><span>Sungai Lopo Village</span></strong>. All Rights Reserved
-            </div>
-        </div>
-    </footer><!-- End Footer -->
-
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-    </body>
-
-</html>
+  wishlistButton.addEventListener('click', () => {
+    // Add functionality to add product to wishlist
+  });
+});
+</div>
 
   <!-- Vendor JS Files -->
  <script th:src="@{assets/vendor/bootstrap/js/bootstrap.bundle.js}"></script>
