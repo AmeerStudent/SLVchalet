@@ -69,7 +69,16 @@ public class GettingStartedApplication {
         return "postads";
 
     }
+@GetMapping("/facilityregister")
+    public String facilityregister() {
+        return "facilityregister";
 
+    }
+    @GetMapping("/facilitylist")
+    public String facilitylist() {
+        return "facilitylist";
+
+    }
     @GetMapping("/login")
     public String login() {
         return "login";
