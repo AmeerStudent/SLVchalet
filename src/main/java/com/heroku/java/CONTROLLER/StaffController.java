@@ -302,7 +302,7 @@ public class StaffController {
                     staff.setStaffEmail(staffEmail);
                     staff.setStaffPhoneNo(staffPhoneNo);
                     staff.setStaffPass(staffPass);
-                    staff.setAdminId(AdminId);
+                    staff.setAdminId(adminId);
 
                     model.addAttribute("staff", staff);
                     
