@@ -213,40 +213,40 @@ public String signup(@ModelAttribute("signup")customer customer){
 
     //     }
 	@GetMapping("/viewCustomer")
-         public String viewCustomer(@RequestParam("custUsername") String custUsername, Model model){
-           System.out.println("Customer Username : " + custUsername);
-           try{
-                Connection connection = dataSource.getConnection();
-             String sql = "SELECT custUsername, custPhoneNo, custEmail, custName, custPass, custAddress FROM public.customer where custUsername =?";
-             final var statement = connection.prepareStatement(sql);
-             statement.setString(1, custUsername);
-             final var resultSet = statement.executeQuery();
+public String viewCustomer(@RequestParam("custUsername") String custUsername, Model model) {
+  System.out.println("Customer Username : " + custUsername);
+  try{
+       Connection connection = dataSource.getConnection();
+    String sql = "SELECT custUsername, custPhoneNo, custEmail, custName, custPass, custAddress FROM public.customer where custUsername =?";
+    final var statement = connection.prepareStatement(sql);
+    statement.setString(1, custUsername);
+    final var resultSet = statement.executeQuery();
 
-            if (resultSet.next()){
-                
-                String custPhoneNo = resultSet.getString("custPhoneNo");  
-                String custEmail = resultSet.getString("custEmail"); 
-                String custName = resultSet.getString("custName");
-                String custPass = resultSet.getString("custPass");
-                String custAddress = resultSet.getString("custAddress");
-
-                customer customer = new customer();
-                customer.setCustUsername(custUsername);
-                customer.setCustPhoneNo(custPhoneNo);
-                customer.setCustEmail(custEmail);
-                customer.setCustName(custName);
-                customer.setCustPass(custPass);
-                customer.setCustAddress(custAddress);
-
-                model.addAttribute("customer", customer);
-                connection.close();
-            }
-           }  catch (Exception e) {
-             e.printStackTrace();
-           }
+   if (resultSet.next()){
          
-           return "viewCustomer";
+       String custPhoneNo = resultSet.getString("custPhoneNo");   
+       String custEmail = resultSet.getString("custEmail");  
+       String custName = resultSet.getString("custName");
+       String custPass = resultSet.getString("custPass");
+       String custAddress = resultSet.getString("custAddress");
 
-    }
+       customer customer = new customer();
+       customer.setCustUsername(custUsername);
+       customer.setCustPhoneNo(custPhoneNo);
+       customer.setCustEmail(custEmail);
+       customer.setCustName(custName);
+       customer.setCustPass(custPass);
+       customer.setCustAddress(custAddress);
+
+       model.addAttribute("customer", customer);
+       connection.close();
+   }
+  }  catch (Exception e) {
+    e.printStackTrace();
+  }
+
+   return "viewCustomer";
+
+}
 
 }
