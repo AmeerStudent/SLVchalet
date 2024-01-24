@@ -127,7 +127,7 @@ public class FacilitiesController {
                 String facilityPic = resultSet.getString("facilityPic");
                 String staffId = resultSet.getString("staffId");
                 facility facility;
-                if ("room".equalsIgnoreCase(facilityType)) {
+                if (facilityType.equalsIgnoreCase("room")) {
                     String roomSql = "SELECT facilityId, roomCategory FROM room WHERE facilityId=?";
                     final var roomStatement = connection.prepareStatement(roomSql);
                     roomStatement.setString(1, facilityId);
@@ -138,7 +138,7 @@ public class FacilitiesController {
                     } else {
                         facility = new facility(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, staffId);
                     }
-                } else if ("equipment".equalsIgnoreCase(facilityType)) {
+                } else if (facilityType.equalsIgnoreCase("equipment")) {
                     String equipmentSql = "SELECT facilityId, equipType FROM equipment WHERE facilityId=?";
                     final var equipmentStatement = connection.prepareStatement(equipmentSql);
                     equipmentStatement.setString(1, facilityId);
