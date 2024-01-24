@@ -34,7 +34,7 @@ public class ReservationController {
         return "reservationCust";
     }
 
-    // add facility
+    // add reservation
     @PostMapping("/reservationCust")
     public String reservationCust(Model model, @ModelAttribute("reservationCust") reservation reservation) {
         try {
@@ -158,8 +158,8 @@ public class ReservationController {
     }
 
     // get and post mapping for update reservation
-    @GetMapping("/facilityedit")
-    public String facilityedit(@RequestParam("reserveId") String reserveId, Model model) {
+    @GetMapping("/updateReservation")
+    public String updateReservation(@RequestParam("reserveId") String reserveId, Model model) {
         try {
             System.out.println("reserveId from parameter: " + reserveId);
             Connection connection = dataSource.getConnection();
@@ -194,7 +194,7 @@ public class ReservationController {
             e.printStackTrace();
         }
 
-        return "facilityedit";
+        return "updateReservation";
     }
 
     @PostMapping("/updateReservation")
@@ -228,7 +228,7 @@ public class ReservationController {
         }
         return "redirect:/reservationList";
     }
-
+//staff delete reservation
     @GetMapping("/deleteReservation")
     public String deleteReservation(@RequestParam("reserveId") String reserveId) {
         try (Connection connection = dataSource.getConnection()) {
