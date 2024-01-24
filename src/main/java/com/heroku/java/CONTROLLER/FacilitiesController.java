@@ -42,7 +42,7 @@ public class FacilitiesController {
     public String facilityregister(Model model, @ModelAttribute("facilityregister") facility facility, room room, equipment equipment) {
         try {
             Connection connection = dataSource.getConnection();
-            String sql = "INSERT INTO facilities(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic) VALUES (?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO facilities(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, staffId) VALUES (?,?,?,?,?,?,?,?,?)";
             final var statement = connection.prepareStatement(sql);
 
             String facilityId=facility.getFacilityId();
@@ -53,6 +53,7 @@ public class FacilitiesController {
             String facilityDescription=facility.getFacilityDescription();
             String facilityType=facility.getFacilityType();
             byte[] facilityPic=facility.getFacilityPic();
+            String staffId=facility.getStaffId();
 
             if (facilityType.equalsIgnoreCase("room")){
             facilityType = "Room";}
@@ -68,11 +69,12 @@ public class FacilitiesController {
             statement.setString(6, facilityDescription);
             statement.setString(7, facilityType);
             statement.setBytes(8, facilityPic);
+             statement.setString(9, staffId);
 
             statement.executeUpdate();
 
             // Get id from database for sql 2 from sql 1
-            String sql1 = "SELECT facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic FROM public.facilities where facilityId=?";
+            String sql1 = "SELECT facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, staffId FROM public.facilities where facilityId=?";
             final var stmt = connection.prepareStatement(sql1);
             stmt.setString(1, facilityId);
             final var resultSet = stmt.executeQuery();
