@@ -7,7 +7,7 @@ public class reservation {
 	private String paymentStatus;
 	private String receipt;
 
-	public reservationBean() {
+	public reservation() {
 
 	}
 
