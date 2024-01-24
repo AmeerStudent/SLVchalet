@@ -173,7 +173,7 @@ public class FacilitiesController {
     //     try {
     //         Connection connection = dataSource.getConnection();
 
-    //         String sql = "SELECT facility.facilityId, facility.facilityStatus, facility.facilityPrice, facility.facilityName, facility.facilityQtty, facility.facilityDescription, facility.facilityType, facility.facilityPic, room.roomCategory, equipment.equipType "
+    //         String sql = "SELECT facility.facilityId, facility.facilityStatus, facility.facilityPrice, facility.facilityName, facility.facilityQtty, facility.facilityDescription, facility.facilityType, facility.facilityPic, facility.staffId, room.roomCategory, equipment.equipType "
     //         + "FROM facility "
     //         + "LEFT JOIN room ON facility.facilityId = room.facilityId "
     //         + "LEFT JOIN equipment ON equipment.facilityId = facility.facilityId "
@@ -192,17 +192,18 @@ public class FacilitiesController {
     //             String facilityDescription = resultSet.getString("facilityDescription");
     //             String facilityType = resultSet.getString("facilityType");
     //             String facilityPic = resultSet.getString("facilityPic");
+       //             String staffId = resultSet.getString("staffId");
 
     //             facility facility;
     //             if (facilityType.equalsIgnoreCase("Room")) {
     //                 String roomCategory = resultSet.getString("roomCategory");
-    //                 facility = new room(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, roomCategory);
+    //                 facility = new room(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, roomCategory, staffId);
     //             } else if (facilityType.equalsIgnoreCase("Equipment")) {
     //                 String equipType = equipmentResultSet.getString("equipType");
-    //                 facility = new equipment(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, equipType );
+    //                 facility = new equipment(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, equipType, staffId );
     //             } else {
     //                 // Handle the case when serviceType is neither "room" nor "equipment"
-    //                 facility = new facility(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic);
+    //                 facility = new facility(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, staffId);
     //             }
 
     //             model.addAttribute("facility", facility); // Use "facility" as the model attribute name
@@ -221,7 +222,7 @@ public class FacilitiesController {
     // public String productadmin(@RequestParam("facilityId") String facilityId, Model model) {
     //     try {
     //         Connection connection = dataSource.getConnection();
-    //         String sql = "SELECT facility.facilityId, facility.facilityStatus, facility.facilityPrice, facility.facilityName, facility.facilityQtty, facility.facilityDescription, facility.facilityType, facility.facilityPic, room.roomCategory, equipment.equipType "
+    //         String sql = "SELECT facility.facilityId, facility.facilityStatus, facility.facilityPrice, facility.facilityName, facility.facilityQtty, facility.facilityDescription, facility.facilityType, facility.facilityPic,  facility.staffId, room.roomCategory, equipment.equipType "
     //         + "FROM facility "
     //         + "LEFT JOIN room ON facility.facilityId = room.facilityId "
     //         + "LEFT JOIN equipment ON equipment.facilityId = facility.facilityId "
@@ -240,17 +241,18 @@ public class FacilitiesController {
     //             String facilityDescription = resultSet.getString("facilityDescription");
     //             String facilityType = resultSet.getString("facilityType");
     //             String facilityPic = resultSet.getString("facilityPic");
+     //              String staffId = resultSet.getString("staffId");
 
     //             facility facility;
     //             if (facilityType.equalsIgnoreCase("Room")) {
     //                 String roomCategory = resultSet.getString("roomCategory");
-    //                 facility = new room(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, roomCategory);
+    //                 facility = new room(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, roomCategory, staffId);
     //             } else if (facilityType.equalsIgnoreCase("Equipment")) {
     //                 String equipType = equipmentResultSet.getString("equipType");
-    //                 facility = new equipment(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, equipType );
+    //                 facility = new equipment(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, equipType, staffId );
     //             } else {
     //                 // Handle the case when facilityType is neither "room" nor "equipment"
-    //                 facility = new facility(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic);
+    //                 facility = new facility(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, staffId);
     //             }
 
     //             model.addAttribute("facility", facility); // Use "facility" as the model attribute name
@@ -268,7 +270,7 @@ public class FacilitiesController {
     // public String productadmin(@ModelAttribute("productadmin")  facility facility, room room, equipment equipment) {
     //     try {
     //         Connection connection = dataSource.getConnection();
-    //         String sql = "UPDATE facility SET facilityId=?, facilityStatus=?, facilityPrice=?, facilityName=?, facilityQtty=?, facilityDescription=?, facilityType=?, facilityPic=? WHERE facilityId=?";
+    //         String sql = "UPDATE facility SET facilityId=?, facilityStatus=?, facilityPrice=?, facilityName=?, facilityQtty=?, facilityDescription=?, facilityType=?, facilityPic=?, staffId=? WHERE facilityId=?";
     //         final var statement = connection.prepareStatement(sql);
 
     //         statement.setString(1, facility.getFacilityId());
@@ -279,6 +281,7 @@ public class FacilitiesController {
     //         statement.setString(6, facility.getFacilityDescription());
     //         statement.setString(7, facility.getFacilityType());
     //         statement.setString(8, facility.getFacilityPic());
+    //        statement.setString(9, facility.getStaffId());
     //         statement.executeUpdate();
 
 
@@ -293,8 +296,8 @@ public class FacilitiesController {
     //         } else if ("Equipment".equalsIgnoreCase(facility.getFacilityType())) {
     //             String equipmentSql = "UPDATE equipment SET equipType=? WHERE facilityId=?";
     //             final var equipmentStatement = connection.prepareStatement(equipmentSql);
-    //             equipmentStatement.setString(2, equipment.getEquipType());
-    //             equipmentStatement.setString(3, facility.getFacilityId());
+    //             equipmentStatement.setString(1, equipment.getEquipType());
+    //             equipmentStatement.setString(2, facility.getFacilityId());
 
     //             equipmentStatement.executeUpdate();
     //         }
@@ -305,7 +308,7 @@ public class FacilitiesController {
     //         e.printStackTrace();
     //         return "redirect:/productadmin?success=false";
     //     }
-    //     return "redirect:/product?success=true";
+    //     return "redirect:/facilitylist?success=true";
     // }
 
 }
