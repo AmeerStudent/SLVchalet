@@ -108,7 +108,6 @@ public String signup(@ModelAttribute("signup")customer customer){
                 return "error";
             }
         }
-    }
 
 	// @GetMapping("/profile")
  //         public String profile(@RequestParam("custUsername") String custUsername, Model model) {
