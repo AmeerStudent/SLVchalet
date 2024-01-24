@@ -5,6 +5,11 @@ public class room extends facility {
 	public room(){
 		
 	}
+
+	room(String facilityId, String facilityStatus, double facilityPrice, String facilityName, int facilityQtty, String facilityDescription, String facilityType, byte[] facilityPic, String roomCategory, String staffId){
+        super(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic);
+        this.roomCategory = roomCategory;
+    }
 	public String getFacilityId() {
 		return facilityId;
 	}
