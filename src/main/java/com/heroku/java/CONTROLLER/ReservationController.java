@@ -140,7 +140,7 @@ public class ReservationController {
                 String paymentStatus = resultSet.getString("paymentStatus");
                 String receipt = resultSet.getString("receipt");
 
-                model.addAttribute("reservation", reservation); // Use "reservation" as the model attribute name
+                model.addAttribute("reservations", reservations); // Use "reservation" as the model attribute name
 
                 connection.close();
             }
@@ -172,7 +172,7 @@ public class ReservationController {
                 String paymentStatus = resultSet.getString("paymentStatus");
                 String receipt = resultSet.getString("receipt");
 
-                model.addAttribute("reservation", reservation); // Use "reservation" as the model attribute name
+                model.addAttribute("reservations", reservations); // Use "reservation" as the model attribute name
 
                 connection.close();
             }
