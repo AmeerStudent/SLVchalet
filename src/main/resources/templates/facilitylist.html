@@ -83,7 +83,7 @@ session_start();
                         <li><a style="text-decoration: none;" th:href="@{/admindashboard}">Dashboard</a></li>
                         <li><a style="text-decoration: none;" th:href="@{/facilityedit}">Update Facilities</a></li>
                         <li><a style="text-decoration: none;" th:href="@{/facilityregister}">Add Facility</a></li>
-                        <li><a style="text-decoration: none;" th:href="@{/signupadmin}">Register New staff</a></li>
+                        <li><a style="text-decoration: none;" th:href="@{/addstaff}">Register New staff</a></li>
                         <li><a style="text-decoration: none;" th:href="@{/logout}">Logout</a></li>
                     </ul>
                 </li>
@@ -152,7 +152,7 @@ session_start();
         									<td th:text="${facilities.facilityName}"></td>	
  										<td>
 										<a
-										th:href="@{/facilityview?facilityId=}+${facilities.facilityId}" class="btn view-button btn-info">Info</a>
+										th:href="@{/facilityview?facilityId=}+${facilities.facilityId}" class="btn view-button btn-info">View</a>
 										</td>
  										<td>
                    								<a 
