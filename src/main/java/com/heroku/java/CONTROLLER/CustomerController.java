@@ -121,7 +121,7 @@ public String signup(@ModelAttribute("signup")customer customer){
              final var resultSet = statement.executeQuery();
 
             if (resultSet.next()){
-                String custUsername = resultSet.getString("custUsername");
+                
                 String custPhoneNo = resultSet.getString("custPhoneNo");  
                 String custEmail = resultSet.getString("custEmail"); 
                 String custName = resultSet.getString("custName");
