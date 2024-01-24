@@ -1,6 +1,6 @@
 package com.heroku.java.MODEL;
 public class equipment {
-	private String facilityId;
+	
 	private String equipType;
 
 	public String getFacilityId() {
