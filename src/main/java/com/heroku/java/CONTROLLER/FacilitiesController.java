@@ -33,16 +33,16 @@ public class FacilitiesController {
         this.dataSource = dataSource;
     }
 // add facility
-    @GetMapping("/postads")
-    public String postads() {
-        return "postads";
+    @GetMapping("/facilityregister")
+    public String facilityregister() {
+        return "facilityregister";
     }
 // add facility
-    @PostMapping("/postads")
-    public String postads(Model model, @ModelAttribute("postads") facility facility, room room, equipment equipment) {
+    @PostMapping("/facilityregister")
+    public String facilityregister(Model model, @ModelAttribute("facilityregister") facility facility, room room, equipment equipment) {
         try {
             Connection connection = dataSource.getConnection();
-            String sql = "INSERT INTO facilities(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO facilities(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic) VALUES (?,?,?,?,?,?,?,?)";
             final var statement = connection.prepareStatement(sql);
 
             String facilityId=facility.getFacilityId();
@@ -86,10 +86,10 @@ public class FacilitiesController {
 
                     roomStatement.executeUpdate();
                 } else if (facilityType.equalsIgnoreCase("Equipment")) {
-                    String equipmentSql = "INSERT INTO equipment(facilityId, equipType) VALUES (?, ?, ?)";
+                    String equipmentSql = "INSERT INTO equipment(facilityId, equipType) VALUES (?,?)";
                     final var equipmentStatement = connection.prepareStatement(equipmentSql);
                     equipmentStatement.setString(1, facilityId);
-                    equipmentStatement.setString(3, equipment.getEquipType());
+                    equipmentStatement.setString(2, equipment.getEquipType());
 
                     equipmentStatement.executeUpdate();
                 }
@@ -98,10 +98,10 @@ public class FacilitiesController {
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
-            return "redirect:/postads?success=false";
+            return "redirect:/facilityregister?success=false";
         }
 
-        return "redirect:/index?success=true";
+        return "redirect:/facilitylist?success=true";
     }
     // facility list
     // @GetMapping("/product")
