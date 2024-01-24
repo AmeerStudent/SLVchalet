@@ -67,7 +67,7 @@ public String signup(@ModelAttribute("signup")customer customer){
             e.printStackTrace();
             return "redirect:/index";
         }
-        return "redirect:/customerList";
+        return "redirect:/profile";
     }
 
     // @GetMapping("/customerList")
