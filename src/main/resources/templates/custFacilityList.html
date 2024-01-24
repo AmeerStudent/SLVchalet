@@ -65,9 +65,9 @@ if (!isset($_SESSION['Admin'])) {
 
                 // Add facility details to the element
                 facilityElement.innerHTML = `
-                    <h3>th:value="${facility.facilityName}</h3>
-                    <p>Description: th:value="${facility.facilityDescription}</p>
-                    <p>Price: th:value="${facility.facilityPrice}</p>
+                    <h3>th:value="${facility.facilityName}"</h3>
+                    <p>Description: th:value="${facility.facilityDescription}"</p>
+                    <p>Price: th:value="${facility.facilityPrice}"</p>
                 `;
 
                 if (facility.facilityPic) {
