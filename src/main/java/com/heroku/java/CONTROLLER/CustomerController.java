@@ -217,7 +217,7 @@ public String signup(@ModelAttribute("signup")customer customer){
            System.out.println("Customer Username : " + custUsername);
            try{
                 Connection connection = dataSource.getConnection();
-             String sql = "SELECT custUsername, custPhoneNo, custEmail, custName, custPass, custAddress FROM public.customer where custUsername = ?";
+             String sql = "SELECT custUsername, custPhoneNo, custEmail, custName, custPass, custAddress FROM public.customer where custUsername =?";
              final var statement = connection.prepareStatement(sql);
              statement.setString(1, custUsername);
              final var resultSet = statement.executeQuery();
