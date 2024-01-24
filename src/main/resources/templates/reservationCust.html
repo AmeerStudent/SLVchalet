@@ -121,17 +121,7 @@
 										<a
 										th:href="@{/reservationCust?facilityId=}+${facility.facilityId}" class="btn view-button btn-info" >Booking</a>
 										</td>
- 										<td>
-                   								<a
-										th:href="@{/patientedit?patientIC=}+${patient.patientIC}" class="btn edit-button btn-primary">EDIT</a>
-            									</td>
-										<td>
-             								  	<a
-                   								th:href="@{/deletepatient/(patientIC=${patient.patientIC})}" 
-                   								value="{patient.patientIC}" 
-                   								</a>
-            									</td>
-									</tr>
+
 								</tbody>
                                 </table>
 					
