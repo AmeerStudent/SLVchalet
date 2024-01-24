@@ -84,11 +84,7 @@ public class GettingStartedApplication {
         return "login";
 
     }
-     @GetMapping("/logout")
-    public String logout() {
-        return "logout";
-
-    }
+     
 
      @GetMapping("/admin")
     public String admin() {
