@@ -1,4 +1,4 @@
-// <?php
+<!-- // <?php
 // include 'inc/connection.php';
 // session_start();
 
@@ -11,7 +11,7 @@
 //     header("Location: login.php");
 // }
 
-// ?>
+// ?> -->
 
 <!DOCTYPE html>
 <html>
@@ -100,7 +100,7 @@
 </head>
 
 <body>
-    <?php include 'inc/header.php'; ?>
+    <!-- <?php include 'inc/header.php'; ?> -->
 
     <div class="container" style="margin-top:100px;">
         <div class="row">
@@ -111,14 +111,14 @@
                     <div class="card" style="height: 100%;">
                         <div class="card-body" style="display: flex; flex-direction: column;">
                             <div class="image_area" style="margin: auto; padding: 40px;">
-                                <form method="post">
-                                    <label for="upload_image">
+                                <form method="post" th:action="@{/updateprofile}" modelAttribute="updateprofile" th:object="(${updateprofile})">
+                                    <!-- <label for="upload_image">
                                         <img src="images/profile/<?php echo $row['profile_pic'] ?>" id="uploaded_image" width="20px" style="border-radius: 50%" class="img-responsive img-circle" />
                                         <div class="overlay">
                                             <div class="text">Click to Change Profile Image</div>
                                         </div>
                                         <input type="file" name="image" class="image" id="upload_image" style="display:none" />
-                                    </label>
+                                    </label> 
                                 </form>
                             </div>
                             <form method="post" action="inc/update.php" id="profiledetail">
@@ -138,32 +138,36 @@
                                             </span>
                                             Unverified User
                                         </p>
-                                    <?php } ?>
-                                    <p><strong>Full name</strong></p>
+                                    <?php } ?> -->
+                                    <p><strong>Username</strong></p>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" name="custName" placeholder="Full Name" value="<?php echo $row['custName'] ?>" aria-label="Full Name" aria-describedby="basic-addon2 " readonly>
+                                        <input type="text" name="custUsername" id="custUsername" class="form-control" th:value="${customer.custUsername}">
                                     </div>
-					<p><strong>Username</strong></p>
+					                <p><strong>Phone Number</strong></p>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" name="custUsernam" placeholder="custUsername" value="<?php echo $row['custUsername'] ?>" aria-label="Username" aria-describedby="basic-addon2" >
+                                        <input type="text" name="custPhoneNo" id="custPhoneNo" class="form-control" th:value="${customer.custPhoneNo}">
                                     </div>
                                     <p><strong>Email</strong></p>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="Email" value="<?php echo $row['custEmail'] ?>" aria-label="Email" aria-describedby="basic-addon2" readonly>
+                                        <input type="text" name="custEmail" id="custEmail" class="form-control" th:value="${customer.custEmail}">
                                     </div> 
-                                    <p><strong>Phone Number</strong></p>
+                                    <p><strong>Name</strong></p>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" name="custPhoneNo" placeholder="Phone Number" value="<?php echo $row['custPhoneNo'] ?>" aria-label="Phone Number" aria-describedby="basic-addon2">
+                                        <input type="text" name="custName" id="custName" class="form-control" th:value="${customer.custName}">
                                     </div>
-				    <p><strong>Address</strong></p>
+                                    <p><strong>Address</strong></p>
+                                    <div class="input-group mb-3">
+                                        <input type="text" name="custAddress" id="custAddress" class="form-control" th:value="${customer.custAddress}">
+                                    </div>
+				    <!-- <p><strong>Address</strong></p>
 				    <div class="input-group mb-3">
                                         <input type="text" class="form-control" name="custAddress" placeholder="Address" value="<?php echo $row['custAddress'] ?>" aria-label="Address" aria-describedby="basic-addon2">
-                                    </div>
+                                    </div> -->
 
                                     
                                     <div class="center-btn">
                                         <button class="profile-update" id="btn-submit" style="font-weight:500; margin-right: 10px;">Update Profile</button>
-                                        <button class="profile-update" id="btn-submit" style="font-weight:500">Delete Profile</button>
+                                        <!-- <button class="profile-update" id="btn-submit" style="font-weight:500">Delete Profile</button> -->
                                     </div>
                                 </div>
                             </form>
