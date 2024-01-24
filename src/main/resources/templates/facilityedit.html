@@ -1,11 +1,3 @@
-<!-- <?php
-session_start();
-if (!isset($_SESSION['Admin'])) {
-    header("Location:login.php");
-}
-
-
-?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -185,68 +177,8 @@ if (!isset($_SESSION['Admin'])) {
     <script src="dist/assets/jquery-file-upload/js/jquery.iframe-transport.js"></script>
     <script src="dist/assets/jquery-file-upload/js/jquery.fileupload.js"></script>
     <script>
-        // For Variation // 
-        $(document).ready(function() {
-            $("#variation").on("change", function() {
-                var numInputs = $(this).val();
-                $('#var-container').html('');
-                for (var i = 1; i <= numInputs; i++) {
-                    var j = i * 1;
-                    var $section = $('<div class="variation" style="display:inline-flex"; ><div class="form-group" ><p class="input-title" >Title Variation ' + j + '<input type="" id="var-title[]" name="var-title[]" class="form-control" placeholder="Title Variation ' + j + '" required></div><div class="form-group"><p class="input-title" >Quantity Variation ' + j + '</p><input min="1" type="number" id="var-quan[]" name="var-quan[]" class="form-control" placeholder="Quantity Variation ' + j + '"></div><div class="form-group"><p class="input-title" >[RM]</p><input min="0" type="number" step="any" id="var-price[]" name="var-price[]" class="form-control" placeholder="Price for Variation  ' + j + '" required></div></div>');
-                    $('#var-container').append($section);
-                }
-            });
-
-            $("#reset").click(function() {
-                $('#image_preview').html("");
-            })
-
-            $("#type").change(function() {
-                var selectedType = $(this).children("option:selected").val();
-                if (selectedType == 1) {
-                    $("#type1").text("Food And Beverages");
-                    $("#type2").text("Fashion");
-                    $("#type3").text("Electronics");
-                    $("#type4").text("Others");
-                } else if (selectedType == 2) {
-                    $("#type1").text("Delivery Service");
-                    $("#type2").text("Educational Service");
-                    $("#type3").text("Cleaning Service");
-                    $("#type4").text("Others");
-                }
-            });
-
-
-        });
-
-        function preview_image() {
-            var total_file = document.getElementById("upload_file").files.length;
-            if (total_file > 3) {
-                alert("You can only upload 3 images per ads.");
-                const file = document.getElementById('upload_file');
-                file.value = '';
-            } else {
-                for (var i = 0; i < total_file; i++) {
-                    $('#image_preview').append("<img height=100px; src='" + URL.createObjectURL(event.target.files[i]) + "'><br>");
-                }
-            }
-        }
-
-        function notification() {
-            Swal.fire(
-                'You have succesfully post your ads!',
-                'We will now redirect you to profile page.',
-                'success'
-            ).then(function() {
-                window.location = "profile.php";
-            });
-        }
+       
     </script>
 
 
-    <?php
-    if (isset($_SESSION['success'])) {
-        echo '<script type="text/javascript">notification();</script>';
-        unset($_SESSION['success']);
-    }
-    ?>
+ 
