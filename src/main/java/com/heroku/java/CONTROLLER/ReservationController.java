@@ -207,7 +207,7 @@ public class ReservationController {
             statement.setString(6, receipt);
 
             statement.executeUpdate();               
-            }
+            
              System.out.println("debug= " + reserveId);
             connection.close();
 
@@ -216,7 +216,7 @@ public class ReservationController {
             System.out.println("error");
         }
         return  "redirect:/reservationList";
-
+    }
 
     @GetMapping("/deleteReservation")
     public String deleteReservation(String reserveId) {
