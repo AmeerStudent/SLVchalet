@@ -119,8 +119,8 @@ public class ReservationController {
     }
 
     // view reservation
-    @GetMapping("/facilityview")
-    public String facilityview(@RequestParam("reserveId") String reserveId, Model model) {
+    @GetMapping("/bookingList")
+    public String bookingList(@RequestParam("reserveId") String reserveId, Model model) {
         System.out.println("Reservation ID : " + reserveId);
         try {
             Connection connection = dataSource.getConnection();
@@ -133,7 +133,7 @@ public class ReservationController {
 
             if (resultSet.next()) {
                 
-                String reserveId = resultSet.getString("reserveId");
+                
                 String reserveCheckIn = resultSet.getString("reserveCheckIn");
                 String reserveCheckOut = resultSet.getString("reserveCheckOut");
                 String reserveStatus = resultSet.getString("reserveStatus");
@@ -148,7 +148,7 @@ public class ReservationController {
             e.printStackTrace();
         }
 
-        return "facilityview";
+        return "bookingList";
     }
 
     // // get and post mapping for update reservation
