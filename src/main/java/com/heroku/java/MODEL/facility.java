@@ -13,7 +13,17 @@ public class facility {
 	 public facility (){
 		 
 	 }
-	
+	 public facility( String facilityId, String facilityStatus, double facilityPrice, String facilityName, int facilityQtty, String facilityDescription, String facilityType, byte[] facilityPic, String staffId){
+        	this.facilityId = facilityId;
+       	 	this.facilityStatus = facilityStatus;
+        	this.facilityPrice = facilityPrice;
+        	this.facilityName = facilityName;
+        	this.facilityQtty = facilityQtty;
+		this.facilityDescription = facilityDescription;
+		this.facilityType = facilityType;
+		this.facilityPic = facilityPic;
+		this.staffId = staffId;
+    }
 	 public String getFacilityId() {
 	  return facilityId;
 	 }
