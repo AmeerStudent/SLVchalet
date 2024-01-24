@@ -97,7 +97,7 @@ public String signup(@ModelAttribute("signup")customer customer){
                 customer.setCustAddress(custAddress);
 
                 customers.add(customer);
-                MODEL.addAttribute("customers", customers);
+                MODEL.addAttribute("customer", customers);
 
             }
             connection.close();
