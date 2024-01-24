@@ -104,14 +104,16 @@
 									id="dataTables-example">
 									<thead>
 										<tr>
+											<th>FACILITY ID</th>
 											<th>Facility Name</th>
 											<th>Facility Description</th>
 											<th>Facility Price</th>
-											<th colspan="3">Action</th>
+											<th colspan="4">Action</th>
 										</tr>
 									</thead>
-                                    					<tbody>
-									<tr th:each="facilities  : ${facilitiess}">
+                                    					<tbody></tbody>
+									<tr th:each="facilities : ${facilitiess}">
+										<td th:text="${facilities.facilityId}"></td>
 										<td th:text="${facilities .facilityName}"></td>
         									<td th:text="${facilities .facilityDescription}"></td>
             									<td th:text="${facilities .facilityPrice}"></td>
