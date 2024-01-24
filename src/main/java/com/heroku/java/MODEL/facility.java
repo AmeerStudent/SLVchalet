@@ -10,8 +10,10 @@ public class facility {
      private String facilityType;
      private byte[] facilityPic;
 	 private String staffId;
-	 
-	 
+	 public facility (){
+		 
+	 }
+	
 	 public String getFacilityId() {
 	  return facilityId;
 	 }
