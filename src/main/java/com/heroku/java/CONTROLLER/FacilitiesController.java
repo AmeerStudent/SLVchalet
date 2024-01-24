@@ -125,7 +125,7 @@ public class FacilitiesController {
                 String facilityDescription = resultSet.getString("facilityDescription");
                 String facilityType = resultSet.getString("facilityType");
                 String facilityPic = resultSet.getString("facilityPic");
-                String facilityId = resultSet.getString("staffId");
+                String staffId = resultSet.getString("staffId");
                 facility facility;
                 if ("room".equalsIgnoreCase(facilityType)) {
                     String roomSql = "SELECT facilityId, roomCategory FROM room WHERE facilityId=?";
@@ -153,7 +153,7 @@ public class FacilitiesController {
                     facility = new facility(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, staffId);
                 }
 
-                facilitiess.add(facilities);
+                facilitiess.add(facility);
             }
 
             model.addAttribute("facilitiess", facilitiess);
