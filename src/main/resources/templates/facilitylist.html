@@ -81,8 +81,8 @@ session_start();
                     </a>
                     <ul>
                         <li><a style="text-decoration: none;" th:href="@{/admindashboard}">Dashboard</a></li>
-                        <li><a style="text-decoration: none;" th:href="@{/productadmin}">Update Facilities</a></li>
-                        <li><a style="text-decoration: none;" th:href="@{/postads}">Post new ads</a></li>
+                        <li><a style="text-decoration: none;" th:href="@{/facilityedit}">Update Facilities</a></li>
+                        <li><a style="text-decoration: none;" th:href="@{/facilityregister}">Add Facility</a></li>
                         <li><a style="text-decoration: none;" th:href="@{/signupadmin}">Register New staff</a></li>
                         <li><a style="text-decoration: none;" th:href="@{/logout}">Logout</a></li>
                     </ul>
@@ -143,7 +143,7 @@ session_start();
 									<thead>
 										<tr>
 											<th>FACILITY ID</th>
-											<th>FCILITY NAME</th>
+											<th>FACILITY NAME</th>
 											<th colspan="2">Action</th>
 										</tr>
 									</thead>
@@ -169,7 +169,7 @@ session_start();
 									</tbody>
 								</table>
 								<div style="color: white; font-size: 10px;">
-									&nbsp; <a th:href="@{/facilityregister}" class="btn btn-danger square-btn-adjust">Register facility</a>
+									&nbsp; <a th:href="@{/facilityregister}" class="btn btn-danger square-btn-adjust">Register Facility</a>
 								</div>
 							</div>
 
