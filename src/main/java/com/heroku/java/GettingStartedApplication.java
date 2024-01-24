@@ -66,11 +66,7 @@ public class GettingStartedApplication {
 
     }
 
-    @GetMapping("/facilitylist")
-    public String facilitylist() {
-        return "facilitylist";
-
-    }
+    
     @GetMapping("/login")
     public String login() {
         return "login";
