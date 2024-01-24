@@ -100,10 +100,11 @@
       <div class="card">
         <div class="card-body">
           <div class="image" style="max-height: 192px;">
+              <img th:value="${facility.facilityPic}" style="width: 100px; height: 100px;"/>
             <img style="max-height: 190px; object-fit: scale-down;" src="images/${facility.facilityPic}" alt="">
           </div>
           <div class="title">
-          <img src="view-image.jsp?id=${facility.facilityId}"style="width: 100px; height: 100px;"/>
+          
                              
             <h4 style="font-weight: 1000;"><c:out value="${facility.facilityName}" /></h4>
             <p style="width: 650px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
