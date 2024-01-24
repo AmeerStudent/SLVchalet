@@ -119,37 +119,37 @@ public class ReservationController {
     }
 
     // view reservation
-    @GetMapping("/bookingList")
-    public String bookingList(@RequestParam("reserveId") String reserveId, Model model) {
-        System.out.println("Reservation ID : " + reserveId);
-        try {
-            Connection connection = dataSource.getConnection();
+    // @GetMapping("/bookingList")
+    // public String bookingList(@RequestParam("reserveId") String reserveId, Model model) {
+    //     System.out.println("Reservation ID : " + reserveId);
+    //     try {
+    //         Connection connection = dataSource.getConnection();
 
-            String sql = "SELECT reserveId, reserveCheckIn, reserveCheckOut, reserveStatus, paymentStatus, receipt FROM reservation WHERE reserveId = ?";
+    //         String sql = "SELECT reserveId, reserveCheckIn, reserveCheckOut, reserveStatus, paymentStatus, receipt FROM reservation WHERE reserveId = ?";
 
-            final var statement = connection.prepareStatement(sql);
-            statement.setString(1, reserveId);
-            final var resultSet = statement.executeQuery();
+    //         final var statement = connection.prepareStatement(sql);
+    //         statement.setString(1, reserveId);
+    //         final var resultSet = statement.executeQuery();
 
-            if (resultSet.next()) {
+    //         if (resultSet.next()) {
                 
                 
-                String reserveCheckIn = resultSet.getString("reserveCheckIn");
-                String reserveCheckOut = resultSet.getString("reserveCheckOut");
-                String reserveStatus = resultSet.getString("reserveStatus");
-                String paymentStatus = resultSet.getString("paymentStatus");
-                String receipt = resultSet.getString("receipt");
+    //             String reserveCheckIn = resultSet.getString("reserveCheckIn");
+    //             String reserveCheckOut = resultSet.getString("reserveCheckOut");
+    //             String reserveStatus = resultSet.getString("reserveStatus");
+    //             String paymentStatus = resultSet.getString("paymentStatus");
+    //             String receipt = resultSet.getString("receipt");
 
-                model.addAttribute("reservation", reservation); // Use "reservation" as the model attribute name
+    //             model.addAttribute("reservation", reservation); // Use "reservation" as the model attribute name
 
-                connection.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    //             connection.close();
+    //         }
+    //     } catch (SQLException e) {
+    //         e.printStackTrace();
+    //     }
 
-        return "bookingList";
-    }
+    //     return "bookingList";
+    // }
 
     // // get and post mapping for update reservation
     //  @GetMapping("/updateReservation")
