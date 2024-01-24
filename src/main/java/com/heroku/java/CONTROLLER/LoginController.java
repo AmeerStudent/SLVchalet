@@ -196,7 +196,7 @@ public class LoginController {
                     session.setAttribute("custUsername", inputUsername);
                     session.setAttribute("custUsername", inputPassword);
                     
-                    return "redirect:/profile?success=true";
+                    return "redirect:/product?success=true";
                 }
             }
 
