@@ -1,8 +1,10 @@
 package com.heroku.java.MODEL;
-public class room {
+public class room extends facility {
 	private String facilityId;
 	private String roomCategory;
-
+	public room(){
+		
+	}
 	public String getFacilityId() {
 		return facilityId;
 	}
