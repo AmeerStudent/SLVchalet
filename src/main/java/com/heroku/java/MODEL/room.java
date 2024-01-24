@@ -10,14 +10,7 @@ public class room extends facility {
         super(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, staffId);
         this.roomCategory = roomCategory;
     }
-	public String getFacilityId() {
-		return facilityId;
-	}
-
-	public void setFacilityId(String facilityId) {
-		this.facilityId = facilityId;
-	}
-
+	
 	public String getRoomCategory() {
 		return roomCategory;
 	}
