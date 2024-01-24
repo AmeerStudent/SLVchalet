@@ -119,9 +119,9 @@ public class FacilitiesController {
             while (resultSet.next()) {
                 String facilityId = resultSet.getString("facilityId");
                 String facilityStatus = resultSet.getString("facilityStatus");
-                String facilityPrice = resultSet.getString("facilityPrice");
+                double facilityPrice = resultSet.getDouble("facilityPrice");
                 String facilityName = resultSet.getString("facilityName");
-                String facilityQtty = resultSet.getString("facilityQtty");
+                int facilityQtty = resultSet.getInt("facilityQtty");
                 String facilityDescription = resultSet.getString("facilityDescription");
                 String facilityType = resultSet.getString("facilityType");
                 String facilityPic = resultSet.getString("facilityPic");
