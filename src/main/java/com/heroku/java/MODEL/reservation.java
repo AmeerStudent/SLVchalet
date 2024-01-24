@@ -1,8 +1,8 @@
 package com.heroku.java.MODEL;
 public class reservation {
 	private String reserveId;
-	private Date reserveCheckIn;
-	private Date reserveCheckOut;
+	private String reserveCheckIn;
+	private String reserveCheckOut;
 	private String reserveStatus;
 	private String paymentStatus;
 	private String receipt;
@@ -21,19 +21,19 @@ public class reservation {
 
 	
 
-	public Date getReserveCheckIn() {
+	public String getReserveCheckIn() {
 		return reserveCheckIn;
 	}
 
-	public void setReserveCheckIn(Date reserveCheckIn) {
+	public void setReserveCheckIn(String reserveCheckIn) {
 		this.reserveCheckIn = reserveCheckIn;
 	}
 
-	public Date getReserveCheckOut() {
+	public String getReserveCheckOut() {
 		return reserveCheckOut;
 	}
 
-	public void setReserveCheckOut(Date reserveCheckOut) {
+	public void setReserveCheckOut(String reserveCheckOut) {
 		this.reserveCheckOut = reserveCheckOut;
 	}
 
