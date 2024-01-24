@@ -61,7 +61,10 @@ if (!isset($_SESSION['Admin'])) {
 										Facility Quantity :<input type="text" name="" th:value="${facility.facilityQtty}" class="form-control" disabled> <br>
 										Facility Description :<input type="text" name="" th:value="${facility.facilityDescription}" class="form-control" disabled> <br>
 										Facility Type :<input type="text" name="" th:value="${facility.facilityType}" class="form-control" disabled> <br>
-                                        Facility Picture :<img src="<c:url value="${facility.facilityPic}" />" class="form-control" disabled> <br>
+
+										const base64FacilityPic = btoa(String.fromCharCode(...new Uint8Array(facility.facilityPic)));
+const facilityPicUrl = `data:image/jpeg;base64,${base64FacilityPic}`;
+                                        Facility Picture :<img src="${facilityPicUrl}" class="form-control" disabled> <br>
 									</p>
            
                 
