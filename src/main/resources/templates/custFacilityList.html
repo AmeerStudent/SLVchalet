@@ -41,57 +41,114 @@
     <!-- ======= Hero Section ======= -->
     <div class="container" style="margin-top:150px; min-height:90vh;">
         <h1>Shopping Cart</h1>
-        <div class="container">
+<div class="container" style="margin-top:10%; border:1px">
+  <div class="row">
+    <div class="col-lg-6 hero-img">
+      <div class="container-slider">
+        <button class="btn left-btn hide">
+          <i class="fa fa-chevron-circle-left"></i>
+        </button>
 
-            <tbody>
-                <table class="table">
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col"></th>
-                            <th scope="col" style="text-align:center;">Item</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Date</th>
-                            <th scope="col">Subtotal</th>
-                        </tr>
-                      										Staff ID : 	<input type="text" name="" th:value="${facility.staffId}" class="form-control" value="ignore" disabled> <br>  
-										Facility ID :<input type="text" name="" th:value="${facility.facilityId}" class="form-control" disabled> <br>
-										Facility Name :<input type="text" name="" th:value="${facility.facilityName}" class="form-control" disabled> <br>
-										Facility Price :<input type="text" name="" th:value="${facility.facilityPrice}" class="form-control" disabled> <br>
-                                        Facility Status : 	<input type="text" name="" th:value="${facility.facilityStatus}" class="form-control" value="ignore" disabled> <br>  
-										Facility Quantity :<input type="text" name="" th:value="${facility.facilityQtty}" class="form-control" disabled> <br>
-										Facility Description :<input type="text" name="" th:value="${facility.facilityDescription}" class="form-control" disabled> <br>
-										Facility Type :<input type="text" name="" th:value="${facility.facilityType}" class="form-control" disabled> <br>
-                                        Facility Picture :<input type="text" name="" th:value="${facility.facilityPic}" class="form-control" disabled> <br>
-									</p>
-                    </thead>
-                  <tr th:each="facilities : ${facilitiess}">
-										<td th:text="${facilities.facilityName}"></td>
-                    <td th:text="${facilities.facilityPrice}"></td>
-                    <td th:text="${facilities.facilityDescription}"></td>
-                    <td th:text="${facilities.facilityQtty}"></td>
-                    <td th:text="${facilities.facilityDate}"></td>
-        						<td th:text="${facilities.facilitySubtotal}"></td>	
- 										<td>
-										<a
-										th:href="@{/facilityview?facilityId=}+${facilities.facilityId}" class="btn view-button btn-info">Info</a>
-										</td>
- 										<td>
-                   								<a 
-										th:href="@{/facilityedit?facilityId=}+${facilities.facilityId}" class="btn update-button btn-primary">Edit</a>
-            									</td>
-										<td>
-             								  	<a 
-                   								th:href="@{/deletefacility?facilityId=}+${facilities.facilityId}" 
-                   								value="{facilities.facilityId}" 
-                   								onclick="return confirm('Are you sure you want to delete this facility?')"><button class="btn delete-button btn-danger" >Delete</button></a>
-            									</td>
-									</tr>
-                </table>
-            </tbody>
+        <div class="carousel-container">
+          <ul class="carousel">
+            <!-- Image slides here -->
+          </ul>
         </div>
+
+        <!-- Right navigation button based on the number of images -->
+        <button class="btn right-btn">
+          <i class="fa fa-chevron-circle-right"></i>
+        </button>
+
+        <!-- Navigation dots based on the number of images -->
+        <div class="nav">
+          <div class="dot active"></div>
+          <!-- Additional dots based on the number of images -->
+        </div>
+      </div>
     </div>
+
+    <div class="col-lg-6 d-flex flex-column">
+      <h3 style="font-weight:1000">Product Title</h3>
+
+      <!-- Product price -->
+      <h4 style="padding:20px;background-color: #eee6ff; text-align:center; font-weight:1000">RM 50 - RM 100</h4>
+
+      <!-- Product description -->
+      <textarea name="" id="" cols="30" rows="10" disabled>This is the product description.</textarea>
+
+      <!-- Variation options -->
+      <div class="option" style="display:flex; margin-top:10px;">
+        <h4 style="font-weight:1000">Variation : </h4>
+        <form action="inc/addtocart.php" method="POST">
+          <ul style="list-style-type: none;">
+            <!-- Variation options here -->
+          </ul>
+      </div>
+
+      <!-- Quantity selection -->
+      <div class="option" style="display:flex; margin-bottom:20px;">
+        <h4 style="font-weight:1000">Quantity : </h4>
+        <div class="quantity buttons_added" style="margin-left:30px;">
+          <input type="button" value="-" class="minus">
+          <input type="number" step="1" min="1" max="" name="quantity" id="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" onchange="box_quan();">
+          <input type="button" value="+" class="plus">
+        </div>
+      </div>
+
+      <!-- Date Arrival -->
+      <div class="option" style="display:flex; margin-bottom:20px;">
+        <h5 style="font-weight:1000">Date Arrival : </h5>
+        <input type="date" name="fdate" onfocus="this.min=new Date().toISOString().split('T')[0]">
+      </div>
+
+      <!-- Date Departure -->
+      <div class="option" style="display:flex; margin-bottom:20px;">
+        <h5 style="font-weight:1000">Date Departure : </h5>
+        <input type="date" name="fdate" onfocus="this.min=new Date().toISOString().split('T')[0]">
+      </div>
+
+      <!-- Hidden product ID input -->
+      <input type="text" value="123" name="prodid" id="prodid" hidden>
+
+      <!-- Add to cart button -->
+      <div class="btn-prod">
+        <button type="submit" name="submit" value="submit" class="go-to-btn">Add to cart <i class='fa fa-shopping-cart'></i></button>
+        <p class="form-message"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" 
+  <!-- Review section -->
+  <h1>Review ( 5 )</h1>
+</div>
+
+<!-- Review cards -->
+<div class="container" style="margin-top:50px">>
+  <div class="card">
+    <div class="card-body">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <!-- User profile picture -->
+            <img src="images/profile/profile-pic.jpg" style="border-radius:50%;object-fit:scale-down;  width: 70px;">
+          </div>
+          <div class="col-lg-6 d-flex flex-column">
+            <!-- Review details -->
+            <h1>Username</h1>
+            <p>Variation: Product Variation</p>
+            <hr>
+            <p>This is the review content.</p>
+            <p style="font-size:12px; text-align:right"> Date: January 1, 2024 - 3:30 PM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 
