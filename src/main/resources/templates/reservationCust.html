@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -113,13 +111,13 @@
 										</tr>
 									</thead>
                                     					<tbody>
-									<tr th:each="facility : ${facilities}">
-										<td th:text="${facilities.facilityName}"></td>
-        									<td th:text="${facilities.facilityDescription}"></td>
-            									<td th:text="${facilities.facilityPrice}"></td>
+									<tr th:each="facilities  : ${facilitiess}">
+										<td th:text="${facilities .facilityName}"></td>
+        									<td th:text="${facilities .facilityDescription}"></td>
+            									<td th:text="${facilities .facilityPrice}"></td>
 										<td>
 										<a
-										th:href="@{/reservationCust?facilityId=}+${facilities.facilityId}" class="btn view-button btn-info" >Booking</a>
+										th:href="@{/reservationCust?facilityId=}+${facilities .facilityId}" class="btn view-button btn-info" >Booking</a>
 										</td>
 
 								</tbody>
