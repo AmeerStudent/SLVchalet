@@ -218,8 +218,8 @@ public class FacilitiesController {
     // }
 
     // // get and post mapping for update facility
-    //  @GetMapping("/productadmin")
-    // public String productadmin(@RequestParam("facilityId") String facilityId, Model model) {
+    //  @GetMapping("/facilityedit")
+    // public String facilityedit(@RequestParam("facilityId") String facilityId, Model model) {
     //     try {
     //         Connection connection = dataSource.getConnection();
     //         String sql = "SELECT facility.facilityId, facility.facilityStatus, facility.facilityPrice, facility.facilityName, facility.facilityQtty, facility.facilityDescription, facility.facilityType, facility.facilityPic,  facility.staffId, room.roomCategory, equipment.equipType "
@@ -263,11 +263,11 @@ public class FacilitiesController {
     //         e.printStackTrace();
     //     }
 
-    //     return "productadmin";
+    //     return "facilityedit";
     // }
 
-    // @PostMapping("/productadmin")
-    // public String productadmin(@ModelAttribute("productadmin")  facility facility, room room, equipment equipment) {
+    // @PostMapping("/facilityedit")
+    // public String facilityedit(@ModelAttribute("productadmin")  facility facility, room room, equipment equipment) {
     //     try {
     //         Connection connection = dataSource.getConnection();
     //         String sql = "UPDATE facility SET facilityId=?, facilityStatus=?, facilityPrice=?, facilityName=?, facilityQtty=?, facilityDescription=?, facilityType=?, facilityPic=?, staffId=? WHERE facilityId=?";
@@ -306,7 +306,7 @@ public class FacilitiesController {
 
     //     } catch (SQLException e) {
     //         e.printStackTrace();
-    //         return "redirect:/productadmin?success=false";
+    //         return "redirect:/facilityedit?success=false";
     //     }
     //     return "redirect:/facilitylist?success=true";
     // }
