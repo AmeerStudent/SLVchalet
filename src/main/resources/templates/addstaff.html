@@ -69,54 +69,47 @@
   </header>
   
   <!-- ======= Hero Section ======= -->
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 hero-img " style="margin-top:15%;" data-aos="zoom-out" data-aos-delay="50">
-            <img src="assets/img/signstaff.png" class="img-fluid" alt="">
-        </div>
-        <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="zoom-out" data-aos-delay="50">
-          <div class="signup-form">    
-            
-              <form method="post" th:action="@{/signupadmin}" modelAttribute="signupadmin" th:object="(${signupadmin})">
-            <h1>Register New Staff </h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 hero-img" style="margin-top:15%;" data-aos="zoom-out" data-aos-delay="50">
+        <img src="assets/img/signstaff.png" class="img-fluid" alt="">
+      </div>
+      <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="zoom-out" data-aos-delay="50">
+        <div class="signup-form">
+          <form method="post" th:action="@{/signupadmin}" modelAttribute="signupadmin" th:object="${signupadmin}">
+            <h1>Register New Staff</h1>
             <!-- Id Number -->
             <div class="form-group">
               <p class="input-title" id="id-title">Staff ID Number</p>
-              <input type="text" id="staffId" name="staffId" class="form-control" placeholder="Insert staff ID" >
-          </div> 
-			<!-- Full Name -->               
-                <div class="form-group">
-                    <p class="input-title" >Full Name</p>
-                    <input type="text" id="staffName" name="staffName" class="form-control" placeholder="Staff Full Name" >
-                </div>
-                    
-                 <!-- Email -->
-                 <div class="form-group">
-                    <p class="input-title" >Email</p>
-                    <input type="text" id="staffEmail" name="staffEmail" class="form-control" placeholder="Staff Email">
-                </div>
-                 <!-- Phone Number -->
-                <div class="form-group">
-                    <p class="input-title" >Phone Number</p>
-                    <input type="text" id="staffPhoneNo" name="staffPhoneNo" class="form-control" placeholder="Example : 60123456789" >
-                </div>
-                 <!-- Password -->
-                <div class="form-group">
-                    <p class="input-title" >Password</p>
-                    <input type="password" id="staffPass" name="staffPass" class="form-control" placeholder="Staff Password">
-                </div>
-		 </form>   
-<!--                 <form action="staffdasboard.html" method="post"> -->
-    <button type="submit" class="btn btn-primary btn-block btn-lg">Add Staff</button>
-
-       
-           		
-            <div class="text-center small">Cancel Registration? <a th:href="@{/admindashboard}">Back</a></div>
-        </div>
+              <input type="text" id="staffId" name="staffId" class="form-control" placeholder="Insert staff ID">
+            </div>
+            <!-- Full Name -->
+            <div class="form-group">
+              <p class="input-title">Full Name</p>
+              <input type="text" id="staffName" name="staffName" class="form-control" placeholder="Staff Full Name">
+            </div>
+            <!-- Email -->
+            <div class="form-group">
+              <p class="input-title">Email</p>
+              <input type="text" id="staffEmail" name="staffEmail" class="form-control" placeholder="Staff Email">
+            </div>
+            <!-- Phone Number -->
+            <div class="form-group">
+              <p class="input-title">Phone Number</p>
+              <input type="text" id="staffPhoneNo" name="staffPhoneNo" class="form-control" placeholder="Example: 60123456789">
+            </div>
+            <!-- Password -->
+            <div class="form-group">
+              <p class="input-title">Password</p>
+              <input type="password" id="staffPass" name="staffPass" class="form-control" placeholder="Staff Password">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Add Staff</button>
+          </form>
+          <div class="text-center small">Cancel Registration? <a th:href="@{/admindashboard}">Back</a></div>
         </div>
       </div>
     </div>
-
+  </div>
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="container">
@@ -125,7 +118,6 @@
       </div>
     </div>
   </footer><!-- End Footer -->
-
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
