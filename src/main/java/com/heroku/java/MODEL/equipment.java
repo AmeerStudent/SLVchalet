@@ -5,7 +5,7 @@ public class equipment {
 	public equipment(){
 	}
 
-	equipment(String facilityId, String facilityStatus, double facilityPrice, String facilityName, int facilityQtty, String facilityDescription, String facilityType, byte[] facilityPic, String equipType, String staffId){
+	public equipment(String facilityId, String facilityStatus, double facilityPrice, String facilityName, int facilityQtty, String facilityDescription, String facilityType, byte[] facilityPic, String equipType, String staffId){
         super(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, staffId);
         this.equipType = equipType;
     }
