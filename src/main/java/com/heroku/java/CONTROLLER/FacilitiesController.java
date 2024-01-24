@@ -186,12 +186,12 @@ public class FacilitiesController {
     //         if (resultSet.next()) {
     //             String facilityId = resultSet.getString("facilityId");
     //             String facilityStatus = resultSet.getString("facilityStatus");
-    //             String facilityPrice = resultSet.getString("facilityPrice");
+    //             double facilityPrice = resultSet.getDouble("facilityPrice");
     //             String facilityName = resultSet.getString("facilityName");
-    //             String facilityQtty = resultSet.getString("facilityQtty");
+    //             int facilityQtty = resultSet.getInt("facilityQtty");
     //             String facilityDescription = resultSet.getString("facilityDescription");
     //             String facilityType = resultSet.getString("facilityType");
-    //             String facilityPic = resultSet.getString("facilityPic");
+    //             byte[] facilityPic = resultSet.getBytes("facilityPic");
        //             String staffId = resultSet.getString("staffId");
 
     //             facility facility;
@@ -275,12 +275,12 @@ public class FacilitiesController {
 
             statement.setString(1, facility.getFacilityId());
             statement.setString(2, facility.getFacilityStatus());
-            statement.setString(3, facility.getFacilityPrice());
+            statement.setDouble(3, facility.getFacilityPrice());
             statement.setString(4, facility.getFacilityName());
-            statement.setString(5, facility.getFacilityQtty());
+            statement.setInt(5, facility.getFacilityQtty());
             statement.setString(6, facility.getFacilityDescription());
             statement.setString(7, facility.getFacilityType());
-            statement.setString(8, facility.getFacilityPic());
+            statement.setBytes(8, facility.getFacilityPic());
            statement.setString(9, facility.getStaffId());
             statement.executeUpdate();
 
