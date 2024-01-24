@@ -1,5 +1,5 @@
 package com.heroku.java.MODEL;
-public class equipment {
+public class equipment extends facility {
 	
 	private String equipType;
 	public equipment(){
