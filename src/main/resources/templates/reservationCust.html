@@ -36,33 +36,39 @@
 
 <body>
   <!-- ======= Header ======= -->
-    <header id="header" class="header fixed-top">
-  <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-    <a href="index.php" class="logo d-flex align-items-center">
-      <img src="assets/img/.png" alt="">
+   <!-- ======= Header CUSTOMER ======= -->
+<header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+  
+      <a th:href="@{/index}" class="logo d-flex align-items-center">
+        <img src="assets/img/.png" alt="">
+      </a>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a style="text-decoration: none;" class="nav-link scrollto" th:href="@{/index}">Home</a></li>
+          <li><a class="nav-link scrollto" th:href="@{/facilitylist}">Facilities</a></li>
+  
+  
+  <li class="dropdown">
+    <a href="#" class="nav-account" style="text-decoration: none;">
+   <body>
+      <span class="material-icons">account_circle</span>
+      <span></span>
+    </body>
+      <i class="bi bi-chevron-down"></i>
     </a>
-    <nav id="navbar" class="navbar">
-      <ul>
-        <li><a style="text-decoration: none;" class="nav-link scrollto" href="index.jsp">Home</a></li>
-        <li><a class="nav-link scrollto" href="listFacilityController">Facilities</a></li>
-<li class="dropdown">
-  <a href="#" class="nav-account" style="text-decoration: none;">
-    <span class="material-icons">
-      account_circle
-    </span>
-    <i class="bi bi-chevron-down"></i>
-  </a>
-  <ul>
-    <li><a href="updateCustProf.jsp" style="text-decoration: none;">Dashboard</a></li>
-    <li><a href="bookFacility.jsp" style="text-decoration: none;">Cart</a></li>
-    <li><a href="logout.jsp" style="text-decoration: none;">Logout</a></li>
+    <ul>
+      <li><a th:href="@{/reservationCust}" style="text-decoration: none;">Facilities</a></li>
+      <li><a th:href="@{/cart}" style="text-decoration: none;">Cart</a></li>
+      <li><a th:href="@{/bookingList}" style="text-decoration: none;">Reservation List</a></li>
+      <li><a th:href="@{/profile}" style="text-decoration: none;">Profile</a></li>
+      <li><a th:href="@{/logout}" style="text-decoration: none;">Logout</a></li>
+    </ul>
+  </li>
   </ul>
-</li>
-</ul>
-</nav>
-</div>
-</header>
+  </nav>
+  </div>
+  </header>
   <!-- ======= Hero Section ======= -->
   <div class="container" style="margin-top:150px; min-height:90vh">
     <style>
