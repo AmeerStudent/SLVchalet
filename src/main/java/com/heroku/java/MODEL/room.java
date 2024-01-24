@@ -6,7 +6,7 @@ public class room extends facility {
 		
 	}
 
-	room(String facilityId, String facilityStatus, double facilityPrice, String facilityName, int facilityQtty, String facilityDescription, String facilityType, byte[] facilityPic, String roomCategory, String staffId){
+	public room(String facilityId, String facilityStatus, double facilityPrice, String facilityName, int facilityQtty, String facilityDescription, String facilityType, byte[] facilityPic, String roomCategory, String staffId){
         super(facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, staffId);
         this.roomCategory = roomCategory;
     }
