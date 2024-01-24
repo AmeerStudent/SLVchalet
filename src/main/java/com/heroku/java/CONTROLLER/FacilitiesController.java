@@ -185,7 +185,7 @@ public class FacilitiesController {
             final var resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
-                String facilityId = resultSet.getString("facilityId");
+                
                 String facilityStatus = resultSet.getString("facilityStatus");
                 double facilityPrice = resultSet.getDouble("facilityPrice");
                 String facilityName = resultSet.getString("facilityName");
