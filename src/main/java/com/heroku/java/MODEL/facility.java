@@ -9,6 +9,7 @@ public class facility {
 	 private int facilityQtty;
      private String facilityType;
      private byte[] facilityPic;
+	 private String staffId;
 	 
 	 
 	 public String getFacilityId() {
@@ -17,6 +18,7 @@ public class facility {
 	 public void setFacilityId(String facilityId) {
 	  this.facilityId = facilityId;
 	 }
+	
 	 public String getFacilityStatus() {
 	  return facilityStatus;
 	 }
@@ -59,5 +61,11 @@ public class facility {
 	public void setFacilityPic(byte[] facilityPic) {
 		this.facilityPic = facilityPic;
 	}
-	
+	 public String getStaffId() {
+	  return staffId;
+	 }
+	 public void setStaffId(String staffId) {
+	  this.staffId = staffId;
+	 }
 	}
+
