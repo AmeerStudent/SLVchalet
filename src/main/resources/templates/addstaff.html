@@ -62,7 +62,7 @@
       <li><a th:href="@{/facilityregister}" style="text-decoration: none;">Add Facilities</a></li>
       <li><a th:href="@{/updatefacility}" style="text-decoration: none;">Update Facilities</a></li>
       <li><a th:href="@{/addstaff}" style="text-decoration: none;">Register New Staff</a></li>
-      <li><a th:href="@{/stafflist}" style="text-decoration: none;">Register New Staff</a></li>
+      <li><a th:href="@{/stafflist}" style="text-decoration: none;">Staff list</a></li>
       <li><a th:href="@{/logout}" style="text-decoration: none;">Logout</a></li>
     </ul>
   </li>
@@ -79,7 +79,7 @@
       </div>
       <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="zoom-out" data-aos-delay="50">
         <div class="signup-form">
-          <form method="post" th:action="@{/signupadmin}" modelAttribute="signupadmin" th:object="${signupadmin}">
+          <form method="post" th:action="@{/addstaff}" modelAttribute="addstaff" th:object="${addstaff}">
             <h1>Register New Staff</h1>
             <!-- Id Number -->
             <div class="form-group">
