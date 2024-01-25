@@ -334,7 +334,7 @@ public class FacilitiesController {
     public String facilityedit(@ModelAttribute("facilityedit")  facility facility, room room, equipment equipment) {
         try {
             Connection connection = dataSource.getConnection();
-            String sql = "UPDATE facility SET facilityId=?, facilityStatus=?, facilityPrice=?, facilityName=?, facilityQtty=?, facilityDescription=?, facilityType=?, facilityPic=?, staffId=? WHERE facilityId=?";
+            String sql = "UPDATE facility SET facilityStatus=?, facilityPrice=?, facilityName=?, facilityQtty=?, facilityDescription=?, facilityType=?, facilityPic=?, staffId=? WHERE facilityId=?";
             final var statement = connection.prepareStatement(sql);
 
             
