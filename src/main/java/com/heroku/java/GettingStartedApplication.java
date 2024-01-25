@@ -49,6 +49,11 @@ public class GettingStartedApplication {
         return "staffdashboard";
 
     }
+    @GetMapping("/updatefacility")
+    public String updatefacility() {
+        return "updatefacility";
+
+    }
    
     @GetMapping("/admindashboard")
     public String admindashboard() {
