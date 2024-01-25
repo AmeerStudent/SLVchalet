@@ -69,9 +69,9 @@ public class StaffController {
                 
                 } catch (Exception e) {
                     e.printStackTrace();
-                    return "redirect:/index";
+                    return "redirect:/stafflist";
                 }
-            return "redirect:/admindashboard";
+            return "redirect:/stafflist";
         }
 
 
