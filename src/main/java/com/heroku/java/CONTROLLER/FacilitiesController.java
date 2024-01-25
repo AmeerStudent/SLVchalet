@@ -337,15 +337,16 @@ public class FacilitiesController {
             String sql = "UPDATE facility SET facilityId=?, facilityStatus=?, facilityPrice=?, facilityName=?, facilityQtty=?, facilityDescription=?, facilityType=?, facilityPic=?, staffId=? WHERE facilityId=?";
             final var statement = connection.prepareStatement(sql);
 
-            String facilityId=facility.getFacilityId();
-            String facilityStatus=facility.getFacilityStatus();
-            double facilityPrice=facility.getFacilityPrice();
-            String facilityName=facility.getFacilityName();
-            int facilityQtty=facility.getFacilityQtty();
-            String facilityDescription=facility.getFacilityDescription();
-            String facilityType=facility.getFacilityType();
-            byte[] facilityPic=facility.getFacilityPic();
-            String staffId=facility.getStaffId();
+            
+            String facilityStatus = facility.getFacilityStatus();
+            double facilityPrice = facility.getFacilityPrice();
+            String facilityName = facility.getFacilityName();
+            int facilityQtty = facility.getFacilityQtty();
+            String facilityDescription = facility.getFacilityDescription();
+            String facilityType = facility.getFacilityType();
+            byte[] facilityPic = facility.getFacilityPic();
+            String staffId = facility.getStaffId();
+            String facilityId = facility.getFacilityId();
 
             if (facilityType.equalsIgnoreCase("room")){
             facilityType = "Room";}
@@ -353,15 +354,16 @@ public class FacilitiesController {
             facilityType = "Equipment";}
 
             
-            statement.setString(1, facilityId);
-            statement.setString(2, facilityStatus);
-            statement.setDouble(3, facilityPrice);
-            statement.setString(4, facilityName);
-            statement.setInt(5, facilityQtty);
-            statement.setString(6, facilityDescription);
-            statement.setString(7, facilityType);
-            statement.setBytes(8, facilityPic);
-            statement.setString(9, staffId);
+            
+            statement.setString(1, facilityStatus);
+            statement.setDouble(2, facilityPrice);
+            statement.setString(3, facilityName);
+            statement.setInt(4, facilityQtty);
+            statement.setString(5, facilityDescription);
+            statement.setString(6, facilityType);
+            statement.setBytes(7, facilityPic);
+            statement.setString(8, staffId);
+            statement.setString(9, facilityId);
 
             statement.executeUpdate();
 
