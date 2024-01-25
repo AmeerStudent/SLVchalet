@@ -55,6 +55,11 @@ public class GettingStartedApplication {
         return "admindashboard";
 
     }
+     @GetMapping("/index")
+    public String index() {
+        return "index";
+
+    }
     
    @GetMapping("/productadmin")
     public String productadmin() {
