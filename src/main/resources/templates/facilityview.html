@@ -90,7 +90,7 @@ if (!isset($_SESSION['Admin'])) {
                                         Facility Status : 	<input type="text" name="" th:value="${facility.facilityStatus}" class="form-control" value="ignore" disabled> <br>  
 										Facility Quantity :<input type="text" name="" th:value="${facility.facilityQtty}" class="form-control" disabled> <br>
 										Facility Description :<input type="text" name="" th:value="${facility.facilityDescription}" class="form-control" disabled> <br>
-										Facility Type :<input type="text" name="" th:value="${facility.facilityType}" class="form-control" disabled> <br>
+										Facility Type :<input type="text" name="" th:value="${facility.facilityType}" class="form-control" onchange="preview_image();" disabled> <br>
                                          Facility Picture :<input type="image" name="facilityPic" th:value="${facility.facilityPic}" class="form-control" disabled> <br>
 									</p>
            
