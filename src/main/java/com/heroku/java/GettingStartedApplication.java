@@ -70,6 +70,16 @@ public class GettingStartedApplication {
         return "profile";
 
     }
+    @GetMapping("/bookingList")
+    public String bookingList() {
+        return "bookingList";
+
+    }
+    @GetMapping("/cart")
+    public String cart() {
+        return "cart";
+
+    }
     
    @GetMapping("/productadmin")
     public String productadmin() {
