@@ -140,7 +140,7 @@ public class StaffController {
         List<staff> staffs = new ArrayList<>();
         
         try {
-		Connection connection = dataSource.getConnection()
+		Connection connection = dataSource.getConnection();
             String sql = "SELECT staffId, staffName, staffEmail, staffPhoneNo, staffPass, adminId FROM staff order by staffID";
             final var statement = connection.prepareStatement();
             final var resultSet = statement.executeQuery(sql);
