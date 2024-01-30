@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.heroku.java.MODEL.*;
+import com.heroku.java.model.*;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -161,6 +161,8 @@ public class LoginController {
         
         
         }
+
+        // customer login
     @PostMapping("/login")
     public String login(@RequestParam(name = "success", required = false) Boolean success, String inputUsername, String inputPassword, HttpSession session, Model model, customer customer) {
 
@@ -168,7 +170,7 @@ public class LoginController {
             // String returnPage = null;
             Connection connection = dataSource.getConnection();
 
-            String sql = "SELECT custUsername, custName, custEmail, custPhoneno, custAddress, custPass FROM public.customer WHERE custUsername=?";
+            String sql = "SELECT custUsername, custName, custEmail, custPhoneNo, custAddress, custPass FROM public.customer WHERE custUsername=?";
             final var statement = connection.prepareStatement(sql);
             statement.setString(1, inputUsername);
 
@@ -183,7 +185,7 @@ public class LoginController {
                 String custPass = resultSet.getString("custPass");
                 String custName = resultSet.getString("custName");
                 String custEmail = resultSet.getString("custEmail");
-                String custPhoneno = resultSet.getString("custPhoneno");
+                String custPhoneNo = resultSet.getString("custPhoneNo");
                 String custAddress = resultSet.getString("custAddress");
 
                 System.out.println(custUsername);
@@ -194,14 +196,14 @@ public class LoginController {
                 if (custUsername.equals(inputUsername) && custPass.equals(inputPassword)) {
 
                     session.setAttribute("custUsername", inputUsername);
-                    session.setAttribute("custUsername", inputPassword);
+                    session.setAttribute("custPass", inputPassword);
                     
                     return "redirect:/reservationCust?success=true";
                 }
             }
 
             connection.close();
-            return "redirect:/reservationCust?-";
+            return "redirect:/reservationCust?--";
 
         } catch (SQLException sqe) {
             System.out.println("Error Code = " + sqe.getErrorCode());
