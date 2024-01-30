@@ -65,6 +65,11 @@ public class GettingStartedApplication {
         return "index";
 
     }
+    @GetMapping("/stafflist")
+    public String stafflist() {
+        return "stafflist";
+
+    }
    
     @GetMapping("/bookingList")
     public String bookingList() {
