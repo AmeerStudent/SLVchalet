@@ -142,8 +142,8 @@ public class StaffController {
         try {
 		Connection connection = dataSource.getConnection();
             String sql = "SELECT staffId, staffName, staffEmail, staffPhoneNo, staffPass, adminId FROM staff order by staffID";
-            final var statement = connection.prepareStatement();
-            final var resultSet = statement.executeQuery(sql);
+            final var statement = connection.prepareStatement(sql);
+            final var resultSet = statement.executeQuery();
             System.out.println("pass try stafflist >>>>>");
 
             while (resultSet.next()) {
