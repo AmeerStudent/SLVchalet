@@ -86,63 +86,17 @@ public class StaffController {
 // //         return "staffregister";
 // //     }
 
-    // @GetMapping("/stafflist")
-    // public String stafflist(Model model) {
-
-    //     List<staff> staffs = new ArrayList<staff>();
-    //     // Retrieve the logged-in staff's role from the session
-    //     //int staffID = (int) session.getAttribute("staffID");
-    //     //System.out.println("staffID stafflist : " + staffID);
-    //     try (Connection connection = dataSource.getConnection()) {
-    //         String sql = "SELECT staffId, staffName, staffEmail, staffPhoneNo, staffPass, adminId FROM staff order by staffID";
-    //         final var statement = connection.prepareStatement(sql);
-    //         //statement.setString(1, "baker");
-    //         final var resultSet = statement.executeQuery();
-    //         System.out.println("pass try stafflist >>>>>");
-
-    //         while (resultSet.next()) {
-    //             String staffId = resultSet.getString("staffId");
-    //             String staffName = resultSet.getString("staffName");
-    //             String staffEmail = resultSet.getString("staffEmail");
-				// String staffPhoneNo = resultSet.getString("staffPhoneNo");
-    //             String staffPass = resultSet.getString("staffPass");
-    //             String adminId = resultSet.getString("adminId");
-                
-    //             staff staff = new staff();
-    //             staff.setStaffId(staffId);
-    //             staff.setStaffName(staffName);
-    //             staff.setStaffPhoneNo(staffPhoneNo);
-    //             staff.setStaffPass(staffPass);
-    //             staff.setAdminId(adminId);
-
-    //             staffs.add(staff);
-    //             model.addAttribute("staffs", staffs);
-    //             //model.addAttribute("isManager", adminId == null); // Add Admin flag to the modelF
-
-    //         }
-
-    //         connection.close();
-
-    //      //return "admin/stafflist";
-    //       return "stafflist";
-    //     } catch (SQLException e) {
-    //         e.printStackTrace();
-    //         // Handle the exception as desired (e.g., show an error message)
-    //         return "error";
-    //     }
-        
-    // }
-
-	//NEW stafflist controller
-	 @GetMapping("/stafflist")
+    @GetMapping("/stafflist")
     public String stafflist(Model model) {
 
-        List<staff> staffs = new ArrayList<>();
-        
-        try {
-		Connection connection = dataSource.getConnection();
+        List<staff> staffs = new ArrayList<staff>();
+        // Retrieve the logged-in staff's role from the session
+        //int staffID = (int) session.getAttribute("staffID");
+        //System.out.println("staffID stafflist : " + staffID);
+        try (Connection connection = dataSource.getConnection()) {
             String sql = "SELECT staffId, staffName, staffEmail, staffPhoneNo, staffPass, adminId FROM staff order by staffID";
             final var statement = connection.prepareStatement(sql);
+            //statement.setString(1, "baker");
             final var resultSet = statement.executeQuery();
             System.out.println("pass try stafflist >>>>>");
 
@@ -150,7 +104,7 @@ public class StaffController {
                 String staffId = resultSet.getString("staffId");
                 String staffName = resultSet.getString("staffName");
                 String staffEmail = resultSet.getString("staffEmail");
-		String staffPhoneNo = resultSet.getString("staffPhoneNo");
+				String staffPhoneNo = resultSet.getString("staffPhoneNo");
                 String staffPass = resultSet.getString("staffPass");
                 String adminId = resultSet.getString("adminId");
                 
@@ -178,6 +132,52 @@ public class StaffController {
         }
         
     }
+
+	//NEW stafflist controller
+	 // @GetMapping("/stafflist")
+  //   public String stafflist(Model model) {
+
+  //       List<staff> staffs = new ArrayList<>();
+        
+  //       try {
+		// Connection connection = dataSource.getConnection();
+  //           String sql = "SELECT staffId, staffName, staffEmail, staffPhoneNo, staffPass, adminId FROM staff order by staffID";
+  //           final var statement = connection.prepareStatement(sql);
+  //           final var resultSet = statement.executeQuery();
+  //           System.out.println("pass try stafflist >>>>>");
+
+  //           while (resultSet.next()) {
+  //               String staffId = resultSet.getString("staffId");
+  //               String staffName = resultSet.getString("staffName");
+  //               String staffEmail = resultSet.getString("staffEmail");
+		// String staffPhoneNo = resultSet.getString("staffPhoneNo");
+  //               String staffPass = resultSet.getString("staffPass");
+  //               String adminId = resultSet.getString("adminId");
+                
+  //               staff staff = new staff();
+  //               staff.setStaffId(staffId);
+  //               staff.setStaffName(staffName);
+  //               staff.setStaffPhoneNo(staffPhoneNo);
+  //               staff.setStaffPass(staffPass);
+  //               staff.setAdminId(adminId);
+
+  //               staffs.add(staff);
+  //               model.addAttribute("staffs", staffs);
+  //               //model.addAttribute("isManager", adminId == null); // Add Admin flag to the modelF
+
+  //           }
+
+  //           connection.close();
+
+  //        //return "admin/stafflist";
+  //         return "stafflist";
+  //       } catch (SQLException e) {
+  //           e.printStackTrace();
+  //           // Handle the exception as desired (e.g., show an error message)
+  //           return "error";
+  //       }
+        
+  //   }
 //tutup deletestaff sementara
     @GetMapping("/deletestaff/")
     public String deleteStaff(String staffId) {
