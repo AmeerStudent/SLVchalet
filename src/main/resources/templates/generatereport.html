@@ -1,4 +1,4 @@
-// <?php
+<!-- // <?php
 // include 'inc/connection.php';
 // session_start();
 
@@ -9,7 +9,7 @@
 //     header("Location: admindashboard.php");
 // }
 
-// ?>
+// ?> -->
 
 
 
@@ -47,39 +47,40 @@
 </head>
 
 <body>
-   <!-- ======= Header ADMIN ======= -->
-     <header id="header" class="header fixed-top">
-  <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
-    <a th:href="@{/index}" class="logo d-flex align-items-center">
-      <img src="assets/img/.png" alt="">
+  <!-- ======= Header ADMIN ======= -->
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+  
+      <a th:href="@{/index}" class="logo d-flex align-items-center">
+        <img src="assets/img/.png" alt="">
+      </a>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a style="text-decoration: none;" class="nav-link scrollto" th:href="@{/index}">Home</a></li>
+<!--           <li><a class="nav-link scrollto" th:href="@{/facilitylist}">Facilities</a></li> -->
+  
+  
+  <li class="dropdown">
+    <a href="#" class="nav-account" style="text-decoration: none;">
+   <body>
+      <span class="material-icons">account_circle</span>
+      <span></span>
+    </body>
+      <i class="bi bi-chevron-down"></i>
     </a>
-    <nav id="navbar" class="navbar">
-      <ul>
-        <li><a style="text-decoration: none;" class="nav-link scrollto" th:href="@{/index}">Home</a></li>
-        <li><a class="nav-link scrollto" th:href="@{/facilitylist}">Facilities</a></li>
-
-
-<li class="dropdown">
-  <a href="#" class="nav-account" style="text-decoration: none;">
- <body>
-    <span class="material-icons">account_circle</span>
-    <span></span>
-  </body>
-    <i class="bi bi-chevron-down"></i>
-  </a>
-  <ul>
-    <li><a th:href="@{/admindashboard}" style="text-decoration: none;">Dashboard</a></li>
-    <li><a th:href="@{/facilityregister}" style="text-decoration: none;">Add Facilities</a></li>
-    <li><a th:href="@{/updatefacility}" style="text-decoration: none;">Update Facilities</a></li>
-    <li><a th:href="@{/addstaff}" style="text-decoration: none;">Register New Staff</a></li>
-    <li><a th:href="@{/logout}" style="text-decoration: none;">Logout</a></li>
+    <ul>
+      <li><a th:href="@{/admindashboard}" style="text-decoration: none;">Dashboard</a></li>
+      <li><a th:href="@{/facilityregister}" style="text-decoration: none;">Add Facility</a></li>
+      <li><a th:href="@{/facilitylist}" style="text-decoration: none;">Facility List</a></li>
+      <li><a th:href="@{/addstaff}" style="text-decoration: none;">Register New Staff</a></li>
+      <li><a th:href="@{/stafflist}" style="text-decoration: none;">Staff List</a></li>
+      <li><a th:href="@{/logout}" style="text-decoration: none;">Logout</a></li>
+    </ul>
+  </li>
   </ul>
-</li>
-</ul>
-</nav>
-</div>
-</header>
+  </nav>
+  </div>
+  </header>
 
                 <head>
   <title>Sales Report</title>
