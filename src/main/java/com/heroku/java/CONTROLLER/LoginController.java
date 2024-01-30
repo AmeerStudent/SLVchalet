@@ -144,7 +144,7 @@ public class LoginController {
                 }
             }
                 connection.close();
-            return "redirect:/staffdashboard?--";
+            return "redirect:/staffdashboard?invalidUsername&Password";
             
              } catch (SQLException sqe) {
             System.out.println("Error Code = " + sqe.getErrorCode());
