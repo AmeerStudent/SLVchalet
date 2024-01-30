@@ -62,12 +62,12 @@ public class LoginController {
                     session.setAttribute("adminId", inputId);
                     session.setAttribute("staffPass", inputPass);
                     
-                    return "redirect:/adminDashboard?success=true";
+                    return "redirect:/admindashboard?success=true";
                 }   
             }
 
             connection.close();
-            return "redirect:/adminDashboard?invalidUsername&Password";
+            return "redirect:/admindashboard?invalidUsername&Password";
 
             
 
