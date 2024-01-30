@@ -173,7 +173,7 @@ public class LoginController {
             String sql = "SELECT custUsername, custName, custEmail, custPhoneNo, custAddress, custPass FROM public.customer WHERE custUsername=?";
             final var statement = connection.prepareStatement(sql);
             statement.setString(1, inputUsername);
-            statement.setString(2, inputPassword);
+           
 
             final var resultSet = statement.executeQuery();
 
