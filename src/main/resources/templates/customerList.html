@@ -97,6 +97,7 @@
 									<tbody></tbody>
 										<tr th:each="customer : ${customers}">
 										<td th:text="${customer.custUsername}"></td>
+										<td th:text="${customer.custName}"></td>
  										<td>
 										<a
 										th:href="@{/viewCustomer?custUsername=}+${customer.custUsername}" class="btn view-button btn-info">View</a>
