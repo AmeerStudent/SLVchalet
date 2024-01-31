@@ -147,7 +147,7 @@ public String signup(@ModelAttribute("signup")customer customer){
     }
 
     @GetMapping("/updateprofile")
-     public String updateprofile(@RequestParam("custUsername") String custId, Model model) {
+     public String updateprofile(@RequestParam("custUsername") String custUsername, Model model) {
            System.out.println("Customer username : " + custUsername);
              try {
             Connection connection = dataSource.getConnection();
