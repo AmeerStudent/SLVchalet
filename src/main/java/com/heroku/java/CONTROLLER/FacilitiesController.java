@@ -174,7 +174,7 @@ public class FacilitiesController {
 
         try {
             Connection connection = dataSource.getConnection();
-            String sql = "SELECT facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, staffId FROM facilities ORDER BY facilityName";
+            String sql = "SELECT facilityId, facilityStatus, facilityPrice, facilityName, facilityQtty, facilityDescription, facilityType, facilityPic, staffId FROM facilities ORDER BY facilityId";
             final var statement = connection.createStatement();
             final var resultSet = statement.executeQuery(sql);
 
