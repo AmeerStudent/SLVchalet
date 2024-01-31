@@ -130,16 +130,16 @@ session_start();
         									<td th:text="${staff.staffName}"></td>	
  										<td>
 										<a
-										th:href="@{/viewstaffprofile?staffId=}+${staffs.staffId}" class="btn view-button btn-info">View</a>
+										th:href="@{/viewstaffprofile?staffId=}+${staff.staffId}" class="btn view-button btn-info">View</a>
 										</td>
  										<td>
                    								<a 
-										th:href="@{/updatestaff?staffId=}+${staffs.staffId}" class="btn update-button btn-primary">Edit</a>
+										th:href="@{/updatestaff?staffId=}+${staff.staffId}" class="btn update-button btn-primary">Edit</a>
             									</td>
 										<td>
              								  	<a 
-                   								th:href="@{/deletestaff?staffId=}+${staffs.staffId}" 
-                   								value="{staffs.staffId}" 
+                   								th:href="@{/deletestaff?staffId=}+${staff.staffId}" 
+                   								value="{staff.staffId}" 
                    								onclick="return confirm('Are you sure you want to delete the staff?')"><button class="btn delete-button btn-danger" >Delete</button></a>
             									</td>
 									</tr>
