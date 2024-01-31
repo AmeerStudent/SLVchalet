@@ -146,71 +146,72 @@ public String signup(@ModelAttribute("signup")customer customer){
 
     }
 
-    // @GetMapping("/updateprofile")
-    //  public String updateprofile(@RequestParam("custUsername") String custId, Model model) {
-    //        System.out.println("Customer username : " + custUsername);
-    //          try {
-    //         Connection connection = dataSource.getConnection();
-    //         String sql = "SELECT custUsername, custPhoneNo, custEmail, custName, custPass, custAddress FROM public.customer where custUsername = ?";
-    //         final var statement = connection.prepareStatement(sql);
-    //         statement.setString(1, custUsername);
-    //         final var resultSet = statement.executeQuery();
+    @GetMapping("/updateprofile")
+     public String updateprofile(@RequestParam("custUsername") String custId, Model model) {
+           System.out.println("Customer username : " + custUsername);
+             try {
+            Connection connection = dataSource.getConnection();
+            String sql = "SELECT custUsername, custPhoneNo, custEmail, custName, custPass, custAddress FROM public.customer where custUsername = ?";
+            final var statement = connection.prepareStatement(sql);
+            statement.setString(1, custUsername);
+            final var resultSet = statement.executeQuery();
 
-    //         if (resultSet.next()) {
-    //            String custUsername = resultSet.getString("custUsername");
-    //             String custPhoneNo = resultSet.getString("custPhoneNo");  
-    //             String custEmail = resultSet.getString("custEmail"); 
-    //             String custName = resultSet.getString("custName");
-    //             String custPass = resultSet.getString("custPass");
-    //             String custAddress = resultSet.getString("custAddress");
+            if (resultSet.next()) {
+               String custUsername = resultSet.getString("custUsername");
+                String custPhoneNo = resultSet.getString("custPhoneNo");  
+                String custEmail = resultSet.getString("custEmail"); 
+                String custName = resultSet.getString("custName");
+                String custPass = resultSet.getString("custPass");
+                String custAddress = resultSet.getString("custAddress");
 
-    //             customer customer = new customer();
-    //             customer.setCustUsername(custUsername);
-    //             customer.setCustPhoneNo(custPhoneNo);
-    //             customer.setCustEmail(custEmail);
-    //             customer.setCustName(custName);
-    //             customer.setCustPass(custPass);
-    //             customer.setCustAddress(custAddress);
+                customer customer = new customer();
+                customer.setCustUsername(custUsername);
+                customer.setCustPhoneNo(custPhoneNo);
+                customer.setCustEmail(custEmail);
+                customer.setCustName(custName);
+                customer.setCustPass(custPass);
+                customer.setCustAddress(custAddress);
 
-    //             model.addAttribute("customer", customer);
-    //             connection.close(); 
-    //         }
-    //          } catch (Exception e) {
-    //          e.printStackTrace();
-    //        }
-    //         return "updateprofile";
-    //  }
-    // @PostMapping("/updateprofile")
-    //     public String updateprofile(@ModelAttribute("updateprofile") customer customer){
-    //       System.out.println("pass here <<<<<<<");
-    //     try{
-    //         Connection connection = dataSource.getConnection();
-    //         String sql = "UPDATE customer SET custUsername=?, custPhoneNo=?, custEmail=?, custName=?, custPass=?, custAddress=? WHERE custUsername=?";
-    //         final var statement = connection.prepareStatement(sql);
+                model.addAttribute("customer", customer);
+                connection.close(); 
+            }
+             } catch (Exception e) {
+             e.printStackTrace();
+           }
+            return "updateprofile";
+     }
+    @PostMapping("/updateprofile")
+        public String updateprofile(@ModelAttribute("updateprofile") customer customer){
+          System.out.println("pass here <<<<<<<");
+        try{
+            Connection connection = dataSource.getConnection();
+            String sql = "UPDATE customer SET custUsername=?, custPhoneNo=?, custEmail=?, custName=?, custPass=?, custAddress=? WHERE custUsername=?";
+            final var statement = connection.prepareStatement(sql);
 
-    //         String custUsername = customer.getCustUsername();
-    //         String custPhoneNo = customer.getCustPhoneNo();  
-    //         String custEmail = customer.getCustEmail(); 
-    //         String custName = customer.getCustName();
-    //         String custPass = customer.getCustPass();
-    //         String custAddress = customer.getCustAddress();
+            String custUsername = customer.getCustUsername();
+            String custPhoneNo = customer.getCustPhoneNo();  
+            String custEmail = customer.getCustEmail(); 
+            String custName = customer.getCustName();
+            String custPass = customer.getCustPass();
+            String custAddress = customer.getCustAddress();
 
-    //         statement.setString(1, custUsername);
-	// 	    statement.setString(2, custPhoneNo);
-	//         statement.setString(3, custEmail);
-	// 	    statement.setString(4, custName);
-	// 	    statement.setString(5, custPass);
-	// 	    statement.setString(6, custAddress);
+            statement.setString(1, custUsername);
+		    statement.setString(2, custPhoneNo);
+	        statement.setString(3, custEmail);
+		    statement.setString(4, custName);
+		    statement.setString(5, custPass);
+		    statement.setString(6, custAddress);
 
-    //         statement.executeUpdate();
+            statement.executeUpdate();
             
-    //         connection.close();
-    //     } catch(Exception e){
-    //         e.printStackTrace();
-    //       }
-    //         return "redirect:/updateprofile";
+            connection.close();
+        } catch(Exception e){
+            e.printStackTrace();
+          }
+            return "redirect:/updateprofile";
 
-    //     }
+        }
+	//staff tengok satu customer punya profile
 	@GetMapping("/viewCustomer")
 public String viewCustomer(@RequestParam("custUsername") String custUsername, Model model) {
   System.out.println("Customer Username : " + custUsername);
