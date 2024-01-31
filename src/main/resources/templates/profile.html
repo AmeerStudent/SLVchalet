@@ -128,7 +128,7 @@ if (!isset($_SESSION['User'])) {
     <p th:text="${customer.custPass}"></p>
 
                 <div class="center-btn">
-			th:href="@{/facilityedit?facilityId=}+${facilities.facilityId}" class="btn update-button btn-primary">
+<!-- 			th:href="@{/facilityedit?facilityId=}+${facilities.facilityId}" class="btn update-button btn-primary"> -->
 <!--                   <button class="profile-update" th:href="@{/updateprofile}" >Update Profile</button> -->
 		 <button th:href="@{/facilityedit?facilityId=}+${facilities.facilityId}" class="btn update-button btn-primary">	Update Profile</button>
                 </div>
