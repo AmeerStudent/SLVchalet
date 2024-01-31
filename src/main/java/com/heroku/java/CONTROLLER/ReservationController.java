@@ -31,12 +31,12 @@ public class ReservationController {
     public ReservationController(DataSource dataSource) {
         this.dataSource = dataSource;
     }
-// add facility
+// add reservation
     @GetMapping("/reservationCust")
     public String reservationCust() {
         return "reservationCust";
     }
-// add facility
+// add reservation
     @PostMapping("/reservationCust")
     public String reservationCust(Model model, @ModelAttribute("reservationCust") reservation reservation) {
         try {
