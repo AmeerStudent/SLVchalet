@@ -32,13 +32,13 @@ public class ReservationController {
         this.dataSource = dataSource;
     }
 // add reservation
-    @GetMapping("/addReservation")
-    public String addReservation() {
-        return "addReservation";
+    @GetMapping("/bookFacility")
+    public String bookFacility() {
+        return "bookFacility";
     }
 // add reservation
-    @PostMapping("/addReservation")
-    public String addReservation(Model model, @ModelAttribute("addReservation") reservation reservation) {
+    @PostMapping("/bookFacility")
+    public String bookFacility(Model model, @ModelAttribute("bookFacility") reservation reservation) {
         try {
             Connection connection = dataSource.getConnection();
             String sql = "INSERT INTO reservation(reserveId, reserveCheckIn, reserveCheckOut, reserveStatus, paymentStatus, receipt) VALUES (?,?,?,?,?,?)";
@@ -71,7 +71,7 @@ public class ReservationController {
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
-            return "redirect:/addReservation?success=false";
+            return "redirect:/bookFacility?success=false";
         }
 
         return "redirect:/reservationCust?success=true";
