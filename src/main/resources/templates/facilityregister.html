@@ -54,7 +54,7 @@ if (!isset($_SESSION['Admin'])) {
       <nav id="navbar" class="navbar">
         <ul>
           <li><a style="text-decoration: none;" class="nav-link scrollto" th:href="@{/index}">Home</a></li>
-<!--           <li><a class="nav-link scrollto" th:href="@{/facilitylist}">Facilities</a></li> -->
+          <li><a class="nav-link scrollto" th:href="@{/facilitylist}">Facilities</a></li>
   
   
   <li class="dropdown">
@@ -68,7 +68,6 @@ if (!isset($_SESSION['Admin'])) {
     <ul>
       <li><a th:href="@{/admindashboard}" style="text-decoration: none;">Dashboard</a></li>
       <li><a th:href="@{/facilityregister}" style="text-decoration: none;">Add Facility</a></li>
-      <li><a th:href="@{/facilitylist}" style="text-decoration: none;">Facility List</a></li>
       <li><a th:href="@{/addstaff}" style="text-decoration: none;">Register New Staff</a></li>
       <li><a th:href="@{/stafflist}" style="text-decoration: none;">Staff List</a></li>
       <li><a th:href="@{/logout}" style="text-decoration: none;">Logout</a></li>
